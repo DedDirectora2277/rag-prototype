@@ -1,0 +1,27 @@
+# Единые алиасы моделей для прототипа и всех конкурентов на стенде.
+# Бэкенд каждого алиаса меняется здесь, код обращается только к алиасам.
+model_list:
+  - model_name: chat
+    litellm_params:
+      model: openai/gpt-4o-mini
+      api_key: os.environ/OPENAI_API_KEY
+
+  - model_name: judge
+    litellm_params:
+      model: openai/gpt-4o
+      api_key: os.environ/OPENAI_API_KEY
+
+  - model_name: embed
+    litellm_params:
+      model: openai/text-embedding-3-small
+      api_key: os.environ/OPENAI_API_KEY
+
+  # Cohere-совместимый /rerank. Альтернатива: свой TEI с bge-reranker-v2-m3
+  # (model: huggingface/BAAI/bge-reranker-v2-m3, api_base: http://tei:80).
+  - model_name: rerank
+    litellm_params:
+      model: cohere/rerank-v3.5
+      api_key: os.environ/COHERE_API_KEY
+
+litellm_settings:
+  drop_params: true
