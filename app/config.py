@@ -25,7 +25,7 @@ class Settings(BaseSettings):
     judge_model: str = 'judge'
     embed_model: str = 'embed'
     rerank_model: str = 'rerank'
-    embed_dim: int = 1536
+    embed_dim: int = 1024  # BAAI/bge-m3
     embed_batch_size: int = 64
     embed_concurrency: int = 4
 

@@ -1,27 +1,31 @@
 # Единые алиасы моделей для прототипа и всех конкурентов на стенде.
 # Бэкенд каждого алиаса меняется здесь, код обращается только к алиасам.
 model_list:
+  # Генерация и судья RAGAS — через OpenRouter (id моделей задаются в .env,
+  # т.к. список бесплатных моделей OpenRouter со временем меняется).
   - model_name: chat
     litellm_params:
-      model: openai/gpt-4o-mini
-      api_key: os.environ/OPENAI_API_KEY
+      model: os.environ/CHAT_MODEL
+      api_key: os.environ/OPENROUTER_API_KEY
 
   - model_name: judge
     litellm_params:
-      model: openai/gpt-4o
-      api_key: os.environ/OPENAI_API_KEY
+      model: os.environ/JUDGE_MODEL
+      api_key: os.environ/OPENROUTER_API_KEY
 
+  # Локальный TEI отдаёт OpenAI-совместимый /v1/embeddings.
   - model_name: embed
     litellm_params:
-      model: openai/text-embedding-3-small
-      api_key: os.environ/OPENAI_API_KEY
+      model: openai/BAAI/bge-m3
+      api_base: http://tei-embed:80/v1
+      api_key: unused
 
-  # Cohere-совместимый /rerank. Альтернатива: свой TEI с bge-reranker-v2-m3
-  # (model: huggingface/BAAI/bge-reranker-v2-m3, api_base: http://tei:80).
+  # Локальный TEI с кросс-энкодером, эндпоинт /rerank.
   - model_name: rerank
     litellm_params:
-      model: cohere/rerank-v3.5
-      api_key: os.environ/COHERE_API_KEY
+      model: huggingface/BAAI/bge-reranker-v2-m3
+      api_base: http://tei-rerank:80
+      api_key: unused
 
 litellm_settings:
   drop_params: true

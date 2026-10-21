@@ -1,5 +1,17 @@
 name: rag-proto
 
+# Образы TEI собраны под CPU. Для GPU (GTX 16xx — архитектура Turing) замените тег
+# на turing-1.8 и добавьте deploy.resources.reservations.devices с driver: nvidia.
+x-tei: &tei
+  image: ghcr.io/huggingface/text-embeddings-inference:cpu-1.8
+  volumes:
+    - hf-cache:/data
+  healthcheck:
+    test: ['CMD-SHELL', 'curl -fs http://localhost:80/health || exit 1']
+    interval: 10s
+    timeout: 5s
+    retries: 60  # первая загрузка модели занимает несколько минут
+
 services:
   postgres:
     image: pgvector/pgvector:pg16
@@ -17,6 +29,18 @@ services:
       timeout: 5s
       retries: 10
 
+  tei-embed:
+    <<: *tei
+    command: ['--model-id', 'BAAI/bge-m3']
+    ports:
+      - '${TEI_EMBED_PORT:-8081}:80'
+
+  tei-rerank:
+    <<: *tei
+    command: ['--model-id', 'BAAI/bge-reranker-v2-m3']
+    ports:
+      - '${TEI_RERANK_PORT:-8082}:80'
+
   litellm:
     image: ghcr.io/berriai/litellm:main-stable
     command: ['--config', '/app/config.yaml', '--port', '4000']
@@ -29,6 +53,11 @@ services:
       - '${LITELLM_PORT:-4000}:4000'
     volumes:
       - ./litellm.yaml:/app/config.yaml:ro
+    depends_on:
+      tei-embed:
+        condition: service_healthy
+      tei-rerank:
+        condition: service_healthy
     healthcheck:
       test: ['CMD-SHELL', 'python -c "import urllib.request; urllib.request.urlopen(''http://localhost:4000/health/liveliness'')"']
       interval: 10s
@@ -37,3 +66,4 @@ services:
 
 volumes:
   pgdata:
+  hf-cache:
