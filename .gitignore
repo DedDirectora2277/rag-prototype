@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.py[cod]
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.env
+.vscode
+benchmarks/corpus/
+benchmarks/results/raw/
