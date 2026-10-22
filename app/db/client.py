@@ -53,6 +53,7 @@ class StoredDocument:
 
     id: int
     source: str
+    doc_type: str
     content_hash: str
 
 
@@ -118,11 +119,16 @@ async def get_document_by_source(db: Executor, source: str) -> StoredDocument | 
         Документ или `None`, если он ещё не загружен.
     """
     row = await db.fetchrow(
-        'SELECT id, source, content_hash FROM documents WHERE source = $1', source
+        'SELECT id, source, doc_type, content_hash FROM documents WHERE source = $1', source
     )
     if row is None:
         return None
-    return StoredDocument(id=row['id'], source=row['source'], content_hash=row['content_hash'])
+    return StoredDocument(
+        id=row['id'],
+        source=row['source'],
+        doc_type=row['doc_type'],
+        content_hash=row['content_hash'],
+    )
 
 
 async def insert_document(

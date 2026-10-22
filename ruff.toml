@@ -31,3 +31,6 @@ docstring-quotes = 'double'  # форматтер всегда ставит """ 
 [format]
 quote-style = 'single'
 docstring-code-format = true
+
+[lint.isort]
+known-local-folder = ['conftest']  # общие фейки тестов из tests/conftest.py
