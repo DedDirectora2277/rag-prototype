@@ -6,6 +6,14 @@ x-tei: &tei
   image: ghcr.io/huggingface/text-embeddings-inference:cpu-1.8
   volumes:
     - hf-cache:/data
+  # Обе модели — XLM-R large (568M) в fp32, ~2.2 ГБ весов каждая. Прогрев по умолчанию
+  # идёт на батче в 16k токенов и одновременно двух контейнеров валит всю WSL-VM по OOM.
+  # Лимит памяти нужен, чтобы при нехватке убивался контейнер, а не VM.
+  mem_limit: 4g
+  environment:
+    MAX_BATCH_TOKENS: 2048
+    MAX_CLIENT_BATCH_SIZE: 64  # >= Settings.embed_batch_size
+    AUTO_TRUNCATE: 'true'
   healthcheck:
     test: ['CMD-SHELL', 'curl -fs http://localhost:80/health || exit 1']
     interval: 10s
@@ -40,10 +48,15 @@ services:
     command: ['--model-id', 'BAAI/bge-reranker-v2-m3']
     ports:
       - '${TEI_RERANK_PORT:-8082}:80'
+    # Поднимаем после эмбеддера, чтобы два прогрева не шли одновременно.
+    depends_on:
+      tei-embed:
+        condition: service_healthy
 
   litellm:
     image: ghcr.io/berriai/litellm:main-stable
     command: ['--config', '/app/config.yaml', '--port', '4000']
+    mem_limit: 1g
     env_file:
       - path: ../.env
         required: false
