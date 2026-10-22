@@ -24,6 +24,7 @@ import logging
 import sys
 import time
 from collections import defaultdict
+from collections.abc import Sequence
 from dataclasses import asdict
 from pathlib import Path
 from typing import Any
@@ -84,7 +85,12 @@ def _context_json(ctx: RetrievedChunk) -> dict[str, Any]:
 
 
 async def retrieve_all(
-    sample: Sample, retriever: Retriever, embedder: Embedder, reranker: Reranker, cfg: Settings
+    sample: Sample,
+    retriever: Retriever,
+    embedder: Embedder,
+    reranker: Reranker,
+    cfg: Settings,
+    configs: Sequence[str] = CONFIGS,
 ) -> dict[str, list[RetrievedChunk]]:
     """Контексты всех конфигураций ablation для одного вопроса.
 
@@ -94,6 +100,7 @@ async def retrieve_all(
         embedder: Эмбеддер запросов.
         reranker: Реранкер.
         cfg: Настройки (top-k, RRF).
+        configs: Какие конфигурации считать; без `hybrid_rerank`/`full` реранк не вызывается.
 
     Returns:
         Конфигурация → контексты.
@@ -114,31 +121,38 @@ async def retrieve_all(
 
     vec_hits = await search(fts=False)
     hyb_hits = await search(fts=True)
-    ranked = await reranker.rerank(sample.question, [h.content for h in hyb_hits])
-    if ranked is None:
-        raise RuntimeError('реранкер недоступен: конфигурации с реранком будут некорректны')
-    reranked: list[tuple[SearchHit, float | None]] = [(hyb_hits[i], score) for i, score in ranked]
 
     def plain(hits: list[SearchHit]) -> list[tuple[SearchHit, float | None]]:
         return [(h, None) for h in hits]
 
     build = retriever._build_contexts
     top = cfg.rerank_top_n
-    return {
+    result = {
         'vector': await build(plain(vec_hits), top, False),
         'hybrid': await build(plain(hyb_hits), top, False),
-        'hybrid_rerank': await build(reranked, top, False),
-        'full': await build(reranked, top, True),
     }
+    if {'hybrid_rerank', 'full'} & set(configs):
+        ranked = await reranker.rerank(sample.question, [h.content for h in hyb_hits])
+        if ranked is None:
+            raise RuntimeError('реранкер недоступен: конфигурации с реранком будут некорректны')
+        reranked: list[tuple[SearchHit, float | None]] = [
+            (hyb_hits[i], score) for i, score in ranked
+        ]
+        result['hybrid_rerank'] = await build(reranked, top, False)
+        result['full'] = await build(reranked, top, True)
+    return {k: v for k, v in result.items() if k in configs}
 
 
-async def run_retrieval(samples: list[Sample], raw_path: Path, settings: Settings) -> None:
+async def run_retrieval(
+    samples: list[Sample], raw_path: Path, settings: Settings, configs: Sequence[str] = CONFIGS
+) -> None:
     """Retrieval всех конфигураций по вопросам, которых ещё нет в `raw_path`.
 
     Args:
         samples: Вопросы.
         raw_path: Файл с сырыми результатами (дописывается).
         settings: Настройки.
+        configs: Конфигурации ablation.
     """
     todo = [s for s in samples if s.id not in _done_ids(raw_path)]
     logger.info('retrieval: %s вопросов (%s уже готово)', len(todo), len(samples) - len(todo))
@@ -153,7 +167,7 @@ async def run_retrieval(samples: list[Sample], raw_path: Path, settings: Setting
     started = time.monotonic()
     try:
         for n, sample in enumerate(todo, start=1):
-            contexts = await retrieve_all(sample, retriever, embedder, reranker, settings)
+            contexts = await retrieve_all(sample, retriever, embedder, reranker, settings, configs)
             record = {
                 'id': sample.id,
                 'domain': sample.domain,
@@ -320,7 +334,7 @@ async def run(args: argparse.Namespace) -> int:
     RAW_DIR.mkdir(parents=True, exist_ok=True)
     raw_path = RAW_DIR / f'{args.tag}.jsonl'
     if not args.score_only:
-        await run_retrieval(samples, raw_path, settings)
+        await run_retrieval(samples, raw_path, settings, args.configs)
         for config in args.generate:
             await run_generation(samples, raw_path, config, settings)
     report = score(samples, raw_path)
@@ -335,6 +349,9 @@ def main() -> None:
     """Точка входа CLI."""
     parser = argparse.ArgumentParser(prog='python -m benchmarks.run_eval')
     parser.add_argument('--tag', required=True, help='имя прогона (файлы results/raw/<tag>*)')
+    parser.add_argument(
+        '--configs', nargs='+', default=list(CONFIGS), choices=CONFIGS, help='конфигурации ablation'
+    )
     parser.add_argument(
         '--generate',
         nargs='*',
