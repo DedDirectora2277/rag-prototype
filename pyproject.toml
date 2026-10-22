@@ -45,6 +45,7 @@ bench = [
     "ragas (>=0.4.3,<0.5.0)",
     "datasets (>=5.1.0,<6.0.0)",
     "pandas (>=3.0.6,<4.0.0)",
+    "matplotlib (>=3.10,<4)",
 ]
 
 [tool.pytest.ini_options]
