@@ -98,7 +98,8 @@ class DifyKnowledge:
         """Закрывает HTTP-клиент."""
         await self.http.aclose()
 
-    async def _call(self, method: str, path: str, **kwargs: Any) -> Any:
+    async def call(self, method: str, path: str, **kwargs: Any) -> Any:
+        """Произвольный вызов Knowledge API."""
         response = await self.http.request(method, path, **kwargs)
         if response.status_code >= 400:
             raise RuntimeError(f'{method} {path}: {response.status_code} {response.text[:500]}')
@@ -109,23 +110,21 @@ class DifyKnowledge:
         upload_name = name if Path(name).suffix.lower() in SUPPORTED else f'{name}.txt'
         files = {'file': (upload_name, data)}
         form = {'data': json.dumps(process)}
-        result = await self._call(
+        result = await self.call(
             'POST', f'/datasets/{dataset_id}/document/create-by-file', files=files, data=form
         )
         return str(result['batch'])
 
     async def indexing_status(self, dataset_id: str, batch: str) -> list[dict[str, Any]]:
         """Статус индексации batch."""
-        result = await self._call(
-            'GET', f'/datasets/{dataset_id}/documents/{batch}/indexing-status'
-        )
+        result = await self.call('GET', f'/datasets/{dataset_id}/documents/{batch}/indexing-status')
         return list(result['data'])
 
     async def retrieve(
         self, dataset_id: str, query: str, retrieval_model: dict[str, Any]
     ) -> list[dict[str, Any]]:
         """Поиск по датасету: записи с `segment.content`, `segment.document.name`, `score`."""
-        result = await self._call(
+        result = await self.call(
             'POST',
             f'/datasets/{dataset_id}/retrieve',
             json={'query': query, 'retrieval_model': retrieval_model},

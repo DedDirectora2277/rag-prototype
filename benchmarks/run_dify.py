@@ -1,6 +1,10 @@
-"""Прогон Dify по датасету: `python -m benchmarks.run_dify {ingest,eval} --dataset-id ID --key KEY`.
+"""Прогон Dify по датасету: `python -m benchmarks.run_dify {setup,ingest,eval}`.
 
-`ingest` загружает корпус в датасет Dify (разбиение Dify по умолчанию, режим `automatic`),
+`setup` настраивает чистый инстанс (`docker compose up` из репозитория Dify 1.17.1, порт 8090):
+администратор, плагин OpenAI-API-compatible, модели `chat`/`embed`/`rerank` из LiteLLM
+по умолчанию, ключ Knowledge API и датасет; ключ и id пишутся в
+`results/raw/dify-instance.json`, их читают остальные шаги. `ingest` загружает корпус
+в датасет Dify (разбиение Dify по умолчанию, режим `automatic`),
 `eval` берёт контексты через Knowledge API в двух конфигурациях и пишет их в формате
 `benchmarks.run_eval` (`results/raw/dify.jsonl`), генерирует ответы общим генератором
 и считает те же метрики без LLM:
@@ -17,7 +21,7 @@ from pathlib import Path
 from typing import Any
 
 from app.config import get_settings
-from benchmarks.adapters.dify import DifyConfig, DifyKnowledge
+from benchmarks.adapters.dify import PROVIDER, DifyConfig, DifyConsole, DifyKnowledge
 from benchmarks.dataset import CORPUS_DIR
 from benchmarks.run_eval import RAW_DIR, RESULTS_DIR, _done_ids, load_samples, run_generation, score
 
@@ -44,8 +48,94 @@ CONFIGS: dict[str, dict[str, Any]] = {
         'score_threshold_enabled': False,
     },
 }
+PLUGIN = (
+    'langgenius/openai_api_compatible:0.0.68@'
+    'ba61c5eccb814be7364117c0bec3710a51e09b20f31e37243e747a00f9377969'
+)
+INSTANCE = RAW_DIR / 'dify-instance.json'
 PROCESS = {'indexing_technique': 'high_quality', 'process_rule': {'mode': 'automatic'}}
 MANIFEST = RAW_DIR / 'dify-uploads.jsonl'
+
+
+def _models(cfg: DifyConfig) -> list[tuple[str, str, dict[str, str]]]:
+    base = {'endpoint_url': cfg.litellm_url, 'api_key': cfg.litellm_key}
+    chat = {
+        **base,
+        'mode': 'chat',
+        'context_size': '64000',
+        'max_tokens_to_sample': '4096',
+        'function_calling_type': 'no_call',
+        'stream_function_calling': 'not_supported',
+        'vision_support': 'no_support',
+        'structured_output_support': 'not_supported',
+    }
+    return [
+        ('chat', 'llm', chat),
+        ('embed', 'text-embedding', {**base, 'context_size': '8192', 'max_chunks': '64'}),
+        ('rerank', 'rerank', {**base, 'context_size': '8192'}),
+    ]
+
+
+async def setup(cfg: DifyConfig) -> None:
+    """Настраивает инстанс Dify и создаёт датасет (см. docstring модуля)."""
+    console = DifyConsole(cfg)
+    try:
+        await console.setup_and_login()
+        task = await console.call(
+            'POST',
+            '/workspaces/current/plugin/install/marketplace',
+            json={'plugin_unique_identifiers': [PLUGIN]},
+        )
+        while task.get('task_id'):
+            status = await console.call(
+                'GET', f'/workspaces/current/plugin/tasks/{task["task_id"]}'
+            )
+            if status['task']['status'] in ('success', 'failed'):
+                logger.info('плагин: %s', status['task']['status'])
+                break
+            await asyncio.sleep(5)
+        models = _models(cfg)
+        for name, model_type, credentials in models:
+            await console.call(
+                'POST',
+                f'/workspaces/current/model-providers/{PROVIDER}/models/credentials',
+                json={
+                    'model': name,
+                    'model_type': model_type,
+                    'credentials': credentials,
+                    'name': name,
+                },
+            )
+        await console.call(
+            'POST',
+            '/workspaces/current/default-model',
+            json={
+                'model_settings': [
+                    {'model_type': t, 'provider': PROVIDER, 'model': n} for n, t, _ in models
+                ]
+            },
+        )
+        key = (await console.call('POST', '/datasets/api-keys'))['token']
+    finally:
+        await console.close()
+    knowledge = DifyKnowledge(cfg, key)
+    try:
+        dataset = await knowledge.call(
+            'POST',
+            '/datasets',
+            json={
+                'name': cfg.dataset_name,
+                'indexing_technique': 'high_quality',
+                'permission': 'only_me',
+                'embedding_model': 'embed',
+                'embedding_model_provider': PROVIDER,
+                'retrieval_model': CONFIGS['dify_vector'],
+            },
+        )
+    finally:
+        await knowledge.close()
+    INSTANCE.write_text(json.dumps({'key': key, 'dataset_id': dataset['id']}), encoding='utf-8')
+    logger.info('датасет %s, ключ сохранён в %s', dataset['id'], INSTANCE)
 
 
 async def ingest(client: DifyKnowledge, dataset_id: str) -> None:
@@ -104,15 +194,21 @@ async def retrieve(client: DifyKnowledge, dataset_id: str, raw_path: Path) -> No
 
 
 async def run(args: argparse.Namespace) -> int:
-    """Выполняет шаг `ingest` или `eval`."""
-    client = DifyKnowledge(DifyConfig(), args.key)
+    """Выполняет шаг `setup`, `ingest` или `eval`."""
+    cfg = DifyConfig()
+    if args.step == 'setup':
+        await setup(cfg)
+        return 0
+    instance = json.loads(INSTANCE.read_text(encoding='utf-8'))
+    dataset_id = args.dataset_id or instance['dataset_id']
+    client = DifyKnowledge(cfg, args.key or instance['key'])
     raw_path = RAW_DIR / 'dify.jsonl'
     RAW_DIR.mkdir(parents=True, exist_ok=True)
     try:
         if args.step == 'ingest':
-            await ingest(client, args.dataset_id)
+            await ingest(client, dataset_id)
             return 0
-        await retrieve(client, args.dataset_id, raw_path)
+        await retrieve(client, dataset_id, raw_path)
     finally:
         await client.close()
     samples = load_samples()
@@ -128,9 +224,9 @@ async def run(args: argparse.Namespace) -> int:
 def main() -> None:
     """Точка входа CLI."""
     parser = argparse.ArgumentParser(prog='python -m benchmarks.run_dify')
-    parser.add_argument('step', choices=('ingest', 'eval'))
-    parser.add_argument('--dataset-id', required=True)
-    parser.add_argument('--key', required=True, help='API-ключ Knowledge API (dataset-...)')
+    parser.add_argument('step', choices=('setup', 'ingest', 'eval'))
+    parser.add_argument('--dataset-id', help='по умолчанию — из results/raw/dify-instance.json')
+    parser.add_argument('--key', help='ключ Knowledge API; по умолчанию — из dify-instance.json')
     args = parser.parse_args()
     logging.basicConfig(
         level=logging.INFO, format='%(asctime)s %(levelname)s %(name)s: %(message)s'
