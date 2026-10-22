@@ -1,14 +1,17 @@
 name: rag-proto
 
-# Образы TEI собраны под CPU. Для GPU (GTX 16xx — архитектура Turing) замените тег
-# на turing-1.8 и добавьте deploy.resources.reservations.devices с driver: nvidia.
+# Эмбеддер работает на CPU, реранкер — на GPU. Замер на GTX 1650 Ti (Turing без тензорных
+# ядер, образ turing-*, fp16): эмбеддинг 64 чанков по ~450 токенов — 68 с на GPU против 45 с
+# на CPU (у bge-m3 на CPU есть ONNX-бэкенд), реранк 40 документов — 43 с против 100 с
+# (у реранкера ONNX нет, на CPU работает candle). Без GPU у tei-rerank замените тег
+# на cpu-1.8 и уберите блок deploy.
 x-tei: &tei
   image: ghcr.io/huggingface/text-embeddings-inference:cpu-1.8
   volumes:
     - hf-cache:/data
-  # Обе модели — XLM-R large (568M) в fp32, ~2.2 ГБ весов каждая. Прогрев по умолчанию
-  # идёт на батче в 16k токенов и одновременно двух контейнеров валит всю WSL-VM по OOM.
-  # Лимит памяти нужен, чтобы при нехватке убивался контейнер, а не VM.
+  # Прогрев по умолчанию идёт на батче в 16k токенов: на CPU два контейнера сразу валили
+  # всю WSL-VM по OOM, на GPU уже батч в 8k не влезает в 4 ГБ VRAM. Лимит памяти нужен,
+  # чтобы при нехватке убивался контейнер, а не VM.
   mem_limit: 4g
   environment:
     MAX_BATCH_TOKENS: 2048
@@ -45,6 +48,14 @@ services:
 
   tei-rerank:
     <<: *tei
+    image: ghcr.io/huggingface/text-embeddings-inference:turing-1.8
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
     command: ['--model-id', 'BAAI/bge-reranker-v2-m3']
     ports:
       - '${TEI_RERANK_PORT:-8082}:80'

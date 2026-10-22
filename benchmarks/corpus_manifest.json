@@ -1,0 +1,1032 @@
+{
+ "code/click/docs/advanced.rst": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "e71f67ab4ba4e38f755c73306462fd788afd6690c36f9f72ba58c99845a505e1"
+ },
+ "code/click/docs/api.rst": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "d2d470890afeac987ac16bd1ba8c07e3e4dd3e07edc598371e4ca77ae8d3cc52"
+ },
+ "code/click/docs/arguments.rst": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "72a82703cda3bd83d8a4f72d394cae9b2eac897d68ba13ee292fee32f95754bd"
+ },
+ "code/click/docs/changes.rst": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "94c7e3657f8795af8f66d20fb6208f83df46bce9cab9b82d2c16ad961a87f7e0"
+ },
+ "code/click/docs/commands.rst": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "676a5df286a93d5a47adb5cd13941a82ad5d1faf879f85a3f632135ea1749bb8"
+ },
+ "code/click/docs/complex.rst": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "8cb300299e7dd881b4f9e6fc06816b66274aeba5bdfa263b6e5cca61c420a3dc"
+ },
+ "code/click/docs/conf.py": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "31c309f28e82ef84a6e5bab6d759188db3f3fa0353ad82796a2336e44d5b4116"
+ },
+ "code/click/docs/contrib.rst": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "e60c25667c74808c6790783e81da11b640ef249fd334077ae222f7b5026ec3d9"
+ },
+ "code/click/docs/documentation.rst": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "0ea4040d920add533b96728f2c3946ffba04a46b53654dc009e3561e4c9a44da"
+ },
+ "code/click/docs/exceptions.rst": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "17006a40e15d5469736ee8b59b4e86cfaeea898dc92cfb15edc4eae0cae791f8"
+ },
+ "code/click/docs/handling-files.rst": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "bd2c6cbeca781a9d7b7285a1243e08411d66750d3a825751023e24a86c11c998"
+ },
+ "code/click/docs/index.rst": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "97090afe43b34209f461acb9425b3a557ed8299200be63b91d796c3cad751d75"
+ },
+ "code/click/docs/license.rst": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "1e07e9c25f2618a040560b70e63f42259eab24e558d0f3532e6163d751cb4eea"
+ },
+ "code/click/docs/options.rst": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "6ef07a7fd827f7918533855a78d4d83ea0c46e25f9487e25bc55c2071ef91747"
+ },
+ "code/click/docs/parameters.rst": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "fe2496ffc0a596b3c9bc0f39f4d856b4f8e6c7c142f52d47f0fec82a9eadbb92"
+ },
+ "code/click/docs/prompts.rst": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "42ba4c4cf64bfab402d6bb58a88c7e681ef88bb1341e3fdda8db2ae3b4eeab5f"
+ },
+ "code/click/docs/quickstart.rst": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "f26d0977095a34a2c64c5db4edd0e473d0d357a28aba847a540476a1b9bc806e"
+ },
+ "code/click/docs/setuptools.rst": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "b7dfcffeb4d88850bec9f86ee67e19d0f3de91925d325f26b1906a94865fb3ac"
+ },
+ "code/click/docs/shell-completion.rst": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "d16edc53642c5a06bb469b85fdfb412bd511c7dac6ce989c58e60bf8a9945f2e"
+ },
+ "code/click/docs/testing.rst": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "6534c5f4e63a7c12055af659bae3f0a68d211f2d44f3945adb9b54a439eaa913"
+ },
+ "code/click/docs/unicode-support.rst": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "907f5113d4a81e5ec0af89c29bbe28c6218d81826d97830aa6ed666302846c20"
+ },
+ "code/click/docs/upgrading.rst": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "24bff8c29ebeb030b01499144e7fa5e8620307022021eb6c0fca496fefc5431b"
+ },
+ "code/click/docs/utils.rst": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "2db115bb4a4991092ae41b021f57528e5a02a9873031318d5e252f2a3001f497"
+ },
+ "code/click/docs/virtualenv.rst": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "271589ec59c12d62a89621bc3b61fdc60b02780c673a8fc81c5ceabe9603c0de"
+ },
+ "code/click/docs/why.rst": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "b973afe60617cc63428e60551e157b2371939d9b206691b836ea113aec28dae3"
+ },
+ "code/click/docs/wincmd.rst": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "1426e9252c36a9e58f5a32050ef2a4cd3be15cc9aa503be1295ed25537de345e"
+ },
+ "code/click/src/click/__init__.py": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "8f50c97826e06b8ae26e4bf9bb2bc8033234a05375ddf5bd99ebc32928457a5a"
+ },
+ "code/click/src/click/_compat.py": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "2062a1fc9e5075f2842e2b6745f4c61e779e8d6c680b0fcd5fdb5f31b75c837c"
+ },
+ "code/click/src/click/_termui_impl.py": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "6b9cfb23d80e15e326bbb19bebf44fc90f063ee54fd4479b962c5c5923d240f9"
+ },
+ "code/click/src/click/_textwrap.py": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "d747d0eb839c05432e2bb985be1f37eb7feea0ec4f95122d64198acd12438286"
+ },
+ "code/click/src/click/_winconsole.py": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "e63bb78d091c643d16dbb584306aa610fe32fdcad45733c2aac5ff1586fb04ed"
+ },
+ "code/click/src/click/core.py": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "4359c455d72d670bc83ce96de2f7c7928d136271c2784e3450412e97c5a9cafb"
+ },
+ "code/click/src/click/decorators.py": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "eede85f905a8c2d2e1e85ffa97ee18578638c8d4dca85404bbd8b7ef3233ebcb"
+ },
+ "code/click/src/click/exceptions.py": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "57bcc34fa7a6a89f22365d241753f99291662cc590d53d4beda34d28ce18474c"
+ },
+ "code/click/src/click/formatting.py": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "16b7f4fb95b7dfe968c98fe2f6aaf05d1f3e4939d6de6e60bf2c4b554772c729"
+ },
+ "code/click/src/click/globals.py": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "72e27a05ba34ef79601049a18ebdfde0f78cf901665ccf828bec267ec77b1f98"
+ },
+ "code/click/src/click/parser.py": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "878b2775ca45e4e1eb65037cbc3f0859be4e072bd6ec005b8514e8c68beba92f"
+ },
+ "code/click/src/click/shell_completion.py": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "4d1d1d5c419cbd66fd128dda6901171a19ef352dc51781f841cb8b9ef02f628e"
+ },
+ "code/click/src/click/termui.py": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "74bc624bbd143af21805d6bf9c411968f0053950d5991b35b043ccb8b0e8c10a"
+ },
+ "code/click/src/click/testing.py": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "dd103c6a709fed367cfb94401798add937be6965c100be552dab109cc882d994"
+ },
+ "code/click/src/click/types.py": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "043e50aaae21fbc91ac0198e2332659aae31cd38407f8c02bda38b652043371d"
+ },
+ "code/click/src/click/utils.py": {
+  "url": "https://codeload.github.com/pallets/click/tar.gz/refs/tags/8.1.8",
+  "license": "BSD-3-Clause",
+  "sha256": "71ef88acef6294823be8b1a4537e78a4e7476dea4cf147ed7cd1fb49f314ff6f"
+ },
+ "code/httpx/docs/advanced/authentication.md": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "490c0393f5af1bdcf70ed5dc6e296d75f4a4035d1916f2262102de61c623dc04"
+ },
+ "code/httpx/docs/advanced/clients.md": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "80d0496f33dc995d40ebb573301b0de360fbe90dffd4a0641a078701e5abaac0"
+ },
+ "code/httpx/docs/advanced/event-hooks.md": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "96d292f95b3412c54f7f862fd38a569b0efb2bd51a6cacdd5b391072262b9558"
+ },
+ "code/httpx/docs/advanced/extensions.md": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "b0fb02059b00203114478faa48a808fd16a8b004e6c50cab672a7d63ee6c496f"
+ },
+ "code/httpx/docs/advanced/proxies.md": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "38f3be3b3babe015f9b9878c8ed207144e860a572b5c1dbf8eb7924d4a738960"
+ },
+ "code/httpx/docs/advanced/resource-limits.md": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "48463dfbcc09e28b174cf07695a937119da537436dc534421b64dcca7a024559"
+ },
+ "code/httpx/docs/advanced/ssl.md": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "96dc8e954c5965bcf2ee68f436a143bcc8dab3cd647aa1631c1190593d241831"
+ },
+ "code/httpx/docs/advanced/text-encodings.md": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "6810e718430df5676d2102cbc35ea3388f2c0fb442f8162bf9548c9596f741cc"
+ },
+ "code/httpx/docs/advanced/timeouts.md": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "48959a587ecc6430f9051ab1b1c76fcebc3f3e95ec01199281aab813a2dcfaa1"
+ },
+ "code/httpx/docs/advanced/transports.md": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "55648dd15c551f151f538aa79c8d2934bb581528d85bcc0fe3d810ac4a5ca382"
+ },
+ "code/httpx/docs/api.md": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "125c23b40867cea7c40da59d129515e0964b4ea80e2994293e850f12fb067a6e"
+ },
+ "code/httpx/docs/async.md": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "dd32e675ef994bb136e5414e5a2636db6e75418ce557ee6f731fddb924e47e4e"
+ },
+ "code/httpx/docs/code_of_conduct.md": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "711021e871cb55ba15ae4fc040e404e5edece35f649fcbe517126382e7e4f30f"
+ },
+ "code/httpx/docs/compatibility.md": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "e30d0a254fc89e5a891739607e289432b48930ac68be285810dd4e540f304776"
+ },
+ "code/httpx/docs/contributing.md": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "88182650dd83fc38ac39de2fa8cadbee937ff72afdbdd7d4721f4e84aef2f520"
+ },
+ "code/httpx/docs/environment_variables.md": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "d0cdf4d740dc3ed8b21c4ee45735551e05d4e57d0fda05a2f18c4684197a27eb"
+ },
+ "code/httpx/docs/exceptions.md": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "5e59ac5575373f359c45b8685cfb5813ba8d3a834052c7c0427789b32722324f"
+ },
+ "code/httpx/docs/http2.md": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "51010101b5aff566dcdfdf94cb5e0ef644caf5411b84749753a9da79d28caaf7"
+ },
+ "code/httpx/docs/index.md": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "07edc3ef5d9d5c5e404b25abe5762f83c6c25a68cf7e556e5c52f4c86387c36b"
+ },
+ "code/httpx/docs/logging.md": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "cf128dd9d45561d57807fb34c00c2fff63071dbbfcb3990df00c7061bea88195"
+ },
+ "code/httpx/docs/quickstart.md": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "9f8351551dd18be0ed7e40dea2f1c231523a2e8833a0bb5c471630178ec2aea8"
+ },
+ "code/httpx/docs/third_party_packages.md": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "211bc5d5c82adc4b38b882ac58b7387a828a3c65e1b348d5a245d3de48a0fd4e"
+ },
+ "code/httpx/docs/troubleshooting.md": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "3a9f68c58a03575ac88ce94da22d2f7c93d2e88df54e7f9be1061ca6fafd3c96"
+ },
+ "code/httpx/httpx/__init__.py": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "0ac6997bac998f4ac783adf6d8058a587193315afdb718047c3e4fdff46bcfad"
+ },
+ "code/httpx/httpx/__version__.py": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "2e853261e3974e2786cee3ffeb850bd30c5db718eebbf41b3af13b34e83e22a5"
+ },
+ "code/httpx/httpx/_api.py": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "aff660b388c8a5c3c92ea2b975b6d26b2aa8fe254c2856b164277ea0e1f12c4b"
+ },
+ "code/httpx/httpx/_auth.py": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "62bdd0c1a5122b5eeb198c7eee3f85762705233cf863d14557ed45e3eed15d7e"
+ },
+ "code/httpx/httpx/_client.py": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "c43f941baefe58c91e96d00039e1868fe719d91453026d7db1647194563bff8d"
+ },
+ "code/httpx/httpx/_config.py": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "a4fa7653ec2271f70ab05f8a6111352d876dddee84446788a1767c1a3a372d67"
+ },
+ "code/httpx/httpx/_content.py": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "2c61b3ac94d1dcebcde0c6f519554d2d7917247fbaa0a97002db4ef69e70ff28"
+ },
+ "code/httpx/httpx/_decoders.py": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "a74757f08d0d1077b1b37506a784ac66eb62321b17aeb5a5ebe1a7a956f488a3"
+ },
+ "code/httpx/httpx/_exceptions.py": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "6f15bb7f1ce054c01d3536f04f4567ab4e202435b5fe023f1858903ee3328cbd"
+ },
+ "code/httpx/httpx/_main.py": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "0a0f4631a6e24d3fecc1a0df5202118ad4b0c4b44c4b05033a6ecb7521aa940e"
+ },
+ "code/httpx/httpx/_models.py": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "e3ffc6bb2bf580bc6e6428708a6f247d036220e709f5a72b785392babbd97e6b"
+ },
+ "code/httpx/httpx/_multipart.py": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "28e1c465997aa28860f663da2b2caedf8e6aab5ac92e0df94d41b7600cd70776"
+ },
+ "code/httpx/httpx/_status_codes.py": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "0d89fedae7c180c797cb9b3cc77fd307bc2302e00031ec136a43eb9b9ad712c7"
+ },
+ "code/httpx/httpx/_transports/__init__.py": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "19b52805200ea7bcfe97ef63e5884c851dc3308727e8554b863d3bd8edcd9e7a"
+ },
+ "code/httpx/httpx/_transports/asgi.py": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "1d17e20d830fb78c101f6805807660e1cfa2dec6e5a3a6cbe464ea7044fec73f"
+ },
+ "code/httpx/httpx/_transports/base.py": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "9194bf54c6d58987c5e7bd29a205022756ee973fb26df2f9d4faacf7292d79b5"
+ },
+ "code/httpx/httpx/_transports/default.py": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "03379a454c95c0271c4f2c8d25ec437f49f57457f3cf2769748420bf0ecf2e79"
+ },
+ "code/httpx/httpx/_transports/mock.py": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "3d3a34779ebb4484d7c46ae48ba90deffebbc300317f088c0dcb972626428c4a"
+ },
+ "code/httpx/httpx/_transports/wsgi.py": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "35c3d7dd76a9fc4c0215958efce692c9036e227098c7540c35b3bc1807a2ea36"
+ },
+ "code/httpx/httpx/_types.py": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "272878d4642aec039ebfc20e58a0c083bcc26ef1c07ee7e65b983f3e24ed12b6"
+ },
+ "code/httpx/httpx/_urlparse.py": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "640987e3b38d7e4c6bae3f8f3d88467a21e36fa0232824be00d58837838bfca6"
+ },
+ "code/httpx/httpx/_urls.py": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "757f7d551d4348e1e9828f40abb3f360ee0529dc6a2a3c32369f20adff1d1cdd"
+ },
+ "code/httpx/httpx/_utils.py": {
+  "url": "https://codeload.github.com/encode/httpx/tar.gz/refs/tags/0.28.1",
+  "license": "BSD-3-Clause",
+  "sha256": "fd355ea802afc4990a1ddcfb74579be2cd0b66a41781e1645d281f88704aff5a"
+ },
+ "contracts/cuad/2ThemartComInc_19990826_10-12G_EX-10.10_6700288_EX-10.10_Co-Branding_Agreement__Agency_Agreement.txt": {
+  "url": "https://huggingface.co/datasets/theatticusproject/cuad/resolve/a3c393f5d103fd0c516374e4fdff676c8176dcb1/CUAD_v1/CUAD_v1.json",
+  "license": "CC-BY-4.0",
+  "sha256": "6cdfab95eb5b30c0d2d4860c8204b96b36a54cb9e2025c5ceb1457d223afac41"
+ },
+ "contracts/cuad/ABILITYINC_06_15_2020-EX-4.25-SERVICES_AGREEMENT.txt": {
+  "url": "https://huggingface.co/datasets/theatticusproject/cuad/resolve/a3c393f5d103fd0c516374e4fdff676c8176dcb1/CUAD_v1/CUAD_v1.json",
+  "license": "CC-BY-4.0",
+  "sha256": "e335c24cfd77dd661c0c18aa9277ea3f526ac9540b7d3af96ef0deaa0fd2938a"
+ },
+ "contracts/cuad/ADAMSGOLFINC_03_21_2005-EX-10.17-ENDORSEMENT_AGREEMENT.txt": {
+  "url": "https://huggingface.co/datasets/theatticusproject/cuad/resolve/a3c393f5d103fd0c516374e4fdff676c8176dcb1/CUAD_v1/CUAD_v1.json",
+  "license": "CC-BY-4.0",
+  "sha256": "ca9acda7d2710198107402f632ede2a69f365f8dd8417f13e9a2e463d3ecdad8"
+ },
+ "contracts/cuad/ADIANUTRITION_INC_04_01_2005-EX-10.D2-RESELLER_AGREEMENT.txt": {
+  "url": "https://huggingface.co/datasets/theatticusproject/cuad/resolve/a3c393f5d103fd0c516374e4fdff676c8176dcb1/CUAD_v1/CUAD_v1.json",
+  "license": "CC-BY-4.0",
+  "sha256": "c757bb1d6007551134d3831a8e3ee3ef1491c59513844f80a61989cac2b0897c"
+ },
+ "contracts/cuad/ADMA_BioManufacturing_LLC_-_Amendment_3_to_Manufacturing_Agreement.txt": {
+  "url": "https://huggingface.co/datasets/theatticusproject/cuad/resolve/a3c393f5d103fd0c516374e4fdff676c8176dcb1/CUAD_v1/CUAD_v1.json",
+  "license": "CC-BY-4.0",
+  "sha256": "bce002bc4b17df3b0ccdeb12ce4e75d4005815a430ea0adab7845489a366c0a9"
+ },
+ "contracts/cuad/ALLISONTRANSMISSIONHOLDINGSINC_12_15_2014-EX-99.1-COOPERATION_AGREEMENT.txt": {
+  "url": "https://huggingface.co/datasets/theatticusproject/cuad/resolve/a3c393f5d103fd0c516374e4fdff676c8176dcb1/CUAD_v1/CUAD_v1.json",
+  "license": "CC-BY-4.0",
+  "sha256": "cf7ccac86b58129ea6ba73b08f2482e87c61e9c228dd64b05291e3ee3601c104"
+ },
+ "contracts/cuad/AMBASSADOREYEWEARGROUPINC_11_17_1997-EX-10.28-ENDORSEMENT_AGREEMENT.txt": {
+  "url": "https://huggingface.co/datasets/theatticusproject/cuad/resolve/a3c393f5d103fd0c516374e4fdff676c8176dcb1/CUAD_v1/CUAD_v1.json",
+  "license": "CC-BY-4.0",
+  "sha256": "8793df7d80cd6d2525fcacea4f92da688eae393a1e2a0ce42d72df552b608b6b"
+ },
+ "contracts/cuad/AMERICANPHYSICIANSCAPITALINC_03_31_2003-EX-10.26-AGENCY_AGREEMENT.txt": {
+  "url": "https://huggingface.co/datasets/theatticusproject/cuad/resolve/a3c393f5d103fd0c516374e4fdff676c8176dcb1/CUAD_v1/CUAD_v1.json",
+  "license": "CC-BY-4.0",
+  "sha256": "ed3202c56ebdb4ab0c8d408adcab35f678a063ca30b100329f47aacc2ba94020"
+ },
+ "contracts/cuad/AMERICASSHOPPINGMALLINC_12_10_1999-EX-10.2-SITE_DEVELOPMENT_AND_HOSTING_AGREEMENT.txt": {
+  "url": "https://huggingface.co/datasets/theatticusproject/cuad/resolve/a3c393f5d103fd0c516374e4fdff676c8176dcb1/CUAD_v1/CUAD_v1.json",
+  "license": "CC-BY-4.0",
+  "sha256": "800a8e3e69cecab83863c1f6ff97587419bd873245d7f98b59e460a747f03228"
+ },
+ "contracts/cuad/ANIXABIOSCIENCESINC_06_09_2020-EX-10.1-COLLABORATION_AGREEMENT.txt": {
+  "url": "https://huggingface.co/datasets/theatticusproject/cuad/resolve/a3c393f5d103fd0c516374e4fdff676c8176dcb1/CUAD_v1/CUAD_v1.json",
+  "license": "CC-BY-4.0",
+  "sha256": "b700fd09580297d2160086acfea6d5dd834598018ab652f181d972be510b5549"
+ },
+ "contracts/cuad/ASHWORTHINC_01_29_1999-EX-10._D_-PROMOTION_AGREEMENT_AND_NANTZ_COMMUNICATIONS_INC..txt": {
+  "url": "https://huggingface.co/datasets/theatticusproject/cuad/resolve/a3c393f5d103fd0c516374e4fdff676c8176dcb1/CUAD_v1/CUAD_v1.json",
+  "license": "CC-BY-4.0",
+  "sha256": "977154e5d3a369d6eba47a390737030f8a6482bdf1a28dff81ca0427baac2ad3"
+ },
+ "contracts/cuad/ASIANDRAGONGROUPINC_08_11_2005-EX-10.5-Reseller_Agreement.txt": {
+  "url": "https://huggingface.co/datasets/theatticusproject/cuad/resolve/a3c393f5d103fd0c516374e4fdff676c8176dcb1/CUAD_v1/CUAD_v1.json",
+  "license": "CC-BY-4.0",
+  "sha256": "16bb9d1715c4e0e41dd3f47b5eff2630d3848065dd31573dc4fbe77b7415dbdd"
+ },
+ "contracts/cuad/ATMOSENERGYCORP_11_22_2002-EX-10.17-TRANSPORTATION_SERVICE_AGREEMENT.txt": {
+  "url": "https://huggingface.co/datasets/theatticusproject/cuad/resolve/a3c393f5d103fd0c516374e4fdff676c8176dcb1/CUAD_v1/CUAD_v1.json",
+  "license": "CC-BY-4.0",
+  "sha256": "f8634e3d4296d3254e8589ae7ae4b5fc2b887fb56ac1b288cc8125d855c02601"
+ },
+ "contracts/cuad/AULAMERICANUNITTRUST_04_24_2020-EX-99.8.77-SERVICING_AGREEMENT.txt": {
+  "url": "https://huggingface.co/datasets/theatticusproject/cuad/resolve/a3c393f5d103fd0c516374e4fdff676c8176dcb1/CUAD_v1/CUAD_v1.json",
+  "license": "CC-BY-4.0",
+  "sha256": "ae207bb16f35b516ee3de6523291a3b5b62cc5733a048839cd8d909278aae022"
+ },
+ "contracts/cuad/AURASYSTEMSINC_06_16_2010-EX-10.25-STRATEGIC_ALLIANCE_AGREEMENT.txt": {
+  "url": "https://huggingface.co/datasets/theatticusproject/cuad/resolve/a3c393f5d103fd0c516374e4fdff676c8176dcb1/CUAD_v1/CUAD_v1.json",
+  "license": "CC-BY-4.0",
+  "sha256": "cd9c428d08826e612d978e6bdad41df2463e5d84f45edb1bfc012e2580be0118"
+ },
+ "contracts/cuad/AgapeAtpCorp_20191202_10-KA_EX-10.1_11911128_EX-10.1_Supply_Agreement.txt": {
+  "url": "https://huggingface.co/datasets/theatticusproject/cuad/resolve/a3c393f5d103fd0c516374e4fdff676c8176dcb1/CUAD_v1/CUAD_v1.json",
+  "license": "CC-BY-4.0",
+  "sha256": "6d43065ff242642866da6be6b83f9849ad898e6eea9c1e71b0c2853dd3822c5a"
+ },
+ "contracts/cuad/AlliedEsportsEntertainmentInc_20190815_8-K_EX-10.19_11788293_EX-10.19_Content_License_Agreement.txt": {
+  "url": "https://huggingface.co/datasets/theatticusproject/cuad/resolve/a3c393f5d103fd0c516374e4fdff676c8176dcb1/CUAD_v1/CUAD_v1.json",
+  "license": "CC-BY-4.0",
+  "sha256": "82411b6956e9a2144f8a1440891954249156112d44057c01f778ae577ab864a9"
+ },
+ "contracts/cuad/AlliedEsportsEntertainmentInc_20190815_8-K_EX-10.34_11788308_EX-10.34_Sponsorship_Agreement.txt": {
+  "url": "https://huggingface.co/datasets/theatticusproject/cuad/resolve/a3c393f5d103fd0c516374e4fdff676c8176dcb1/CUAD_v1/CUAD_v1.json",
+  "license": "CC-BY-4.0",
+  "sha256": "e9a7e542a3a9941c3879ac170c7ade20c2c3bf456c8b5c9a4554d622f199e271"
+ },
+ "contracts/cuad/Apollo_Endosurgery_-_Manufacturing_and_Supply_Agreement.txt": {
+  "url": "https://huggingface.co/datasets/theatticusproject/cuad/resolve/a3c393f5d103fd0c516374e4fdff676c8176dcb1/CUAD_v1/CUAD_v1.json",
+  "license": "CC-BY-4.0",
+  "sha256": "f408b4d3754ed2f99c86c5092900df88286666c044bf66430c073c9c10a9d734"
+ },
+ "contracts/cuad/ArcGroupInc_20171211_8-K_EX-10.1_10976103_EX-10.1_Sponsorship_Agreement.txt": {
+  "url": "https://huggingface.co/datasets/theatticusproject/cuad/resolve/a3c393f5d103fd0c516374e4fdff676c8176dcb1/CUAD_v1/CUAD_v1.json",
+  "license": "CC-BY-4.0",
+  "sha256": "4f6122be05857c75d5ea3bd3be66bcceaab1a968e276330f8d7ee60e694d1fec"
+ },
+ "contracts/cuad/ArcaUsTreasuryFund_20200207_N-2_EX-99.K5_11971930_EX-99.K5_Development_Agreement.txt": {
+  "url": "https://huggingface.co/datasets/theatticusproject/cuad/resolve/a3c393f5d103fd0c516374e4fdff676c8176dcb1/CUAD_v1/CUAD_v1.json",
+  "license": "CC-BY-4.0",
+  "sha256": "0e421b7daa96857cf42de41b7671949d8c99a5eb90f9fc5b79a9d0a16a8cd2bd"
+ },
+ "contracts/cuad/ArconicRolledProductsCorp_20191217_10-12B_EX-2.7_11923804_EX-2.7_Trademark_License_Agreement.txt": {
+  "url": "https://huggingface.co/datasets/theatticusproject/cuad/resolve/a3c393f5d103fd0c516374e4fdff676c8176dcb1/CUAD_v1/CUAD_v1.json",
+  "license": "CC-BY-4.0",
+  "sha256": "bc3db8c11b06d0847c57051aaf75c493dda351e87a98fd5fcfe3fca7c751a0fa"
+ },
+ "contracts/cuad/ArmstrongFlooringInc_20190107_8-K_EX-10.2_11471795_EX-10.2_Intellectual_Property_Agreement.txt": {
+  "url": "https://huggingface.co/datasets/theatticusproject/cuad/resolve/a3c393f5d103fd0c516374e4fdff676c8176dcb1/CUAD_v1/CUAD_v1.json",
+  "license": "CC-BY-4.0",
+  "sha256": "4311463a9da996c008b3c16e323d32c517ed1b785f283a30ee1aceccacf90558"
+ },
+ "contracts/cuad/ArtaraTherapeuticsInc_20200110_8-K_EX-10.5_11943350_EX-10.5_License_Agreement.txt": {
+  "url": "https://huggingface.co/datasets/theatticusproject/cuad/resolve/a3c393f5d103fd0c516374e4fdff676c8176dcb1/CUAD_v1/CUAD_v1.json",
+  "license": "CC-BY-4.0",
+  "sha256": "aa63496b5011130a8704272a732ce09d5ccea0103437b90a5cf4caa05fed3039"
+ },
+ "contracts/cuad/AzulSa_20170303_F-1A_EX-10.3_9943903_EX-10.3_Maintenance_Agreement2.txt": {
+  "url": "https://huggingface.co/datasets/theatticusproject/cuad/resolve/a3c393f5d103fd0c516374e4fdff676c8176dcb1/CUAD_v1/CUAD_v1.json",
+  "license": "CC-BY-4.0",
+  "sha256": "2d98d5344e92fe02c4726bc483ff9f00facbfa8161d3877cd522d8f6ac4ac2a1"
+ },
+ "contracts/cuad/BANUESTRAFINANCIALCORP_09_08_2006-EX-10.16-AGENCY_AGREEMENT.txt": {
+  "url": "https://huggingface.co/datasets/theatticusproject/cuad/resolve/a3c393f5d103fd0c516374e4fdff676c8176dcb1/CUAD_v1/CUAD_v1.json",
+  "license": "CC-BY-4.0",
+  "sha256": "8a409e55f61a647c258e02748912d68112b3a13fce72f17a060135157c73cd9c"
+ },
+ "contracts/cuad/BELLRINGBRANDS_INC_02_07_2020-EX-10.18-MASTER_SUPPLY_AGREEMENT.txt": {
+  "url": "https://huggingface.co/datasets/theatticusproject/cuad/resolve/a3c393f5d103fd0c516374e4fdff676c8176dcb1/CUAD_v1/CUAD_v1.json",
+  "license": "CC-BY-4.0",
+  "sha256": "4db35cae428d32e800d78491fbda9306df3b93ae8bb5c4c48a899e4943eb21d8"
+ },
+ "contracts/cuad/BEYONDCOMCORP_08_03_2000-EX-10.2-CO-HOSTING_AGREEMENT.txt": {
+  "url": "https://huggingface.co/datasets/theatticusproject/cuad/resolve/a3c393f5d103fd0c516374e4fdff676c8176dcb1/CUAD_v1/CUAD_v1.json",
+  "license": "CC-BY-4.0",
+  "sha256": "366791ae1ac1b2c163c069d3afed275ba3129a65574609fba9e94e56e66de9e4"
+ },
+ "contracts/cuad/BICYCLETHERAPEUTICSPLC_03_10_2020-EX-10.11-SERVICE_AGREEMENT.txt": {
+  "url": "https://huggingface.co/datasets/theatticusproject/cuad/resolve/a3c393f5d103fd0c516374e4fdff676c8176dcb1/CUAD_v1/CUAD_v1.json",
+  "license": "CC-BY-4.0",
+  "sha256": "f8438559b293e8223834f2d6d9d3fd9d7e74c2356132851878b970d840db8d29"
+ },
+ "contracts/cuad/BIOAMBERINC_04_10_2013-EX-10.34-DEVELOPMENT_AGREEMENT_1.txt": {
+  "url": "https://huggingface.co/datasets/theatticusproject/cuad/resolve/a3c393f5d103fd0c516374e4fdff676c8176dcb1/CUAD_v1/CUAD_v1.json",
+  "license": "CC-BY-4.0",
+  "sha256": "65b642a2a325f2b974d30da010140e775df5226de003f971dfc32ac30b522915"
+ },
+ "contracts/ru/44_fz_kontrakt.txt": {
+  "url": "https://www.consultant.ru/document/cons_doc_LAW_144624/",
+  "license": "public-domain",
+  "sha256": "93680f6356795668babf98dca15cb4170e36a0bf8aa858eeddc4fbecf2120f99"
+ },
+ "contracts/ru/gk_rf_glava_34_arenda.txt": {
+  "url": "https://www.consultant.ru/document/cons_doc_LAW_9027/",
+  "license": "public-domain",
+  "sha256": "f5fecad89252ce46da931a2757a580cc506a68494d9a291b5607f512d0790dfa"
+ },
+ "contracts/ru/gk_rf_glava_37_podryad.txt": {
+  "url": "https://www.consultant.ru/document/cons_doc_LAW_9027/",
+  "license": "public-domain",
+  "sha256": "1b047ebae9b7af22130cd7dc3840f771bccd3877abe3b432849dd8332c00b123"
+ },
+ "contracts/ru/oferta_yandex_cloud.txt": {
+  "url": "https://yandex.ru/legal/cloud_oferta/ru/",
+  "license": "публичная оферта",
+  "sha256": "81042a7f83603dac0467fc29d2ce89be7288b65e5509f651d00c73d3dd9972eb"
+ },
+ "tables/finqa/AAL_2010_page_72.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "b37fbf8f815ce119de0ea694c10a8daf2d242cf8110782a487f7a8d4faabb2bc"
+ },
+ "tables/finqa/AAL_2013_page_172.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "c25a7b37aa5f4fddd0b6e2b30c21d6f8432e7674583d5dbb5e2ad815e726e2d4"
+ },
+ "tables/finqa/AAPL_2003_page_48.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "2763e80e5ae5892d8d0d85fc7c0949f5caa5e6f8fbc500076cf2af1040d231f0"
+ },
+ "tables/finqa/AAPL_2004_page_68.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "5c0195b9901eeace4bf3766b61c1ea36a300ecd4b66751996f8c4bde746f5a94"
+ },
+ "tables/finqa/ABC_2005_page_49.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "bb6bcc6df6ccf58f071581c06da69a0ed20634d12c75edc28b44827bae49bdb5"
+ },
+ "tables/finqa/ABMD_2005_page_29.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "d5f69f2c020d6acc6ae1124ba54490f37a8df7e6d094d757d1d8b0f0d588ea74"
+ },
+ "tables/finqa/ABMD_2006_page_43.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "28ad2f965528ee6e3073ff1864289b62f0d52c9c60a567e091708dbe8f4c58cc"
+ },
+ "tables/finqa/ADBE_1999_page_64.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "a0d7500c04cf1bb36ea80d5bb3c88cb8a5230b707cb8490bd1dc554c9c309caf"
+ },
+ "tables/finqa/ADBE_2008_page_74.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "96015ba8d6301a8720fa2d4ace0bb324affa7455d1676183f67bcc3d7a176371"
+ },
+ "tables/finqa/ADI_2010_page_60.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "8a339a8ca8059071edce87cea5e9db7c95466d05f69b4322a9c9a2dc150203bd"
+ },
+ "tables/finqa/ADI_2010_page_80.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "4c360f2c05d8b215a3a87a14b37e3487f1dba2303907055fe2b59a0508c99bde"
+ },
+ "tables/finqa/AES_2001_page_33.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "c00f773b26c4fead39281b45c3bb23227f484d069abbe91fb1da28e4004269bb"
+ },
+ "tables/finqa/AES_2001_page_85.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "66ec49b19c039e3cb92bad4395429d3b5779773f57dafdd6864caf38203913f0"
+ },
+ "tables/finqa/ALLE_2015_page_24.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "aadcad6716532b0373d47c751085bfa19a5206f8374c00fe3beaeb5c892db116"
+ },
+ "tables/finqa/ALXN_2016_page_153.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "83982e36e9daff516223516dc1cda92f134e9cc95dc562f8475bd936cf1ba0a6"
+ },
+ "tables/finqa/AMAT_2013_page_37.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "c13759e31e5f30b3fa613580d8f781a1c6e7a9691e1c588c7478a43fa54fc101"
+ },
+ "tables/finqa/AMAT_2018_page_33.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "e17a0dc49830a01c5786a1face4a06a78864a760bf24b6245d980036b0323a2f"
+ },
+ "tables/finqa/AMT_2003_page_102.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "3ed54440a8d6775e349cba23a538b60dda00bd4cbd428ae4dd5af57ffab1a6fb"
+ },
+ "tables/finqa/AMT_2003_page_27.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "2c549ef25e664b9469a0f939ccf7f5909134f08cdd3100fe592eb0438c8e41b1"
+ },
+ "tables/finqa/ANET_2015_page_156.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "0f2ebe5ffbbef5e5f1049663e484240b8a61c3dd84fba4ebe10f17cb265c3e89"
+ },
+ "tables/finqa/ANSS_2012_page_93.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "8714a252bc44bd981ba3e1529a8373d3591fde0c03cc38a71ced7fe32ee25666"
+ },
+ "tables/finqa/ANSS_2016_page_47.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "1252a3f0416ba4a00c068f85fbd4353d7db48eccb4588ab578a2c5fd1060a80a"
+ },
+ "tables/finqa/AON_2007_page_171.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "4b8baeb89b4d10181b84f0ec9d4dc0a93654833977c51ec43e1d4bd61b143f52"
+ },
+ "tables/finqa/AON_2007_page_175.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "f445e549daa2fb033ad7e284c16c50c5cf0214b2eb14d6ece511f04456fbdc64"
+ },
+ "tables/finqa/AOS_2010_page_18.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "94798d0bf8abb04720dad2ca705abfc73c59031e53add5aaaadd1477dacd1afe"
+ },
+ "tables/finqa/APD_2016_page_40.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "fafb56c6eaa4ea56f0c1a29518798a6377b7132830008c9cef54ad4631b5f587"
+ },
+ "tables/finqa/APD_2018_page_121.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "33da540da307f49b50d35ed2d0b039976c24c5df6fc7f5d2405e72d88ade6ced"
+ },
+ "tables/finqa/AWK_2012_page_117.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "2389d77020e15e7e8af54a0d7b491517e67222f4bebc0630651c56256fa5118e"
+ },
+ "tables/finqa/AWK_2013_page_122.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "71667eb162a05a9f3599c892dfbaa1c94c5b353b4abce7cd01ad42f956469144"
+ },
+ "tables/finqa/BDX_2018_page_106.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "fa221490fb1f1a86e61841d21a4429f66cc30e677c1ead5ced99bb3e939700f0"
+ },
+ "tables/finqa/BKNG_2016_page_33.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "22c4c27671ce91ad3b46c83915bae662b4c733c3113e6a3d8c7ef159be516a4d"
+ },
+ "tables/finqa/BKR_2017_page_56.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "695b8e76c2ce1d6d081d506ccabcfbc73d629c2e039af536698e442b69e1fc93"
+ },
+ "tables/finqa/BLK_2012_page_145.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "e97a63f78a6cf0be9abbdb98096b243d0deb6458c2d9eb7f930ba04661a51e10"
+ },
+ "tables/finqa/BLK_2012_page_33.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "dbb854b1db4c00a2c72f47d06ce555b66d8ab831af13bbf2ba43e4c17991519d"
+ },
+ "tables/finqa/BLL_2006_page_67.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "190b6147beddb5d62526dc48393a084c72fe3c9ff072abc17ba144d6384fc84a"
+ },
+ "tables/finqa/BLL_2010_page_35.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "d3bef97ed33b5e41eba759ecde0538b8c9ab3820b5858d3ece0de1103da67bf8"
+ },
+ "tables/finqa/CB_2008_page_229.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "7c916018fe381d267d5c730b277a498c6a0ed8642676974fb761a97b3a0452c3"
+ },
+ "tables/finqa/CB_2010_page_103.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "da6308c0ffae7ef4bfb40433f1b9deb938809e9106fdb098aea2f18d144d625e"
+ },
+ "tables/finqa/CDNS_2015_page_30.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "0ecd9e8c44562b70e73787c9348d4d12554ed60df8215facf830635d2cec2e7f"
+ },
+ "tables/finqa/CDNS_2018_page_66.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "6e241370a32bccc96ca4aa96663a4b81a484881d73827b069a51abd77a72034d"
+ },
+ "tables/finqa/CDW_2015_page_70.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "1885a716faa6d4356f9aa60b9f9ee7d18d2e9168f7533d26387f78f4d12b0bae"
+ },
+ "tables/finqa/CDW_2015_page_93.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "254b06ec81402c221dee6f78df09210b2e400c41156ca82fcff45a3fae416937"
+ },
+ "tables/finqa/CE_2009_page_65.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "34f2085f7f8e48788b59489658d0f26ff852554fbca591fbfc8d66dbb8059e1e"
+ },
+ "tables/finqa/CE_2013_page_16.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "3dc44c1c4ad6c6b0928a7b6b74024c039fa5df34cd8f74a94da82e37eb9b4b2f"
+ },
+ "tables/finqa/CMCSA_2008_page_36.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "8051c7fca8e83ecc2eefc239dc4279681e29a2418fc007f27d32c27c2a246a75"
+ },
+ "tables/finqa/CMCSA_2015_page_112.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "def0dd943866a3a78ebcb130816b0276af0aad0a0911176c1cdb118d6a095b3a"
+ },
+ "tables/finqa/CME_2010_page_123.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "1a3df0716440cdd8a91a7f1284d59306909579a1873a06a8bad62f7e3bf39751"
+ },
+ "tables/finqa/CME_2010_page_69.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "54a444b406fa57f4fcc5ce75c05069b93404c53b052a461c52ab309334c15b21"
+ },
+ "tables/finqa/C_2008_page_22.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "bf088b5f9297bc61e84ea9f6cfa170cef9acf7be9e0a9023ac0ca553340d7dbd"
+ },
+ "tables/finqa/C_2008_page_44.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "468cab0ca41aec8d699872abcb4f68d80a114aa06cacff7aa682869f59ed201e"
+ },
+ "tables/finqa/DG_2005_page_44.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "30760521db2b52c1096109580b73c3c44334848728c1ba5fa26be46c9bb61a60"
+ },
+ "tables/finqa/DG_2007_page_67.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "3b69f6cb86a6577e8dc111fb9ef1b9c55575acffadad6e8ca3b2d4ea50b78d6c"
+ },
+ "tables/finqa/DISCA_2011_page_49.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "42d4d44d09ce9a07f69f69968ea6d96556147d12aa1d38f26f06ff014ee42963"
+ },
+ "tables/finqa/DISCA_2014_page_64.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "5111c1c98b7674db0f8f597eb50066ba9b25bb11263a4796cd60cc4ef29dcafa"
+ },
+ "tables/finqa/DISH_2010_page_117.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "f53948a932383c058b0663e9437e1f90e5a2115568dcfd4079905107443216c5"
+ },
+ "tables/finqa/DISH_2011_page_122.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "ba4028998fa8c99916615f11f4b22d7ff63d267a3c72336fe245ee72289ff201"
+ },
+ "tables/finqa/DRE_2002_page_15.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "05549f01645520ee69f8e50fb3a8add57f181b8e16d4171bdd4b9a49b6c750c4"
+ },
+ "tables/finqa/DRE_2005_page_30.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "92fc823387e5231a8d0017b06851fe295fb9df17cc967a3c4cb6fb162f958a21"
+ },
+ "tables/finqa/DVN_2012_page_77.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "491c236a543443423f66ccc9b7dc805533bb660b45dfbb2b943f0cb3747e5fc6"
+ },
+ "tables/finqa/DVN_2014_page_87.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "71ed804283149e2b8f9c179c8167bf964a4da430a6703c03ccb161d63575cb39"
+ },
+ "tables/finqa/DXC_2018_page_56.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "206ad80736d2d4373a84515eea9fe9c970ee8ec85e1165e10b8d23d8f35cd3e3"
+ },
+ "tables/finqa/D_2002_page_87.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "8fbe01f406cf0081a4724c4ad5ac4af7ec54036ad3afb459e1f3a336bf1f5f86"
+ },
+ "tables/finqa/ECL_2016_page_52.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "39666dba0d62b961f3b0c0812755f0dc0b7d23e8c131403c0822291d84a8a920"
+ },
+ "tables/finqa/ECL_2017_page_69.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "b81126a6dcca117bede267440d4ef93b5edca5380e22f2c0774fa4d53b97bd5e"
+ },
+ "tables/finqa/EL_2008_page_59.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "508059c0997d580639944937ebde83cd63e6fc044794e272c1d80b952f8c85b1"
+ },
+ "tables/finqa/EMR_2017_page_78.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "8e1134f15e273853a1bb9a569e28893be0d1b769d38a351b9992e22071790f94"
+ },
+ "tables/finqa/EOG_2018_page_75.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "fdaa4971bf07ea97999834cabaee9002be6514e7e088ce01edb1675ff033bea9"
+ },
+ "tables/finqa/ETFC_2007_page_18.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "e75b2e754885f845d28e618f1c5c3e96390e08455de36aead9ac18ac1539169e"
+ },
+ "tables/finqa/ETFC_2011_page_144.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "d11f662743b8431ebbaab80e1a9895cd9ce5a3f930a67890ed443b351421b5d7"
+ },
+ "tables/finqa/ETR_2003_page_157.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "d741fa5b7c721905ba63ccd09c15cdb4409d6961a53710e1ef690a4a9474b27e"
+ },
+ "tables/finqa/ETR_2004_page_212.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "90bb6bd0151da8fc0f8e0dbe373a40c6148f9873e6071c54c7fc1725c4205510"
+ },
+ "tables/finqa/FBHS_2017_page_22.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "7688bad747d9d00261b52a6bd8faea160ed7db4811b162cd40c5c98fd9e12c16"
+ },
+ "tables/finqa/FBHS_2017_page_83.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "6d65139f6dc344acfcc38d970e2d0336e277a6b752e9fa87fa1c777cf5393a04"
+ },
+ "tables/finqa/FIS_2006_page_31.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "da06cf799179eb6419db28a0f1947dd3415b768c29ad194195b45b4639609782"
+ },
+ "tables/finqa/GIS_2015_page_62.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "6091739447b3387078f0e068b15789109cfd2dd73fd9be6633415f0078db453d"
+ },
+ "tables/finqa/GPN_2008_page_78.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "796d2808a3b2e88f780717bb96c0de976f0a84aa238e9ada5f226a458528943a"
+ },
+ "tables/finqa/GRMN_2006_page_68.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "f06690f51f6424ee0d9a00a507105609dfa316efdfec404b5c96b9f1fb106233"
+ },
+ "tables/finqa/GS_2012_page_121.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "e01f93da61238cbab5df6e3a8c27b27469bdf23b2be745b732fcf4d8430e6587"
+ },
+ "tables/finqa/HIG_2004_page_140.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "c103d82cc1e54b1c1bc0dbe5535d519c348a8021fe5361e61ff26387c589cc9e"
+ },
+ "tables/finqa/HII_2015_page_121.docx": {
+  "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
+  "license": "CC-BY-4.0",
+  "sha256": "06f0f4f6c172fe3fd0d989d63284d312ea460911b30eff3bd5686a46362afc13"
+ },
+ "tables/ru/moex_msfo_2q2026.pdf": {
+  "url": "https://www.moex.com/media/msfo/summary-micex-rts-fs-2q2026-rus.pdf",
+  "license": "раскрытие информации эмитента",
+  "sha256": "e4b024bb5fa99d339e9c9e2720ce5bf776dccda46d424aa6472f1e8f89918206"
+ },
+ "tables/ru/moex_msfo_databook_2q2026.xlsx": {
+  "url": "https://www.moex.com/media/ifrs-databook-2q-2026-rus2.xlsx",
+  "license": "раскрытие информации эмитента",
+  "sha256": "bd7cc146af1534303805dd5d7a7af9d89ed5db3a09ccdcf1a298ac5bfdb685af"
+ },
+ "tables/ru/mts_fin_rezultaty_4q2025.xlsx": {
+  "url": "https://storage.ir.mts.ru/mts-ir/images/documents/Fin_rezultaty_4kv_2025.xlsx",
+  "license": "раскрытие информации эмитента",
+  "sha256": "e12dadbf8effded69f8493421b8193f93d1894af45220a1d88b711eeef700179"
+ },
+ "tables/ru/mts_press_reliz_4q2025.pdf": {
+  "url": "https://storage.ir.mts.ru/mts-ir/images/documents/MTS_4kv_i_2025_press_reliz.pdf",
+  "license": "раскрытие информации эмитента",
+  "sha256": "448fcb803cdb04d054db2fcf91027ff8b1249b5caa3e445f54cbb17f5dc5d29b"
+ }
+}
