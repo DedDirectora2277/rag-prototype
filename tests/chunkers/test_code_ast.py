@@ -1,3 +1,5 @@
+import subprocess
+import sys
 from pathlib import Path
 
 import pytest
@@ -117,3 +119,32 @@ def test_unknown_language_falls_back_to_text() -> None:
 
     assert [c.chunk_type for c in chunks] == ['text']
     assert chunks[0].ts_config == 'simple'
+
+
+_TS_CHECK = """
+import sys
+from pathlib import Path
+import tree_sitter_language_pack as tslp
+
+src = Path(sys.argv[1]).read_bytes()
+root = tslp.get_parser('python').parse(src).root_node
+lines = src.count(b'\\n') + 1
+for node in root.named_children:
+    assert node.start_point.row <= lines, (node.start_point, node.start_byte)
+    node.text
+"""
+
+
+def test_tree_sitter_keeps_node_points_valid() -> None:
+    # tree-sitter 0.26.0 на этом файле отдаёт узлы с row == start_byte и падает с segfault
+    # в node.text; проверка в подпроцессе, чтобы segfault не убил весь pytest.
+    result = subprocess.run(
+        [sys.executable, '-c', _TS_CHECK, str(FIXTURES / 'ts_node_corruption.py')],
+        capture_output=True,
+        text=True,
+    )
+    assert result.returncode == 0, result.stderr[-500:]
+
+
+def test_chunks_file_that_crashed_tree_sitter_026() -> None:
+    assert {'open_stream', '_wrap_io_open'} <= set(_by_symbol(_chunk('ts_node_corruption.py')))

@@ -9,3 +9,5 @@ __pycache__/
 benchmarks/corpus/
 benchmarks/results/raw/
 benchmarks/.cache/
+benchmarks/results/logs/
+benchmarks/results/checks/run.log

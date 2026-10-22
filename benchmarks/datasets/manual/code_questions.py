@@ -87,10 +87,10 @@ CODE: list[Entry] = [
     (
         'code-httpx-digest-algorithms',
         'Which digest algorithms does httpx.DigestAuth support and what is the default?',
-        'MD5, MD5-SESS, SHA, SHA-SESS, SHA-256 and SHA-256-SESS; if the server challenge does '
-        'not specify an algorithm, MD5 is used.',
+        'MD5, MD5-SESS, SHA, SHA-SESS, SHA-256, SHA-256-SESS, SHA-512 and SHA-512-SESS; if '
+        'the server challenge does not specify an algorithm, MD5 is used.',
         [HX + 'httpx/_auth.py'],
-        ['"SHA-256-SESS": hashlib.sha256', 'algorithm = header_dict.get("algorithm", "MD5")'],
+        ['"SHA-512-SESS": hashlib.sha512', 'algorithm = header_dict.get("algorithm", "MD5")'],
     ),
     (
         'code-httpx-retries',
@@ -274,7 +274,11 @@ CODE: list[Entry] = [
             'class BadParameter(UsageError):',
             'class MissingParameter(BadParameter):',
             'class NoSuchOption(UsageError):',
+            'class BadOptionUsage(UsageError):',
+            'class BadArgumentUsage(UsageError):',
             'class FileError(ClickException):',
+            'class Abort(RuntimeError):',
+            'class Exit(RuntimeError):',
         ],
     ),
     (
@@ -446,9 +450,9 @@ CODE: list[Entry] = [
         'code-cross-testing',
         'How do httpx and click let you test applications in-process without real network or '
         'terminal I/O?',
-        'httpx: route requests to an ASGI/WSGI app via `ASGITransport`/`WSGITransport` or '
-        'mock them with `MockTransport`; click: `CliRunner.invoke()` runs the command in an '
-        'isolated environment and captures output and exit code.',
+        'httpx: route requests directly to an ASGI app with `httpx.ASGITransport(app=app)`; '
+        'click: `CliRunner().invoke()` runs the command in an isolated environment and '
+        'captures output and exit code.',
         [HX + 'docs/advanced/transports.md', CL + 'docs/testing.rst'],
         ['transport = httpx.ASGITransport(app=app)', 'runner = CliRunner()'],
     ),

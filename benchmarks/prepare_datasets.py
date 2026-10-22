@@ -137,14 +137,18 @@ CUAD_QUESTIONS = {
         'Can a party terminate {c} for convenience, without cause? On what notice?'
     ),
     'Anti-Assignment': 'Can {c} be assigned without the consent of the other party?',
-    'Cap On Liability': 'Is liability under {c} capped, and to what amount?',
+    # CUAD размечает как Cap On Liability и денежные лимиты, и исключение косвенных убытков.
+    'Cap On Liability': 'What limitations of liability does {c} contain?',
     'Exclusivity': 'What exclusivity obligations does {c} establish?',
     'Non-Compete': 'What non-compete restrictions does {c} impose?',
     'Audit Rights': 'What audit or inspection rights are provided in {c}?',
     'Insurance': 'What insurance must be maintained under {c}?',
     'Minimum Commitment': 'Is there a minimum purchase or volume commitment in {c}?',
     'License Grant': 'What license is granted under {c}?',
-    'Warranty Duration': 'How long does the warranty last under {c}?',
+    # Спаны Warranty Duration — часто сроки приёмки и заявления о дефектах, а не гарантия.
+    'Warranty Duration': (
+        'What warranty period or deadline for reporting defects applies under {c}?'
+    ),
 }
 
 # --- FinQA: страницы 10-K компаний S&P 500, CC BY 4.0 ------------------------------------
@@ -157,6 +161,18 @@ FINQA_QUESTIONS = 50
 # Дистракторы — другие страницы отчётов тех же компаний: системе приходится выбирать
 # нужную страницу среди похожих таблиц одного эмитента.
 FINQA_DISTRACTORS = 30
+# Вопросы с ошибочной разметкой FinQA (найдены LLM-проверкой, проверены по документу).
+# Страницы остаются в корпусе как дистракторы.
+FINQA_EXCLUDED = {
+    'finqa-aal_2010_page_72.pdf-2': 'опечатка в вопросе, неоднозначный знаменатель',
+    'finqa-bkr_2017_page_56.pdf-1': 'ответ 156% не следует из данных (около -11%)',
+    'finqa-cb_2008_page_229.pdf-1': 'на странице нет чистой прибыли бермудских дочек',
+    'finqa-cdw_2015_page_70.pdf-1': 'эталон — сумма показателя за три разных года',
+    'finqa-dvn_2012_page_77.pdf-1': 'ответ 150% бессмыслен для доли погашенного долга',
+    'finqa-el_2008_page_59.pdf-1': 'в эталонных фрагментах нет стоимости активов плана',
+    'finqa-gpn_2008_page_78.pdf-1': 'ответ требует допущения о равномерной амортизации',
+    'finqa-grmn_2006_page_68.pdf-1': 'эталонные фрагменты — только шапка таблицы',
+}
 # Тикер → название компании для вопроса (на год отчёта).
 FINQA_COMPANIES = {
     'AAL': 'American Airlines Group',
@@ -433,12 +449,13 @@ def build_finqa(manifest: Manifest) -> list[Sample]:
         rel_path = f'tables/finqa/{_file_stem(item["filename"].removesuffix(".pdf"))}.docx'
         company = FINQA_COMPANIES[ticker]
         write_doc(manifest, rel_path, _finqa_docx(item, company), FINQA_URL, 'CC-BY-4.0')
-        if item is not chosen[ticker]:
+        sample_id = f'finqa-{_file_stem(item["id"]).lower()}'
+        if item is not chosen[ticker] or sample_id in FINQA_EXCLUDED:
             continue
         qa = item['qa']
         samples.append(
             Sample(
-                id=f'finqa-{_file_stem(item["id"]).lower()}',
+                id=sample_id,
                 domain='tables',
                 question=f'According to the {year} annual report of {company}, {qa["question"]}',
                 ground_truth=qa['answer'],

@@ -13,6 +13,13 @@ model_list:
       model: os.environ/JUDGE_MODEL
       api_key: os.environ/OPENROUTER_API_KEY
 
+  # Проверка вопросов датасета (benchmarks/check_questions.py). Модель другого семейства,
+  # чем генератор, судья и автор черновика вопросов, чтобы не было самосогласия.
+  - model_name: check
+    litellm_params:
+      model: os.environ/CHECK_MODEL
+      api_key: os.environ/OPENROUTER_API_KEY
+
   # Локальный TEI отдаёт OpenAI-совместимый /v1/embeddings.
   - model_name: embed
     litellm_params:

@@ -13,7 +13,9 @@ dependencies = [
     "asyncpg (>=0.32.0,<0.33.0)",
     "pgvector (>=0.5.1,<0.6.0)",
     "pydantic-settings (>=2.16.1,<3.0.0)",
-    "tree-sitter (>=0.26.0,<0.27.0)",
+    # 0.26.0 портит координаты узлов на части файлов (row == start_byte), после чего
+    # node.text падает с segfault; регрессия — tests/chunkers/test_code_ast.py
+    "tree-sitter (>=0.25.2,<0.26.0)",
     "tree-sitter-language-pack (>=1.22.1,<2.0.0)",
     "tiktoken (>=0.14.0,<0.15.0)",
     "pdfplumber (>=0.11.10,<0.12.0)",
