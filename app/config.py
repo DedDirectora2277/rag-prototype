@@ -29,6 +29,12 @@ class Settings(BaseSettings):
     embed_batch_size: int = 64
     embed_concurrency: int = 4
 
+    chunk_max_tokens: int = 512
+    chunk_overlap_tokens: int = 64
+    naive_window_tokens: int = 512
+    table_rows_per_chunk: int = 20
+    table_parent_max_tokens: int = 4000
+
     vector_top_n: int = 50
     fts_top_n: int = 50
     hybrid_top_n: int = 50

@@ -1,5 +1,6 @@
 line-length = 100
 target-version = 'py312'
+extend-exclude = ['tests/fixtures']  # фикстуры чанкеров — данные, а не код проекта
 
 [lint]
 select = [
