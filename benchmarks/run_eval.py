@@ -305,7 +305,8 @@ def score(samples: list[Sample], raw_path: Path) -> str:
         'контекстов, doc_recall — доля эталонных документов среди источников.',
         '',
     ]
-    configs = [c for c in CONFIGS if any(k[0] == c for k in values)]
+    present = {k[0] for k in values}
+    configs = [c for c in CONFIGS if c in present] + sorted(present - set(CONFIGS))
     for domain in (*DOMAINS, 'all'):
         n = len(values.get((configs[0], domain, 'hit'), [])) if configs else 0
         lines += [f'## {domain} (n={n})', '', '| Конфигурация | ' + ' | '.join(METRICS) + ' |']
