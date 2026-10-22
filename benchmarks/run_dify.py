@@ -1,4 +1,4 @@
-"""Прогон Dify по датасету: `python -m benchmarks.run_dify {setup,ingest,eval}`.
+"""Прогон Dify по датасету: `python -m benchmarks.run_dify {setup,ingest,retry,eval}`.
 
 `setup` настраивает чистый инстанс (`docker compose up` из репозитория Dify 1.17.1, порт 8090):
 администратор, плагин OpenAI-API-compatible, модели `chat`/`embed`/`rerank` из LiteLLM
@@ -53,6 +53,8 @@ PLUGIN = (
     'ba61c5eccb814be7364117c0bec3710a51e09b20f31e37243e747a00f9377969'
 )
 INSTANCE = RAW_DIR / 'dify-instance.json'
+RETRY_GROUP = 3
+RETRY_ATTEMPTS = 3
 PROCESS = {'indexing_technique': 'high_quality', 'process_rule': {'mode': 'automatic'}}
 MANIFEST = RAW_DIR / 'dify-uploads.jsonl'
 
@@ -157,6 +159,54 @@ async def ingest(client: DifyKnowledge, dataset_id: str) -> None:
     await client.wait_indexed(dataset_id, all_batches)
 
 
+async def failed_documents(client: DifyKnowledge, dataset_id: str) -> list[str]:
+    """id документов датасета со статусом индексации `error`."""
+    failed = []
+    page = 1
+    while True:
+        data = await client.call(
+            'GET', f'/datasets/{dataset_id}/documents', params={'page': page, 'limit': 100}
+        )
+        failed += [d['id'] for d in data['data'] if d['indexing_status'] == 'error']
+        if not data.get('has_more'):
+            return failed
+        page += 1
+
+
+async def retry_failed(cfg: DifyConfig, client: DifyKnowledge, dataset_id: str) -> None:
+    """Переиндексирует упавшие документы группами по `RETRY_GROUP`, пока ошибок не останется.
+
+    Под нагрузкой Dify исчерпывает пул соединений к своей БД (`QueuePool limit`), а запросы
+    к эмбеддеру обрываются; повторная индексация небольшими группами проходит.
+    """
+    for attempt in range(1, RETRY_ATTEMPTS + 1):
+        failed = await failed_documents(client, dataset_id)
+        logger.info('попытка %s: документов с ошибкой %s', attempt, len(failed))
+        if not failed:
+            return
+        console = DifyConsole(cfg)
+        try:
+            await console.setup_and_login()
+            for i in range(0, len(failed), RETRY_GROUP):
+                group = failed[i : i + RETRY_GROUP]
+                await console.call(
+                    'POST', f'/datasets/{dataset_id}/retry', json={'document_ids': group}
+                )
+                while True:
+                    await asyncio.sleep(10)
+                    docs = await client.call(
+                        'GET', f'/datasets/{dataset_id}/documents', params={'limit': 100}
+                    )
+                    page = {d['id']: d['indexing_status'] for d in docs['data']}
+                    # Документы группы могут оказаться на других страницах — тогда ждём по всем.
+                    states = {page.get(d, 'unknown') for d in group}
+                    if not states & {'waiting', 'parsing', 'cleaning', 'splitting', 'indexing'}:
+                        break
+        finally:
+            await console.close()
+    raise RuntimeError('после повторов остались документы с ошибкой индексации')
+
+
 def _source(record: dict[str, Any]) -> str:
     name = str(record['segment']['document']['name'])
     name = name.removesuffix('.txt') if name.count('.') > 1 else name
@@ -208,6 +258,9 @@ async def run(args: argparse.Namespace) -> int:
         if args.step == 'ingest':
             await ingest(client, dataset_id)
             return 0
+        if args.step == 'retry':
+            await retry_failed(cfg, client, dataset_id)
+            return 0
         await retrieve(client, dataset_id, raw_path)
     finally:
         await client.close()
@@ -224,7 +277,7 @@ async def run(args: argparse.Namespace) -> int:
 def main() -> None:
     """Точка входа CLI."""
     parser = argparse.ArgumentParser(prog='python -m benchmarks.run_dify')
-    parser.add_argument('step', choices=('setup', 'ingest', 'eval'))
+    parser.add_argument('step', choices=('setup', 'ingest', 'retry', 'eval'))
     parser.add_argument('--dataset-id', help='по умолчанию — из results/raw/dify-instance.json')
     parser.add_argument('--key', help='ключ Knowledge API; по умолчанию — из dify-instance.json')
     args = parser.parse_args()
