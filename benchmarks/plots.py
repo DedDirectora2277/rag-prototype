@@ -212,3 +212,83 @@ def main(results_dir: Path = RESULTS_DIR) -> None:
 
 if __name__ == '__main__':
     main()
+
+
+def figure_budget(csv_path: Path, path: Path, domain: str = 'all') -> None:
+    """Evidence recall в зависимости от бюджета контекста (из `budget_recall.csv`)."""
+    series = [
+        ('Простой RAG', COLORS['naive'], '-'),
+        ('Dify top-24: гибрид + реранк', COLORS['dify'], '-'),
+        ('Наша: чанкеры + гибрид + реранк', COLORS['ours'], '--'),
+        ('Наша: полная (parent-expansion)', COLORS['ours'], '-'),
+    ]
+    rows: dict[str, list[tuple[int, float, float, float]]] = {}
+    with csv_path.open(encoding='utf-8') as f:
+        for r in csv.DictReader(f):
+            if r['domain'] == domain:
+                rows.setdefault(r['system'], []).append(
+                    (
+                        int(r['budget_tokens']),
+                        float(r['mean']),
+                        float(r['ci_low']),
+                        float(r['ci_high']),
+                    )
+                )
+    fig, ax = plt.subplots(figsize=(10, 5.4), facecolor=SURFACE)
+    ends: list[tuple[float, str]] = []
+    for label, color, style in series:
+        points = sorted(rows.get(label, []))
+        if not points:
+            continue
+        xs = [p[0] for p in points]
+        ax.fill_between(
+            xs, [p[2] for p in points], [p[3] for p in points], color=color, alpha=0.08, linewidth=0
+        )
+        ax.plot(
+            xs,
+            [p[1] for p in points],
+            style,
+            color=color,
+            linewidth=2,
+            marker='o',
+            markersize=6,
+            label=label,
+        )
+        ends.append((points[-1][1], label))
+    # Подписи у концов линий разносятся по вертикали, чтобы не накладывались.
+    placed: list[float] = []
+    for y, label in sorted(ends, reverse=True):
+        y_text = min(y, placed[-1] - 0.035) if placed else y
+        placed.append(y_text)
+        ax.text(8000 * 1.06, y_text, label, va='center', fontsize=8.5, color=TEXT_SECONDARY)
+    ax.set_xscale('log', base=2)
+    ax.set_xticks([500, 1000, 2000, 4000, 8000])
+    ax.set_xticklabels(['500', '1000', '2000', '4000', '8000'])
+    ax.set_xlim(420, 8000 * 3.2)
+    ax.set_ylim(0.3, 1.0)
+    ax.set_xlabel('Бюджет контекста, токенов (в порядке ранжирования)', color=TEXT_SECONDARY)
+    _style(ax)
+    ax.yaxis.grid(True, color=GRID, linewidth=0.8)
+    ax.xaxis.grid(False)
+    fig.text(
+        0.02,
+        0.97,
+        'Evidence recall при равном бюджете контекста',
+        ha='left',
+        va='top',
+        fontsize=13,
+        color=TEXT,
+    )
+    fig.text(
+        0.02,
+        0.915,
+        'Общее с Dify подмножество (142 вопроса); заливка — 95% bootstrap CI',
+        ha='left',
+        va='top',
+        fontsize=9,
+        color=TEXT_SECONDARY,
+    )
+    ax.legend(loc='lower center', frameon=False, fontsize=9, labelcolor=TEXT_SECONDARY, ncol=2)
+    fig.tight_layout(rect=(0, 0, 1, 0.88))
+    fig.savefig(path, dpi=200, facecolor=SURFACE)
+    plt.close(fig)
