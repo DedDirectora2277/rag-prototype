@@ -47,9 +47,24 @@ async def indexed_documents() -> tuple[set[str], set[str]]:
     return done, uploaded
 
 
+def coverage() -> tuple[set[str], set[str]]:
+    """Документы в индексе Dify; список кешируется, чтобы пересчёт не требовал живого Dify."""
+    cache = OUT_DIR / 'dify-documents.json'
+    if cache.exists():
+        data = json.loads(cache.read_text(encoding='utf-8'))
+        return set(data['indexed']), set(data['uploaded'])
+    done, uploaded = asyncio.run(indexed_documents())
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    cache.write_text(
+        json.dumps({'indexed': sorted(done), 'uploaded': sorted(uploaded)}, indent=1),
+        encoding='utf-8',
+    )
+    return done, uploaded
+
+
 def main() -> None:
     """Пересчитывает метрики на общем подмножестве и строит графики."""
-    done, uploaded = asyncio.run(indexed_documents())
+    done, uploaded = coverage()
     samples = load_samples()
     subset = [s for s in samples if all(d in done for d in s.source_docs)]
     ids = {s.id for s in subset}
