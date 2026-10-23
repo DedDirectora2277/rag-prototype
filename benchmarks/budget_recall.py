@@ -28,8 +28,8 @@ SYSTEMS = (
     ('dify', 'dify_hybrid_rerank', 'Dify: гибрид + реранк'),
     ('dify_top24', 'dify_vector', 'Dify top-24: вектор'),
     ('dify_top24', 'dify_hybrid_rerank', 'Dify top-24: гибрид + реранк'),
-    ('domain', 'hybrid_rerank', 'Наша: чанкеры + гибрид + реранк'),
-    ('domain', 'full', 'Наша: полная (parent-expansion)'),
+    ('domain', 'hybrid_rerank', 'Прототип: чанкеры + гибрид + реранк'),
+    ('domain', 'full', 'Полный прототип (parent-expansion)'),
 )
 
 

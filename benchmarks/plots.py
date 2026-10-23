@@ -32,10 +32,10 @@ CONFIGS: list[tuple[str, str, str, str]] = [
     ('naive', 'hybrid', 'Окно 512 + вектор + FTS', 'naive'),
     ('dify', 'dify_vector', 'Dify: вектор', 'dify'),
     ('dify', 'dify_hybrid_rerank', 'Dify: гибрид + реранк', 'dify'),
-    ('domain', 'vector', 'Наши чанкеры + вектор', 'ours'),
+    ('domain', 'vector', 'Прототип: чанкеры + вектор', 'ours'),
     ('domain', 'hybrid', '+ FTS (RRF)', 'ours'),
     ('domain', 'hybrid_rerank', '+ cross-encoder реранк', 'ours'),
-    ('domain', 'full', '+ parent-expansion (полная система)', 'ours'),
+    ('domain', 'full', '+ parent-expansion (полный прототип)', 'ours'),
 ]
 DOMAIN_TITLES = {
     'all': 'Все домены',
@@ -59,7 +59,7 @@ KEY_CONFIGS = {
     ('domain', 'full'),
 }
 LEGEND = {
-    'ours': 'Наша система (ablation)',
+    'ours': 'Прототип (поэтапное добавление компонентов)',
     'naive': 'Простой RAG (базовая линия)',
     'dify': 'Dify 1.17',
 }
@@ -196,10 +196,16 @@ def figure_domains(data: dict[tuple[str, str, str, str], Row], metric: str, path
 
 
 def main(results_dir: Path = RESULTS_DIR) -> None:
-    """Строит все графики по сводкам из `results_dir` в `results_dir/figures`."""
+    """Строит все графики по сводкам из `results_dir` в `results_dir/figures`.
+
+    На полном наборе (`results/`) Dify не показывается: его индекс неполон (179 из 206
+    документов) и бюджет контекста меньше, сравнение с ним — в `dify_subset/` и `equal_budget/`.
+    """
     figures = results_dir / 'figures'
     figures.mkdir(parents=True, exist_ok=True)
     data = load_summary(results_dir)
+    if results_dir == RESULTS_DIR:
+        data = {k: v for k, v in data.items() if k[0] != 'dify'}
     for metric in ('evidence_recall', 'mrr', 'ap'):
         figure_ablation(data, metric, figures / f'ablation_{metric}.png')
         figure_domains(data, metric, figures / f'domains_{metric}.png')
@@ -219,8 +225,8 @@ def figure_budget(csv_path: Path, path: Path, domain: str = 'all') -> None:
     series = [
         ('Простой RAG', COLORS['naive'], '-'),
         ('Dify top-24: гибрид + реранк', COLORS['dify'], '-'),
-        ('Наша: чанкеры + гибрид + реранк', COLORS['ours'], '--'),
-        ('Наша: полная (parent-expansion)', COLORS['ours'], '-'),
+        ('Прототип: чанкеры + гибрид + реранк', COLORS['ours'], '--'),
+        ('Полный прототип (parent-expansion)', COLORS['ours'], '-'),
     ]
     rows: dict[str, list[tuple[int, float, float, float]]] = {}
     with csv_path.open(encoding='utf-8') as f:

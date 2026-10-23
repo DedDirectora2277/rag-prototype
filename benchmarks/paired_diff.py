@@ -23,8 +23,8 @@ ITERATIONS = 5000
 # (прогон, конфигурация, подпись): наши конфигурации против лучшей конфигурации Dify.
 BASELINE = ('dify_top24', 'dify_hybrid_rerank', 'Dify top-24: гибрид + реранк')
 CANDIDATES = (
-    ('domain', 'hybrid_rerank', 'Наша: чанкеры + гибрид + реранк'),
-    ('domain', 'full', 'Наша: полная (parent-expansion)'),
+    ('domain', 'hybrid_rerank', 'Прототип: чанкеры + гибрид + реранк'),
+    ('domain', 'full', 'Полный прототип (parent-expansion)'),
     ('naive', 'vector', 'Простой RAG'),
 )
 
