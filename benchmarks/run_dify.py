@@ -222,15 +222,17 @@ def _source(record: dict[str, Any]) -> str:
     return corpus_path(str(record['segment']['document']['name']))
 
 
-async def retrieve(client: DifyKnowledge, dataset_id: str, raw_path: Path) -> None:
-    """Контексты обеих конфигураций по вопросам, которых ещё нет в `raw_path`."""
+async def retrieve(
+    client: DifyKnowledge, dataset_id: str, raw_path: Path, top_k: int = TOP_K
+) -> None:
+    """Контексты обеих конфигураций (с `top_k`) по вопросам, которых ещё нет в `raw_path`."""
     samples = load_samples()
     done = _done_ids(raw_path)
     todo = [s for s in samples if s.id not in done]
     for n, sample in enumerate(todo, start=1):
         contexts = {}
         for config, model in CONFIGS.items():
-            records = await client.retrieve(dataset_id, sample.question, model)
+            records = await client.retrieve(dataset_id, sample.question, {**model, 'top_k': top_k})
             contexts[config] = [
                 {
                     'chunk_id': i,
@@ -261,7 +263,7 @@ async def run(args: argparse.Namespace) -> int:
     instance = json.loads(INSTANCE.read_text(encoding='utf-8'))
     dataset_id = args.dataset_id or instance['dataset_id']
     client = DifyKnowledge(cfg, args.key or instance['key'])
-    raw_path = RAW_DIR / 'dify.jsonl'
+    raw_path = RAW_DIR / f'{args.tag}.jsonl'
     RAW_DIR.mkdir(parents=True, exist_ok=True)
     try:
         if args.step == 'ingest':
@@ -270,15 +272,18 @@ async def run(args: argparse.Namespace) -> int:
         if args.step == 'retry':
             await retry_failed(cfg, client, dataset_id)
             return 0
-        await retrieve(client, dataset_id, raw_path)
+        await retrieve(client, dataset_id, raw_path, args.top_k)
     finally:
         await client.close()
     samples = load_samples()
-    settings = get_settings()
-    for config in CONFIGS:
-        await run_generation(samples, raw_path, config, settings)
-    report = score(samples, raw_path)
-    (RESULTS_DIR / 'dify-retrieval.md').write_text(report, encoding='utf-8')
+    if not args.skip_generation:
+        settings = get_settings()
+        for config in CONFIGS:
+            await run_generation(samples, raw_path, config, settings)
+    out_dir = Path(args.out_dir) if args.out_dir else RESULTS_DIR
+    out_dir.mkdir(parents=True, exist_ok=True)
+    report = score(samples, raw_path, out_dir)
+    (out_dir / f'{args.tag}-retrieval.md').write_text(report, encoding='utf-8')
     print(report)
     return 0
 
@@ -289,6 +294,10 @@ def main() -> None:
     parser.add_argument('step', choices=('setup', 'ingest', 'retry', 'eval'))
     parser.add_argument('--dataset-id', help='по умолчанию — из results/raw/dify-instance.json')
     parser.add_argument('--key', help='ключ Knowledge API; по умолчанию — из dify-instance.json')
+    parser.add_argument('--tag', default='dify', help='имя прогона (results/raw/<tag>.jsonl)')
+    parser.add_argument('--top-k', type=int, default=TOP_K, help='число сегментов в выдаче')
+    parser.add_argument('--out-dir', help='каталог для метрик (по умолчанию results/)')
+    parser.add_argument('--skip-generation', action='store_true', help='только retrieval')
     args = parser.parse_args()
     logging.basicConfig(
         level=logging.INFO, format='%(asctime)s %(levelname)s %(name)s: %(message)s'

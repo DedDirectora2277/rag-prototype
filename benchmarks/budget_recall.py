@@ -5,12 +5,15 @@
 контекста. Здесь контексты каждой системы обрезаются до бюджета в N токенов в порядке
 ранжирования (последний контекст обрезается), и evidence recall пересчитывается.
 Считается на общем с Dify подмножестве вопросов (`dify_subset/dify-documents.json`).
-Результат — `results/dify_subset/budget_recall.csv` и `.md`.
+Результат — `<out-dir>/budget_recall.csv` и `.md` (по умолчанию `results/dify_subset/`).
+Прогоны, сырых результатов которых нет (например, `dify_top24`), пропускаются.
 """
 
+import argparse
 import csv
 import json
 from collections import defaultdict
+from pathlib import Path
 
 from app.chunkers.base import get_encoding
 from benchmarks.compare_subset import OUT_DIR, coverage
@@ -18,11 +21,13 @@ from benchmarks.dataset import DOMAINS
 from benchmarks.metrics import bootstrap_ci, score_sample
 from benchmarks.run_eval import RAW_DIR, _read_jsonl, load_samples
 
-BUDGETS = (500, 1000, 2000, 4000)
+BUDGETS = (500, 1000, 2000, 4000, 8000)
 SYSTEMS = (
     ('naive', 'vector', 'Простой RAG'),
     ('dify', 'dify_vector', 'Dify: вектор'),
     ('dify', 'dify_hybrid_rerank', 'Dify: гибрид + реранк'),
+    ('dify_top24', 'dify_vector', 'Dify top-24: вектор'),
+    ('dify_top24', 'dify_hybrid_rerank', 'Dify top-24: гибрид + реранк'),
     ('domain', 'hybrid_rerank', 'Наша: чанкеры + гибрид + реранк'),
     ('domain', 'full', 'Наша: полная (parent-expansion)'),
 )
@@ -45,10 +50,14 @@ def truncate(contexts: list[str], budget: int) -> list[str]:
 
 def main() -> None:
     """Считает evidence recall по бюджетам и пишет CSV и markdown."""
+    parser = argparse.ArgumentParser(prog='python -m benchmarks.budget_recall')
+    parser.add_argument('--out-dir', type=Path, default=OUT_DIR)
+    out_dir: Path = parser.parse_args().out_dir
     done, _ = coverage()
     samples = {s.id: s for s in load_samples() if all(d in done for d in s.source_docs)}
     values: dict[tuple[str, int, str], list[float]] = defaultdict(list)
-    for run, config, label in SYSTEMS:
+    systems = [x for x in SYSTEMS if (RAW_DIR / f'{x[0]}.jsonl').exists()]
+    for run, config, label in systems:
         for record in _read_jsonl(RAW_DIR / f'{run}.jsonl'):
             sample = samples.get(record['id'])
             if sample is None:
@@ -74,7 +83,7 @@ def main() -> None:
             '| Система | ' + ' | '.join(f'{b} ток.' for b in BUDGETS) + ' |',
             '|---' * (len(BUDGETS) + 1) + '|',
         ]
-        for _, _, label in SYSTEMS:
+        for _, _, label in systems:
             cells = []
             for budget in BUDGETS:
                 mean, low, high = bootstrap_ci(values[(label, budget, domain)])
@@ -84,13 +93,13 @@ def main() -> None:
                 cells.append(f'{mean:.3f} [{low:.2f}–{high:.2f}]')
             lines.append(f'| {label} | ' + ' | '.join(cells) + ' |')
         lines.append('')
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
-    with (OUT_DIR / 'budget_recall.csv').open('w', encoding='utf-8', newline='') as f:
+    out_dir.mkdir(parents=True, exist_ok=True)
+    with (out_dir / 'budget_recall.csv').open('w', encoding='utf-8', newline='') as f:
         writer = csv.writer(f)
         writer.writerow(['system', 'budget_tokens', 'domain', 'n', 'mean', 'ci_low', 'ci_high'])
         writer.writerows(rows)
     report = '\n'.join(lines)
-    (OUT_DIR / 'budget_recall.md').write_text(report, encoding='utf-8')
+    (out_dir / 'budget_recall.md').write_text(report, encoding='utf-8')
     print(report)
     print(json.dumps({'questions': len(samples)}))
 
