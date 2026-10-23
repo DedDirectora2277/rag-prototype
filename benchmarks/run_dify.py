@@ -207,10 +207,19 @@ async def retry_failed(cfg: DifyConfig, client: DifyKnowledge, dataset_id: str) 
     raise RuntimeError('после повторов остались документы с ошибкой индексации')
 
 
-def _source(record: dict[str, Any]) -> str:
-    name = str(record['segment']['document']['name'])
-    name = name.removesuffix('.txt') if name.count('.') > 1 else name
+def corpus_path(name: str) -> str:
+    """Путь документа в корпусе по имени документа Dify (обратное к имени при загрузке).
+
+    При загрузке `/` заменяется на `__`, а к `.py`/`.rst` добавляется `.txt`.
+    """
+    base = name.removesuffix('.txt')
+    if name.endswith('.txt') and Path(base).suffix.lower() in {'.py', '.rst'}:
+        name = base
     return name.replace('__', '/')
+
+
+def _source(record: dict[str, Any]) -> str:
+    return corpus_path(str(record['segment']['document']['name']))
 
 
 async def retrieve(client: DifyKnowledge, dataset_id: str, raw_path: Path) -> None:

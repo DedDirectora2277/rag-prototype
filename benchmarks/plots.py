@@ -49,6 +49,16 @@ METRIC_TITLES = {
     'evidence_recall': 'Доля найденных эталонных фрагментов в top-8 (evidence recall)',
     'mrr': 'MRR: 1 / ранг первого релевантного контекста',
     'ap': 'Average precision (аналог Context Precision)',
+    'faithfulness': 'Faithfulness: доля утверждений ответа, подтверждённых контекстами',
+    'correctness': 'Правильность ответа относительно эталона (LLM-судья)',
+}
+# Метрики ответов есть только у конфигураций, для которых генерировались ответы.
+ANSWER_METRICS = ('faithfulness', 'correctness')
+KEY_CONFIGS = {
+    ('naive', 'vector'),
+    ('dify', 'dify_vector'),
+    ('dify', 'dify_hybrid_rerank'),
+    ('domain', 'full'),
 }
 LEGEND = {
     'ours': 'Наша система (ablation)',
@@ -134,24 +144,36 @@ def _systems(data: dict[tuple[str, str, str, str], Row]) -> list[str]:
     ]
 
 
-def figure_ablation(data: dict[tuple[str, str, str, str], Row], metric: str, path: Path) -> None:
-    """Один график: все конфигурации на всех доменах."""
-    fig, ax = plt.subplots(figsize=(10, 5.2), facecolor=SURFACE)
-    bars(ax, data, 'all', metric, CONFIGS)
+def figure_ablation(
+    data: dict[tuple[str, str, str, str], Row],
+    metric: str,
+    path: Path,
+    configs: Sequence[tuple[str, str, str, str]] = CONFIGS,
+) -> None:
+    """Один график: конфигурации на всех доменах."""
+    height = 1.8 + 0.55 * len(configs)
+    fig, ax = plt.subplots(figsize=(10, height), facecolor=SURFACE)
+    bars(ax, data, 'all', metric, configs)
     counts = sorted({v[3] for k, v in data.items() if k[2] == 'all' and k[3] == metric})
     n = '/'.join(map(str, counts))
-    fig.text(0.02, 0.965, METRIC_TITLES[metric], ha='left', va='top', fontsize=13, color=TEXT)
+    fig.text(
+        0.02, 1 - 0.15 / height, METRIC_TITLES[metric], ha='left', va='top', fontsize=13, color=TEXT
+    )
     fig.text(
         0.02,
-        0.915,
-        f'n = {n} вопросов (договоры, код, таблицы; RU и EN); усы — 95% bootstrap CI',
+        1 - 0.5 / height,
+        (
+            f'n = {n} ответов без отказа «нет данных»; усы — 95% bootstrap CI'
+            if metric == 'faithfulness'
+            else f'n = {n} вопросов (договоры, код, таблицы; RU и EN); усы — 95% bootstrap CI'
+        ),
         ha='left',
         va='top',
         fontsize=9,
         color=TEXT_SECONDARY,
     )
     _legend(fig, _systems(data))
-    fig.tight_layout(rect=(0, 0.06, 1, 0.88))
+    fig.tight_layout(rect=(0, 0.45 / height, 1, 1 - 0.8 / height))
     fig.savefig(path, dpi=200, facecolor=SURFACE)
     plt.close(fig)
 
@@ -181,6 +203,10 @@ def main() -> None:
     data = load_summary()
     for metric in ('evidence_recall', 'mrr', 'ap'):
         figure_ablation(data, metric, FIGURES_DIR / f'ablation_{metric}.png')
+        figure_domains(data, metric, FIGURES_DIR / f'domains_{metric}.png')
+    key = [c for c in CONFIGS if (c[0], c[1]) in KEY_CONFIGS]
+    for metric in ANSWER_METRICS:
+        figure_ablation(data, metric, FIGURES_DIR / f'answers_{metric}.png', key)
         figure_domains(data, metric, FIGURES_DIR / f'domains_{metric}.png')
     print(f'графики → {FIGURES_DIR}')
 
