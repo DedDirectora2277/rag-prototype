@@ -20,8 +20,6 @@ from matplotlib.patches import Rectangle
 
 from benchmarks.run_eval import RESULTS_DIR
 
-FIGURES_DIR = RESULTS_DIR / 'figures'
-
 SURFACE = '#fcfcfb'
 TEXT = '#0b0b0b'
 TEXT_SECONDARY = '#52514e'
@@ -69,10 +67,10 @@ LEGEND = {
 Row = tuple[float, float, float, int]
 
 
-def load_summary() -> dict[tuple[str, str, str, str], Row]:
+def load_summary(results_dir: Path = RESULTS_DIR) -> dict[tuple[str, str, str, str], Row]:
     """Читает все `*-summary.csv`: (прогон, конфигурация, домен, метрика) → (mean, low, high, n)."""
     data: dict[tuple[str, str, str, str], Row] = {}
-    for path in sorted(RESULTS_DIR.glob('*-summary.csv')):
+    for path in sorted(results_dir.glob('*-summary.csv')):
         with path.open(encoding='utf-8') as f:
             for r in csv.DictReader(f):
                 key = (r['run'], r['config'], r['domain'], r['metric'])
@@ -197,18 +195,19 @@ def figure_domains(data: dict[tuple[str, str, str, str], Row], metric: str, path
     plt.close(fig)
 
 
-def main() -> None:
-    """Строит все графики."""
-    FIGURES_DIR.mkdir(parents=True, exist_ok=True)
-    data = load_summary()
+def main(results_dir: Path = RESULTS_DIR) -> None:
+    """Строит все графики по сводкам из `results_dir` в `results_dir/figures`."""
+    figures = results_dir / 'figures'
+    figures.mkdir(parents=True, exist_ok=True)
+    data = load_summary(results_dir)
     for metric in ('evidence_recall', 'mrr', 'ap'):
-        figure_ablation(data, metric, FIGURES_DIR / f'ablation_{metric}.png')
-        figure_domains(data, metric, FIGURES_DIR / f'domains_{metric}.png')
+        figure_ablation(data, metric, figures / f'ablation_{metric}.png')
+        figure_domains(data, metric, figures / f'domains_{metric}.png')
     key = [c for c in CONFIGS if (c[0], c[1]) in KEY_CONFIGS]
     for metric in ANSWER_METRICS:
-        figure_ablation(data, metric, FIGURES_DIR / f'answers_{metric}.png', key)
-        figure_domains(data, metric, FIGURES_DIR / f'domains_{metric}.png')
-    print(f'графики → {FIGURES_DIR}')
+        figure_ablation(data, metric, figures / f'answers_{metric}.png', key)
+        figure_domains(data, metric, figures / f'domains_{metric}.png')
+    print(f'графики → {figures}')
 
 
 if __name__ == '__main__':

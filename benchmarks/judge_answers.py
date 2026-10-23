@@ -163,8 +163,8 @@ async def judge_run(target: str, llm: AsyncOpenAI, model: str, pacer: Pacer) -> 
     return out
 
 
-def summarize(targets: list[str]) -> str:
-    """Сводка по кешам вердиктов: CSV и markdown."""
+def summarize(targets: list[str], ids: set[str] | None = None, out_dir: Path = RESULTS_DIR) -> str:
+    """Сводка по кешам вердиктов (только вопросы из `ids`, если заданы): CSV и markdown."""
     rows = []
     lines = [
         '# Оценка ответов LLM-судьёй',
@@ -179,6 +179,8 @@ def summarize(targets: list[str]) -> str:
     for target in targets:
         run, config = target.split(':')
         records = _read_jsonl(RAW_DIR / f'judge-{run}-{config}.jsonl')
+        if ids is not None:
+            records = [r for r in records if r['id'] in ids]
         values: dict[tuple[str, str], list[float]] = defaultdict(list)
         for r in records:
             v = r['verdict'] or {}
@@ -203,12 +205,12 @@ def summarize(targets: list[str]) -> str:
                 cells.append(f'{mean:.3f} [{low:.2f}–{high:.2f}]')
             n = len(values[(domain, 'correctness')])
             lines.append(f'| {target} | {domain} | {n} | ' + ' | '.join(cells) + ' |')
-    with (RESULTS_DIR / 'judge-summary.csv').open('w', encoding='utf-8', newline='') as f:
+    with (out_dir / 'judge-summary.csv').open('w', encoding='utf-8', newline='') as f:
         writer = csv.writer(f)
         writer.writerow(['run', 'config', 'domain', 'metric', 'n', 'mean', 'ci_low', 'ci_high'])
         writer.writerows(rows)
     report = '\n'.join(lines) + '\n'
-    (RESULTS_DIR / 'judge.md').write_text(report, encoding='utf-8')
+    (out_dir / 'judge.md').write_text(report, encoding='utf-8')
     return report
 
 

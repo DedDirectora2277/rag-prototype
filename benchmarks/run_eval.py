@@ -238,7 +238,7 @@ def _write_csv(path: Path, header: list[str], rows: list[list[Any]]) -> None:
         writer.writerows(rows)
 
 
-def score(samples: list[Sample], raw_path: Path) -> str:
+def score(samples: list[Sample], raw_path: Path, out_dir: Path = RESULTS_DIR) -> str:
     """Считает метрики без LLM по сырым результатам.
 
     Кроме markdown пишет два CSV для визуализации (pandas/Excel), оба в «длинном» формате:
@@ -247,8 +247,9 @@ def score(samples: list[Sample], raw_path: Path) -> str:
     среднее и 95% bootstrap CI (`run, config, domain, metric, n, mean, ci_low, ci_high`).
 
     Args:
-        samples: Вопросы.
+        samples: Вопросы (метрики считаются только по ним).
         raw_path: Файл с контекстами.
+        out_dir: Каталог для CSV.
 
     Returns:
         Таблица markdown: конфигурация × домен × метрика (среднее [95% CI]).
@@ -282,7 +283,7 @@ def score(samples: list[Sample], raw_path: Path) -> str:
                     ]
                 )
     _write_csv(
-        RESULTS_DIR / f'{run_name}-scores.csv',
+        out_dir / f'{run_name}-scores.csv',
         ['run', 'config', 'domain', 'source', 'language', 'id', 'metric', 'value'],
         rows,
     )
@@ -291,7 +292,7 @@ def score(samples: list[Sample], raw_path: Path) -> str:
         mean, low, high = bootstrap_ci(vals)
         summary.append([run_name, config, domain, metric, len(vals), mean, low, high])
     _write_csv(
-        RESULTS_DIR / f'{run_name}-summary.csv',
+        out_dir / f'{run_name}-summary.csv',
         ['run', 'config', 'domain', 'metric', 'n', 'mean', 'ci_low', 'ci_high'],
         summary,
     )
