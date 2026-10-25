@@ -33,6 +33,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** The agreement’s term is **one (1) year following the Launch Date**. It may automatically renew for another **one (1) year** unless either party gives notice at least **thirty (30) days** before expiration. The specific expiration date is **NOT IN DOCUMENT**.
 - **Сравнение:** partial; The one-year term following the Launch Date is correct, but the candidate adds unsupported automatic-renewal and 30-day notice provisions and does not state that expiration is one year after the Launch Date.
+- **Разбор (Claude):** ✅ Эталон верен. Ответ модели ошибочен: в договоре нет автопродления, продление возможно только «by mutual written agreement».
 
 ### `cuad-adamsgolfinc_03_21_2005-ex-10.17-endorse-exclusivity`
 
@@ -42,6 +43,7 @@
 - **Замечание модели:** The reference accurately states the general exclusivity obligations, but the excerpt adds material exceptions: Watson may endorse and play a redacted product under specified conditions, need not wear Adams equipment in certain ads, may use non-Adams clubs in the bag without endorsing them, and may replace a terminating endorsement with another one under stated terms.
 - **Ответ модели по документу:** The agreement requires Tom Watson to: - Exclusively endorse Adams Golf products and not permit his name, signature, nickname, voice, or likeness to be used by another product manufacturer or seller. - Not sponsor or endorse products made or sold by another manufacturer or seller. - Not serve as a consultant or adviser to another product manufacturer or seller. - Exclusively play/use the mandatory Adams Golf products during SPGA and PGA events, although he may use non-Adams clubs, including a putter, if he does not endorse them. - When endorsing noncompetitive products, use Adams Golf products 
 - **Сравнение:** partial; The candidate captures the core exclusivity restrictions, but adds details not stated in the reference and potentially overstates the requirement by saying Watson must exclusively endorse Adams products. The reference specifically requires exclusive use of the mandatory product and grants Adams exclusive rights to use Watson’s endorsement, with listed prohibitions.
+- **Разбор (Claude):** ✅ Эталон верен. Исключения, о которых пишет модель, в документе есть, но основные обязательства эталон передаёт правильно. Противоречия нет.
 
 ### `cuad-adamsgolfinc_03_21_2005-ex-10.17-endorse-minimum-commitment`
 
@@ -51,6 +53,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** NOT IN DOCUMENT.
 - **Сравнение:** no; The reference specifies minimum annual tournament participation and mandatory Adams Golf product usage, while the candidate says the information is not in the document.
+- **Разбор (Claude):** ⚠️ Вопрос не соответствует эталону. Спрашивается о минимальном объёме закупок, а эталон — минимальное число турниров и обязательный набор клюшек (метка CUAD «Minimum Commitment» шире). Предлагаю переформулировать: «Is there any minimum commitment (purchase, volume or performance) …?».
 
 ### `cuad-adianutrition_inc_04_01_2005-ex-10.d2-re-audit-rights`
 
@@ -60,6 +63,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** PivX may inspect and test Detto’s physical and technical setup to verify compliance with Detto’s security obligations. Under Section 2.5, Detto must make its offices and equipment available: - in person, upon reasonable notice; and - remotely, to the extent feasible. The inspection concerns Detto’s servers, computer systems, offices, and equipment, particularly to ensure that Qwik-Fix Pro and Documentation are appropriately secured and that Courseware object code cannot be improperly accessed, copied, or downloaded.
 - **Сравнение:** partial; The candidate accurately describes PivX’s inspection and testing rights and the in-person/remote access terms, but omits PivX’s separate right to inspect and audit Detto’s books and records at reasonable times and on reasonable notice to verify statement accuracy.
+- **Разбор (Claude):** ✅ Эталон верен (две отдельные оговорки: проверка оборудования и аудит учёта).
 
 ### `cuad-adianutrition_inc_04_01_2005-ex-10.d2-re-cap-on-liability`
 
@@ -69,6 +73,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** The agreement contains these liability limitations: - Under Section 4.3, except for PivX’s indemnification obligations under Section 4.2, PivX’s and its licensors’ total liability to Detto or any third party is capped at “the total amount actually received by PivX hereunder during the previous six (6) months.” - No party or PivX’s licensors is liable for loss of data, costs of procuring substitute goods or services, or any indirect, incidental, special, or consequential damages, under any cause of action, even if advised of the possibility. - The limitation applies notwithstanding any failure 
 - **Сравнение:** partial; The candidate correctly states the six-month liability cap and Section 4.2 exception, but omits the separate termination limitation barring compensation, reimbursement, or damages for lost prospective profits/anticipated sales and related expenditures, inventory, investments, leases, commitments, or goodwill. It also adds limitations not stated in the reference.
+- **Разбор (Claude):** ✅ Эталон верен.
 
 ### `cuad-agapeatpcorp_20191202_10-ka_ex-10.1_1191-exclusivity`
 
@@ -78,6 +83,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** The agreement establishes that: - Organic Preparations appoints Agape ATP as the **sole and exclusive agent** for the promotion, sales, marketing, distribution, and administration of the Schedule A products. - Organic Preparations grants Agape ATP **exclusive rights for ten (10) years from the signing date**, continuing for an **indefinite period** if Agape ATP fulfills the minimum annual purchase requirements in Schedule B. - Organic Preparations may not assign its rights or obligations without Agape ATP’s prior written consent, and Agape ATP likewise requires Organic Preparations’ prior writ
 - **Сравнение:** partial; The candidate correctly states the exclusive agency appointment and ten-year/indefinite exclusivity tied to Schedule B purchases, but omits the manufacturer’s covenant not to sell the listed products or product names to other parties without the customer’s written consent and the customer’s exclusive rights to market, promote, and sell new products. It also adds mutual assignment-consent provisions not stated in the reference.
+- **Разбор (Claude):** ✅ Эталон верен.
 
 ### `cuad-americanphysicianscapitalinc_03_31_2003--exclusivity`
 
@@ -87,6 +93,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** SC&W agrees not to serve in a strategic marketing capacity for another insurer in Nevada while providing such services for MICOA or for one year thereafter.
 - **Сравнение:** no; The candidate describes a non-compete obligation for SC&W, but the reference only states that an exclusive agency agreement will be negotiated to govern SC&W’s expansion through select, controlled Nevada subagents; it does not specify the one-year post-service restriction.
+- **Разбор (Claude):** 🟡 Эталон формально верен (так размечено в CUAD), но слабый: он говорит лишь, что эксклюзивное соглашение «будет согласовано». Обязательство SC&W не работать на другого страховщика, о котором ответила модель, тоже относится к эксклюзивности. Оставить можно, но судья будет строг к ответам, как у модели.
 
 ### `cuad-americasshoppingmallinc_12_10_1999-ex-10-cap-on-liability`
 
@@ -96,6 +103,7 @@
 - **Замечание модели:** The reference answer is supported by the evidence, but the question asks about the agreement between Hanover Direct and The Deerskin Companies, while the document excerpt identifies the parties only as HDI and the Company and the agreement filename names America Shopping Mall, Inc.; the parties are therefore not unambiguously identifiable.
 - **Ответ модели по документу:** NOT IN DOCUMENT.
 - **Сравнение:** no; The candidate does not state the termination payment limitation: aggregate Net Sales for the preceding 12 months minus $800,000, divided by two.
+- **Разбор (Claude):** ❌ Ошибка разметки CUAD: эталон — платёж при расторжении (п. 4.2), а не ограничение ответственности. Других ограничений ответственности в договоре нет. Стороны названы верно (Hanover Direct и The Deerskin Companies есть в преамбуле), флаг неоднозначности ложный. Рекомендую исключить вопрос.
 
 ### `cuad-americasshoppingmallinc_12_10_1999-ex-10-non-compete`
 
@@ -105,6 +113,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** - **The Deerskin Companies:** During the Agreement’s term, they may not participate in any Internet project similar to the Site involving Deerskin Products or substantially similar products. HDI has the exclusive right to use the “Deerskin” brand for a self-contained consumer-facing website offering Deerskin Products. - **Exception:** The Company may establish an Internet site offering closeout merchandise that may be identified as Deerskin-branded products. - **Hanover Direct (HDI):** During the Agreement and for **two years after its expiration**, HDI may not participate in any similar Inter
 - **Сравнение:** partial; The candidate correctly states the main non-compete restrictions and the two-year post-term restriction on HDI, but adds details about HDI’s exclusive right to use the Deerskin brand and a closeout-merchandise exception that are not in the reference, while not clearly identifying the reference’s Section 6.2 qualification.
+- **Разбор (Claude):** ✅ Эталон верен.
 
 ### `cuad-anixabiosciencesinc_06_09_2020-ex-10.1-c-audit-rights`
 
@@ -114,6 +123,7 @@
 - **Замечание модели:** The reference answer adds terms not supported by the evidence and contradicts the excerpt: the excerpt states each Party retains records for at least three years after expiration or termination, while the reference says inspection by Anixa at Anixa's expense for three years after the calendar year of invoicing. The excerpt does not specify regular business hours, reasonable notice, Anixa's expense, or an invoicing-based period.
 - **Ответ модели по документу:** Each Party has the right to inspect the other Party’s records of activities under the Research Program and Inventions, and may request copies of those records as reasonably required to exercise or perform its rights or obligations. Disclosed information is subject to the confidentiality terms of Section 5. Records must be retained for at least three (3) years after expiration or termination, or longer if required by applicable law or regulation.
 - **Сравнение:** partial; The candidate captures mutual inspection and copying rights, reasonable necessity, and Section 5 confidentiality, but incorrectly changes the retention period trigger and adds a retention requirement. The reference specifies inspection during business hours on reasonable notice by Anixa or its representative, at Anixa’s expense, for three years following the end of the calendar year in which expenses are invoiced.
+- **Разбор (Claude):** ✅ Эталон верен: это два разных пункта (записи по исследованиям — п. 2.7; учёт расходов — проверка Anixa в течение 3 лет). Противоречия нет, модель смешала пункты.
 
 ### `cuad-apollo_endosurgery_-_manufacturing_and_s-warranty-duration`
 
@@ -123,6 +133,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** APOLLO may inspect shipments and report defects in writing within thirty (30) business days of receiving each shipment.
 - **Сравнение:** partial; The candidate captures the 30-day written reporting period but incorrectly states business days and omits that the period concerns rejecting products failing warranties, including possible rejection of an entire lot based on statistical sampling.
+- **Разбор (Claude):** ✅ Эталон верен. В документе действительно «thirty (30) business days», так что модель права насчёт рабочих дней, а сравнение ошиблось.
 
 ### `cuad-artaratherapeuticsinc_20200110_8-k_ex-10-audit-rights`
 
@@ -132,6 +143,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** NOT IN DOCUMENT.
 - **Сравнение:** no; The candidate omits the audit/inspection right allowing ArTara and its CRO to examine original medical and supporting records for Program Data at the University during normal business hours at mutually agreeable times.
+- **Разбор (Claude):** ✅ Эталон верен.
 
 ### `cuad-artaratherapeuticsinc_20200110_8-k_ex-10-cap-on-liability`
 
@@ -141,6 +153,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** The agreement contains these liability limitations: - **No consequential damages:** Neither party is liable to the other in a direct action for “special, indirect, incidental or consequential damages,” including loss of profits (Section 6.4). - **Limited indemnification by ArTara:** ArTara’s indemnification covers liability, loss, expenses, attorneys’ fees, and injury or damage claims arising from use of the Program Data, but only “in proportion to and to the extent” caused by the negligence or acts or omissions of ArTara, its personnel, subcontractors, CRO, or Affiliates (Section 6.3). - **In
 - **Сравнение:** partial; The candidate correctly states the mutual exclusion of special, indirect, incidental, and consequential damages, including lost profits. However, it adds indemnification and insurance provisions that are not part of the reference’s stated limitation of liability.
+- **Разбор (Claude):** ✅ Эталон верен.
 
 ### `cuad-asiandragongroupinc_08_11_2005-ex-10.5-r-anti-assignment`
 
@@ -150,6 +163,7 @@
 - **Замечание модели:** The general rule is supported, but the excerpt adds exceptions: Galaxy may assign the entire agreement to an affiliate and assign accounts receivable to a financing institution without the other party’s consent.
 - **Ответ модели по документу:** No. Under section 13.5, neither party may assign the Agreement without the other party’s prior written consent. However, Galaxy may assign the entire Agreement to an affiliate or assign accounts receivable to a financing institution without that consent.
 - **Сравнение:** yes; 
+- **Разбор (Claude):** 🟡 Эталон верен, но неполон: исключения (уступка аффилированному лицу и уступка дебиторки банку) в нём не упомянуты. Ответ с исключениями судья всё равно засчитывает. Можно оставить.
 
 ### `cuad-atmosenergycorp_11_22_2002-ex-10.17-tran-expiration-date`
 
@@ -159,6 +173,7 @@
 - **Замечание модели:** The term is supported, but the reference answer does not state when the agreement expires. The document says it continues for ten years from physical completion and initial deliveries, then continues month-to-month until terminated with the applicable notice; no physical-completion or initial-delivery date is provided.
 - **Ответ модели по документу:** The agreement has a primary term of ten years, beginning on the date of physical completion and initial deliveries on Transporter’s pipeline. It then continues month to month until terminated with written notice—60 days for interruptible service or 180 days for firm service. The expiration date is not specified in the document.
 - **Сравнение:** yes; 
+- **Разбор (Claude):** ✅ Эталон верен; конкретной даты окончания в документе нет.
 
 ### `cuad-atmosenergycorp_11_22_2002-ex-10.17-tran-minimum-commitment`
 
@@ -168,6 +183,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** NOT IN DOCUMENT.
 - **Сравнение:** no; The reference specifies a minimum and maximum released capacity of 13,370 Dth/day and a tariff-rate minimum, with a reservation bid requirement; it does not say the information is absent.
+- **Разбор (Claude):** ❌ Эталон — обрывок незаполненной формы передачи мощностей («Max 13,370 / Min 13,370 Dth/Day …»), а не обязательство по минимальному объёму. Рекомендую исключить вопрос.
 
 ### `cuad-aurasystemsinc_06_16_2010-ex-10.25-strat-cap-on-liability`
 
@@ -177,6 +193,7 @@
 - **Замечание модели:** The excerpt directly supports the termination/expiration limitation, but does not contain the separate exclusion of special, consequential, or indirect damages. Thus the full reference answer is not established by the provided evidence.
 - **Ответ модели по документу:** The agreement contains this limitation of liability upon termination or expiration: - “NEITHER PARTY SHALL NOT BE LIABLE TO THE OTHER FOR ANY DAMAGES, LOSSES OR EXPENSES” resulting from termination or expiration based on claims for: - loss of goodwill; - prospective profits; - anticipated orders; or - expenditures, investments, leases, or commitments made by that party. It also provides that neither party is discharged from antecedent obligations or liabilities unless agreed in writing.
 - **Сравнение:** partial; The candidate accurately states the termination/expiration exclusions but omits the agreement’s separate provision that neither party is liable for any special, consequential, or indirect damages, however caused. It adds an unrelated antecedent-obligations point.
+- **Разбор (Claude):** ✅ Эталон верен (обе оговорки есть в договоре).
 
 ### `cuad-aurasystemsinc_06_16_2010-ex-10.25-strat-warranty-duration`
 
@@ -186,6 +203,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** The End-User Warranty period is at least **thirty-six (36) months from the time of purchase by the initial end-user**. Zanotti must **immediately alert Aura** upon becoming aware of any defect in or hazard posed by a Product.
 - **Сравнение:** partial; The candidate correctly states the minimum 36-month warranty period but omits that Zanotti must offer an additional 24 months of extended coverage, for a possible total of 60 months. It also adds an immediate defect/hazard alert obligation not stated in the reference.
+- **Разбор (Claude):** ✅ Эталон верен.
 
 ### `cuad-bellringbrands_inc_02_07_2020-ex-10.18-m-expiration-date`
 
@@ -195,6 +213,7 @@
 - **Замечание модели:** The term and renewal provisions are fully supported, but the question identifies the parties as Premier Nutrition and Fonterra, while the excerpt identifies PNC and Supplier and does not establish those names. No specific expiration date can be determined without the Effective Date.
 - **Ответ модели по документу:** The agreement has an initial term of five (5) years from the Effective Date and automatically renews for additional five (5)-year periods unless either party gives at least 12 months’ notice of non-renewal. The excerpts do not state the Effective Date, so the expiration date cannot be determined.
 - **Сравнение:** yes; 
+- **Разбор (Claude):** ✅ Эталон верен. Флаг ложный: в преамбуле указаны Premier Nutrition Company, LLC и Fonterra (USA) Inc.
 
 ### `cuad-bellringbrands_inc_02_07_2020-ex-10.18-m-renewal-term`
 
@@ -204,6 +223,7 @@
 - **Замечание модели:** The renewal terms are fully supported, but the question identifies Premier Nutrition and Fonterra while the excerpt identifies PNC/BellRing Brands and a Supplier; the parties/company identity is ambiguous or inconsistent.
 - **Ответ модели по документу:** Yes. The agreement automatically renews for additional periods of five (5) years unless either party provides notice of non-renewal at least 12 months before the current term expires.
 - **Сравнение:** yes; 
+- **Разбор (Claude):** ✅ Эталон верен (флаг ложный, см. предыдущий вопрос).
 
 ### `cuad-bioamberinc_04_10_2013-ex-10.34-developm-exclusivity`
 
@@ -213,6 +233,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** - Cargill grants Bioamber an **exclusive, royalty-free license** to Cargill Improvements and Joint Improvements for use in the Field during the term of the Development Agreement, limited to research purposes, with no sublicensing or “have made” rights. - Bioamber grants Cargill an **exclusive, worldwide, royalty-free license**, with an unlimited right to sublicense, under Bioamber Improvements for use outside the Field during the term, also limited to research purposes. - Bioamber owns Improvements in the field of succinic acid and salts thereof; Cargill owns Improvements in all other fields, 
 - **Сравнение:** partial; The candidate captures the core reciprocal exclusive, royalty-free licenses, the Field/outside-Field scopes, duration, worldwide scope for Cargill, and Cargill’s unlimited sublicensing right. However, it adds unsupported limitations to research purposes and no sublicensing/'have made' rights, and adds ownership statements not present in the reference. It also omits Cargill’s reservation to practice the Improvements in the succinic acid and salts field.
+- **Разбор (Claude):** ✅ Эталон верен.
 
 ### `cuad-bioamberinc_04_10_2013-ex-10.34-developm-non-compete`
 
@@ -222,6 +243,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** Bioamber may not, during the Term, itself or through third parties develop biocatalysts other than *E. coli* for producing succinic acid or its salts, except as permitted under the Development Agreement. It may evaluate other biocatalysts to identify alternative technologies, but must cease within 30 days all further funding and development—including genetic modification or fermentation-condition optimization—once a non-*E. coli* biocatalyst demonstrates production of succinic acid above [***] grams per liter. The restriction applies to biocatalysts developed in-house, licensed in, or under de
 - **Сравнение:** partial; The candidate captures the core restriction and covered biocatalyst sources, but adds an evaluation/30-day funding-and-development exception and threshold not stated in the reference, and omits the reference’s broader wording about engaging "with or through" third parties and the specific ways future rights may be secured.
+- **Разбор (Claude):** ✅ Эталон верен.
 
 ### `ru-arenda-novyi-srok`
 
@@ -231,6 +253,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** Договор считается возобновленным на тех же условиях на неопределенный срок (статья 610).
 - **Сравнение:** partial; Вывод совпадает, но неверно указана статья: это п. 2 ст. 621 ГК РФ, а не ст. 610.
+- **Комментарий исследователя:** Вопрос корректный. Статья в эталоне указана верно.
 
 ### `ru-podryad-riski`
 
@@ -240,6 +263,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** Подрядчик.
 - **Сравнение:** partial; Не указаны исключения: иное может быть предусмотрено законом или договором; при просрочке передачи или приёмки риск несёт сторона, допустившая просрочку.
+- **Комментарий исследователя:** Вопрос корректный
 
 ### `ru-podryad-uklonenie-ot-priemki`
 
@@ -249,6 +273,7 @@
 - **Замечание модели:** В доказательстве указано только право подрядчика действовать по истечении месяца; условия двукратного предупреждения, продажи результата и внесения выручки в депозит подтверждаются лишь отрывком документа, а не выделенным evidence.
 - **Ответ модели по документу:** Если заказчик уклоняется от приёмки выполненной работы, подрядчик вправе по истечении месяца со дня, когда результат должен был быть передан заказчику, и после двукратного предупреждения заказчика продать результат работы. Вырученную сумму за вычетом причитающихся подрядчику платежей он должен внести на имя заказчика в депозит (п. 6 ст. 720 ГК РФ).
 - **Сравнение:** yes; 
+- **Комментарий исследователя:** Вопрос корректный, в рамках указанного пункта доступна вся информация из эталона.
 
 ### `ru-yc-limit-otvetstvennosti`
 
@@ -258,6 +283,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** Предельный размер ответственности Яндекса за убытки и реальный ущерб ограничен общей суммой платежей, полученных от Клиента за последний Отчетный период, предшествующий основанию возникновения ответственности (п. 10.7 Оферты).
 - **Сравнение:** partial; Не указано, что Яндекс не отвечает за упущенную выгоду и косвенные убытки (п. 10.1).
+- **Комментарий исследователя:** Вопрос корректный
 
 ### `ru-yc-otkaz-klienta`
 
@@ -267,6 +293,13 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** Клиент должен уведомить Яндекс не менее чем за **10 (десять) календарных дней** до предполагаемой даты расторжения (п. 12.1). Для Яндекса установлен **немедленный** отказ с прекращением доступа к Сервисам в указанных случаях (п. 12.4).
 - **Сравнение:** no; Кандидат правильно указал срок для клиента — 10 календарных дней, но не указал срок для Яндекса — не менее 30 календарных дней, вместо этого привел сведения о немедленном отказе по п. 12.4.
+- **Комментарий исследователя:** Эталон верный, но там не хватает информации о том, что Яндекс может в одностороннем порядке отказаться от договора в следующих случаях:
+  - прекращения договорных отношений Яндекса с подрядчиками, партнерами, лицензиарами, предоставляющими программное обеспечение или иные технологии, используемые Яндексом для предоставления Сервисов, повлекшего за собой невозможность предоставления Яндексом всех или отдельных Сервисов или необходимость изменения способа предоставления Сервисов;
+  - неоднократного нарушения (более двух раз) Клиентом любого обязательства по Договору;
+  - не устранения Клиентом нарушения, являющегося основанием для приостановления доступа к Сервисам, при условии, что срок приостановления доступа превысил 5 (пять) рабочих дней;
+  - несоблюдения Клиентом Правил допустимого использования Сервисов, которые привели к нарушению прав третьего лица или нарушению применимого законодательства;
+  - Инактивации аккаунта Клиента;
+  - если исполнение Договора или предоставление отдельных Сервисов нарушает законодательство, применимое к группе компаний YANDEX.
 
 ### `ru-yc-udalenie-dannyh`
 
@@ -276,6 +309,7 @@
 - **Замечание модели:** Основные сроки подтверждены, однако после приостановки доступa документ предусматривает исключения: данные могут быть немедленно удалены после расторжения договора, а приостановление в пробный период допускает удаление в любое время. Кроме того, 60 дней — срок хранения при приостановлении при неустранении нарушений, а не безусловный срок.
 - **Ответ модели по документу:** После приостановки доступа Яндекс хранит данные и Контент клиента **60 календарных дней**. Затем, если нарушение не устранено, они могут быть удалены **в течение 72 часов**. После прекращения договора данные помечаются как удаляемые и удаляются вместе с ресурсами платформы **в течение 72 часов с момента прекращения договора**, если иной срок не установлен применимым законодательством.
 - **Сравнение:** yes; 
+- **Комментарий исследователя:** Замечания модели верны.
 
 ### `code-click-clirunner-exceptions`
 
@@ -285,6 +319,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** When the command raises an unexpected exception, `CliRunner.invoke` reports exit code `1`: ```python except Exception as e: if not catch_exceptions: raise exception = e exit_code = 1 ``` To make the exception propagate, call `invoke` with: ```python catch_exceptions=False ```
 - **Сравнение:** yes; 
+- **Разбор (Claude):** ✅ Эталон верен.
 
 ### `code-click-exception-hierarchy`
 
@@ -294,6 +329,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** BadParameter and MissingParameter.
 - **Сравнение:** partial; The candidate omits NoSuchOption, BadOptionUsage, and BadArgumentUsage, which are also subclasses of UsageError.
+- **Разбор (Claude):** ✅ Эталон верен (проверено по `click/exceptions.py`).
 
 ### `code-click-max-content-width`
 
@@ -303,6 +339,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** NOT IN DOCUMENT.
 - **Сравнение:** no; The candidate does not provide the default maximum width, which is 80 characters.
+- **Разбор (Claude):** ✅ Эталон верен.
 
 ### `code-httpx-digest-algorithms`
 
@@ -312,6 +349,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** httpx.DigestAuth supports: - MD5 - MD5-SESS - SHA (SHA-1) - SHA-SESS (SHA-1) - SHA-256 - SHA-256-SESS - SHA-512 - SHA-512-SESS The default algorithm is **MD5**, as `_parse_challenge()` uses `header_dict.get("algorithm", "MD5")`.
 - **Сравнение:** yes; 
+- **Разбор (Claude):** ✅ Эталон верен.
 
 ### `code-httpx-http2`
 
@@ -321,6 +359,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** Install the optional HTTP/2 dependencies: ```shell pip install httpx[http2] ``` Then instantiate a client with `http2=True`: ```python client = httpx.AsyncClient(http2=True) ``` HTTP/2 support is also available with `Client`.
 - **Сравнение:** yes; 
+- **Разбор (Claude):** ✅ Эталон верен.
 
 ### `code-httpx-raise-for-status`
 
@@ -330,6 +369,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** For a 2xx response, `Response.raise_for_status()` returns the response unchanged. For an error, it raises `HTTPStatusError` with a message containing the status code, reason phrase, URL, and—if applicable—the redirect location and a status-information URL. It raises `RuntimeError` when the response has no associated request (`self._request is None`).
 - **Сравнение:** yes; 
+- **Разбор (Claude):** ✅ Эталон верен.
 
 ### `code-httpx-retries`
 
@@ -339,6 +379,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** Yes. When using `httpx.HTTPTransport(retries=1)`, httpx retries requests once when an `httpx.ConnectError` or `httpx.ConnectTimeout` occurs. The default is `retries=0`; other errors, such as read/write errors or `503 Service Unavailable`, are not retried by this mechanism.
 - **Сравнение:** yes; 
+- **Разбор (Claude):** ✅ Эталон верен.
 
 ### `code-httpx-ssl-cert-env`
 
@@ -348,6 +389,7 @@
 - **Замечание модели:** The code supports use of SSL_CERT_FILE (and SSL_CERT_DIR) when verify=True and trust_env=True, with certifi otherwise. However, the documentation excerpt explicitly states that httpx does not automatically pull in these variables and requires explicit enabling, contradicting or materially qualifying the reference answer.
 - **Ответ модели по документу:** Yes. When `trust_env=True` (the default) and `verify=True`, httpx 0.28 uses `SSL_CERT_FILE` if it is set.
 - **Сравнение:** yes; 
+- **Разбор (Claude):** ✅ Эталон верен, расхождение кода и документации в нём уже отмечено.
 
 ### `finqa-aapl_2003_page_48.pdf-1`
 
@@ -358,6 +400,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** $6.0 million ($7.2 million − $1.2 million accretion).
 - **Сравнение:** yes; 
+- **Разбор (Claude):** ✅ Эталон верен; тот же факт есть в отчёте за 2004 год, и оба документа нужно засчитывать.
 
 ### `finqa-abc_2005_page_49.pdf-1`
 
@@ -367,6 +410,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** NOT IN DOCUMENT.
 - **Сравнение:** no; The reference answer is 18.7 million, but the candidate does not provide an answer.
+- **Разбор (Claude):** 🟡 Эталон по программе FinQA: 13,3 + 5,4 = 18,7. Неточность: 13,3 млн — это «severance and lease cancellation costs», не только выходные пособия. Можно оставить.
 
 ### `finqa-abmd_2005_page_29.pdf-1`
 
@@ -376,6 +420,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** Risk-free interest rate growth from 2004 to 2005: \[ \frac{3.87\%-2.56\%}{2.56\%}=51.17\% \] Projected 2006 rate: \[ 3.87\%\times(1+51.17\%)\approx5.85\% \] The projected risk-free interest rate would be **5.85%**.
 - **Сравнение:** no; The candidate gives 5.85%, whereas the reference answer is 5.38%.
+- **Разбор (Claude):** ❌ Арифметическая ошибка в эталоне FinQA: по его же программе 3,87 × (3,87 / 2,56) = 5,85%, а не 5,38%. Ответ модели (5,85%) верен. Исправить эталон на 5,85%.
 
 ### `finqa-amat_2013_page_37.pdf-1`
 
@@ -385,6 +430,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** Applied Materials’ value increased from 100.00 in 2008 to 118.21 in 2011. Total return = \(100000 \times \frac{118.21}{100.00} = 118210\) Total return: **118210**
 - **Сравнение:** no; The reference answer is 18210, while the candidate gives 118210; it reports the ending value rather than the total return.
+- **Разбор (Claude):** 🟡 Эталон верен, если «total return» — это прибыль (18 210); модель дала итоговую стоимость (118 210). Предлагаю уточнить эталон: «18 210 (итоговая стоимость 118 210)».
 
 ### `finqa-amt_2003_page_102.pdf-1`
 
@@ -394,6 +440,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** $4.8 million.
 - **Сравнение:** no; The reference gives the accrued interest portion as 2.2%, while the candidate gives a dollar amount of $4.8 million.
+- **Разбор (Claude):** ✅ Эталон верен: 4,8 / 221,9 ≈ 2,2%.
 
 ### `finqa-awk_2012_page_117.pdf-1`
 
@@ -403,6 +450,7 @@
 - **Замечание модели:** The evidence states $74,360 and $46,961 for 2012 and 2011, respectively. Their total is $121,321, but the question asks for the liability for each year, not their sum; the reference answer omits the year-specific amounts.
 - **Ответ модели по документу:** ($74,360 + $46,961) ÷ 1,000 = **$121.321 million**.
 - **Сравнение:** yes; 
+- **Разбор (Claude):** ❌ Вопрос некорректен: просят значения за 2012 и 2011 годы, а эталон их складывает. К тому же суммы в тысячах долларов, а спрашивается «in millions». Второй эталонный фрагмент («Increases in current period tax positions 46,961») случайно совпал по числу, к вопросу он не относится. Рекомендую исключить.
 
 ### `finqa-bll_2006_page_67.pdf-1`
 
@@ -412,6 +460,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** NOT IN DOCUMENT.
 - **Сравнение:** no; The reference states that current assets were 32.2% of net assets acquired, but the candidate does not provide an answer.
+- **Разбор (Claude):** ❌ Эталон не сходится с программой: (259,5 + 0,2) / 802,6 = 32,4%, а не 32,2%. Исправить на ≈32,4%.
 
 ### `finqa-ce_2009_page_65.pdf-2`
 
@@ -421,6 +470,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** NOT IN DOCUMENT.
 - **Сравнение:** no; The candidate does not provide the required value of -305 US$ million.
+- **Разбор (Claude):** ✅ Эталон верен: −677 − (−372) = −305.
 
 ### `finqa-cme_2010_page_123.pdf-1`
 
@@ -430,6 +480,7 @@
 - **Замечание модели:** The evidence gives 5,978 securities in plans not approved by security holders and 1,217,121 total securities. Their percentage is approximately 0.492%, not 0.491%.
 - **Ответ модели по документу:** \[ \frac{5,978}{1,217,121}\times 100 = 0.49\% \] The percentage was **0.49%**.
 - **Сравнение:** yes; 
+- **Разбор (Claude):** ✅ Эталон верен: 5 978 / 1 217 121 = 0,491% (замечание модели про 0,492% ошибочно).
 
 ### `finqa-disca_2011_page_49.pdf-1`
 
@@ -439,6 +490,7 @@
 - **Замечание модели:** The table shows DISCA rising from $100 invested on September 18, 2008 to $296.67 on December 31, 2011, implying a cumulative total return of 196.67%, not merely unsupported as stated; however, the reference answer matches this calculation. The supplied evidence does not explicitly state the calculated percentage, so under the strict claim-following criterion the answer is not directly supported.
 - **Ответ модели по документу:** \[ \frac{296.67-100}{100}\times 100\%=196.67\% \] The percentage cumulative total shareholder return on DISCA was **196.67%**.
 - **Сравнение:** yes; 
+- **Разбор (Claude):** ✅ Эталон верен: 296,67 − 100 = 196,67%.
 
 ### `finqa-dxc_2018_page_56.pdf-1`
 
@@ -448,6 +500,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** 73.0%
 - **Сравнение:** no; The candidate gives 73.0%, while the reference answer is 78%.
+- **Разбор (Claude):** ⚠️ Эталон верен: 17 944 / 22 885 = 78%; модель взяла долю от выручки (73,0%). Но эталонные фрагменты указывают не на те строки (шапка и «Other income»), нужны строки «Costs of services» и «Total costs and expenses». Это искажает метрики поиска.
 
 ### `finqa-ecl_2016_page_52.pdf-1`
 
@@ -457,6 +510,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** $327 million − $184 million = **$143 million** held in the U.S.
 - **Сравнение:** no; The reference asks for the portion as a percentage (43.7%), while the candidate gives a dollar amount ($143 million) and does not provide the required percentage.
+- **Разбор (Claude):** ✅ Эталон верен: (327 − 184) / 327 = 43,7% (сама программа FinQA записана с ошибкой, но ответ правильный).
 
 ### `finqa-emr_2017_page_78.pdf-1`
 
@@ -466,6 +520,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** NOT IN DOCUMENT.
 - **Сравнение:** no; The reference answer is 8.6 years, but the candidate states the information is not in the document.
+- **Разбор (Claude):** ✅ Эталон верен: 174 335 / (17 984 + 2 248) ≈ 8,6.
 
 ### `finqa-fbhs_2017_page_22.pdf-1`
 
@@ -475,6 +530,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** NOT IN DOCUMENT.
 - **Сравнение:** no; The candidate does not provide the ratio; the reference answer is 4.9.
+- **Разбор (Claude):** ✅ Эталон верен: 2 467,1 / 502,9 ≈ 4,9.
 
 ### `finqa-fis_2006_page_31.pdf-1`
 
@@ -484,6 +540,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** Texas leased locations portion = \( \frac{19}{57+26+22+19+9+8+7+63+81} = \frac{19}{292} \approx 6.5\% \).
 - **Сравнение:** no; The reference answer is 13.2%, while the candidate calculates 6.5%.
+- **Разбор (Claude):** ❌ Ошибка в эталоне FinQA: 19 / (63 + 81) — знаменатель бессмысленный («Other» + зарубежные). Всего локаций при любом прочтении больше (US 211–236, с зарубежными 292–317), доля Техаса 6–9%. Вопрос к тому же неоднозначен (как считать строки «Minnesota, New York | 9»). Рекомендую исключить.
 
 ### `finqa-gs_2012_page_121.pdf-1`
 
@@ -493,6 +550,7 @@
 - **Замечание модели:** The reference answer concerns the percentage change in Total assets, requiring $938,555 (2012) and $923,225 (2011), which are present in the document excerpt but absent from the supplied evidence fragment. Using those values gives approximately 1.7%, so the answer is numerically supported by the excerpt, not by the provided evidence.
 - **Ответ модели по документу:** NOT IN DOCUMENT.
 - **Сравнение:** no; The reference states that total assets increased by 1.7% in 2012, while the candidate says the information is not in the document.
+- **Разбор (Claude):** ⚠️ Эталон верен: (938 555 − 923 225) / 923 225 ≈ 1,7%. Эталонный фрагмент неверный («Total financial assets at fair value»), нужна строка «Total assets».
 
 ### `finqa-hii_2015_page_121.pdf-1`
 
@@ -502,6 +560,7 @@
 - **Замечание модели:** The evidence provides Q1 2014 net earnings ($90 million) and sales and service revenues ($1,594 million), but does not support a 5.6% net income margin. Net earnings divided by revenues is approximately 5.6%, so the answer requires arithmetic using a value present only in the document excerpt, not the provided evidence fragment.
 - **Ответ модели по документу:** Net income margin = Net earnings ÷ Sales and service revenues = $90 million ÷ $1,594 million = 0.0565 ≈ **5.65%**
 - **Сравнение:** yes; 
+- **Разбор (Claude):** ⚠️ Эталон верен: 90 / 1 594 ≈ 5,6%. Фрагменты неверные (шапка и «Earnings before income taxes»), нужны строки «Sales and service revenues» и «Net earnings».
 
 ### `ru-cross-chistaya-pribyl-2025`
 
@@ -511,6 +570,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** У МТС: 35 219.96743109303 против 16 333 у Мосбиржи.
 - **Сравнение:** no; Кандидат неверно указал компанию и сумму прибыли Мосбиржи: по эталону у Мосбиржи 59 390,7 млн руб., что больше примерно 35,2 млрд руб. у МТС.
+- **Комментарий исследователя:** Не совсем понимаю, откуда числа из эталона взяты. В документах (прессрелизах) указаны данные за кварталы, а не за год (года указаны, для сравнения аналогичных кварталов с прошлогодними). Нашёл данные в таблицах: У МТС чистая прибыль за период 12 месяцев на конец 2025 года - 38 636 млн. руб.,  Мосбиржи: 59 390,7 млн руб. (в эталоне верно)
 
 ### `ru-moex-chistaya-pribyl-2025`
 
@@ -520,6 +580,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** NOT IN DOCUMENT.
 - **Сравнение:** no; В ответе кандидата отсутствует значение чистой прибыли; по справке — 59 390,7 млн руб. за 2025 год.
+- **Комментарий исследователя:** В эталоне указано верно.
 
 ### `ru-moex-dividendy-2021`
 
@@ -529,6 +590,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** В 2020 году: дивиденды на акцию (DPS) — 0.
 - **Сравнение:** no; В справочном ответе указан 2021 год, а кандидат указывает 2020 год.
+- **Комментарий исследователя:** В эталоне указано верно (2021 год)
 
 ### `ru-moex-ebitda-2023`
 
@@ -538,6 +600,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** NOT IN DOCUMENT.
 - **Сравнение:** no; Кандидат не содержит значения EBITDA Московской биржи за 2023 год.
+- **Комментарий исследователя:** В эталоне указано верно
 
 ### `ru-moex-komissionnye-dohody`
 
@@ -547,6 +610,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** Комиссионные доходы выросли с 64 497,5 млн руб. в 2024 году до 74 836,4 млн руб. в 2025 году: 74 836,4 − 64 497,5 = 10 338,9 млн руб. (+16,0%).
 - **Сравнение:** no; Указаны другие значения и темп роста: в эталоне 62 983,4 → 78 655,3 млн руб. (примерно +24,9%), а в ответе 64 497,5 → 74 836,4 млн руб. (+16,0%).
+- **Комментарий исследователя:** В эталоне указано верно
 
 ### `ru-moex-pdf-sredstva-klientov`
 
@@ -556,6 +620,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** Средства клиентов уменьшились на 221 328,7 млн руб.: с 1 179 680,4 млн руб. на 31 декабря 2025 года до 958 351,7 млн руб. на 30 июня 2026 года.
 - **Сравнение:** yes; 
+- **Комментарий исследователя:** В эталоне указано верно
 
 ### `ru-moex-personal-2025`
 
@@ -565,6 +630,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** NOT IN DOCUMENT.
 - **Сравнение:** no; В ответе отсутствуют данные о расходах на персонал: 22 739,9 млн руб. в 2025 году против 25 128,8 млн руб. в 2024 году, снижение примерно на 9,5%.
+- **Комментарий исследователя:** В эталоне указано верно
 
 ### `ru-moex-reklama`
 
@@ -574,6 +640,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** NOT IN DOCUMENT.
 - **Сравнение:** no; В ответе кандидата отсутствует информация о росте расходов: примерно в 5,5 раза, с 1 808,7 до 9 863,5 млн руб.
+- **Комментарий исследователя:** В эталоне указано верно
 
 ### `ru-mts-capex-2025`
 
@@ -583,6 +650,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** Капитальные затраты МТС в 2025 году составили **120,6 млрд руб.** Доля выручки: **120,6 / 807,2 × 100% ≈ 14,9%**
 - **Сравнение:** yes; 
+- **Комментарий исследователя:** В эталоне указано верно
 
 ### `ru-mts-pogashenie-dolga`
 
@@ -592,6 +660,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** 195.571490190673 млрд руб.
 - **Сравнение:** no; В 2026 году предстоит погасить около 379,2 млрд руб.; 195,6 млрд руб. относится к 2027 году.
+- **Комментарий исследователя:** В эталоне указано верно
 
 ### `ru-mts-roznica-magaziny`
 
@@ -601,6 +670,7 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** С конца 2023 года число розничных магазинов МТС уменьшилось с 4 478 до 3 914 к концу 2025 года. Расчёт: 3 914 − 4 478 = −564 магазина, или −12,6%.
 - **Сравнение:** partial; Не указано промежуточное значение на конец 2024 года — 4 214 магазинов.
+- **Комментарий исследователя:** В эталоне указано верно
 
 ### `ru-mts-vyruchka-2025`
 
@@ -610,3 +680,4 @@
 - **Замечание модели:** —
 - **Ответ модели по документу:** Общая выручка Группы МТС за 2025 год составила **807,2 млрд руб.** (или **807186 млн руб.**).
 - **Сравнение:** yes; 
+- **Комментарий исследователя:** В эталоне указано верно

@@ -399,6 +399,27 @@ def _stable_zip(data: bytes) -> bytes:
     return out.getvalue()
 
 
+def _row_key(cells: list[str]) -> str:
+    """Ключ строки таблицы для сопоставления: первая ячейка без пунктуации и разметки."""
+    return re.sub(r'<[^>]+>|\W', '', cells[0].lower()) if cells else ''
+
+
+def _finqa_ori_row(item: dict[str, Any], index: int) -> list[str]:
+    """Строка `table_ori`, соответствующая строке `index` нормализованной `table`.
+
+    Индексы `gold_inds` относятся к `table`, где многострочная шапка склеена в одну
+    строку, поэтому в `table_ori` строки бывают сдвинуты. Строка ищется по названию
+    (первой ячейке); если не нашлась — берётся сдвиг на разницу числа строк.
+    """
+    ori = item['table_ori']
+    shifted = min(index + len(ori) - len(item['table']), len(ori) - 1)
+    key = _row_key(item['table'][index])
+    if _row_key(ori[shifted]) == key:
+        return list(ori[shifted])
+    matches = [i for i, row in enumerate(ori) if key and _row_key(row) == key]
+    return list(ori[min(matches, key=lambda i: abs(i - shifted))] if matches else ori[shifted])
+
+
 def _finqa_evidence(item: dict[str, Any]) -> list[list[str]]:
     """Эталонные фрагменты FinQA: строка таблицы — непустые ячейки, текст — предложение.
 
@@ -410,7 +431,8 @@ def _finqa_evidence(item: dict[str, Any]) -> list[list[str]]:
     for key in item['qa']['gold_inds']:
         kind, index = key.split('_')
         if kind == 'table':
-            groups.append([c.strip() for c in item['table_ori'][int(index)] if c.strip()])
+            row = _finqa_ori_row(item, int(index))
+            groups.append([c.strip() for c in row if c.strip()])
         else:
             groups.append([sentences[int(index)]])
     return [g for g in groups if g]
