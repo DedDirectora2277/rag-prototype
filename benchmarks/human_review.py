@@ -283,6 +283,7 @@ def agreement_cmd() -> None:
     correctness: list[tuple[str, str]] = []
     support: list[tuple[str, str]] = []
     rows = []
+    support_rows = []
     for n, item in enumerate(key, start=1):
         cells = {
             name: _norm(sheet.cell(row=n + 1, column=col).value)
@@ -297,12 +298,17 @@ def agreement_cmd() -> None:
         j_support = 'да' if claims and int(v.get('supported') or 0) >= claims else 'нет'
         refusal.append((cells['Отказ'] or 'нет', j_refusal))
         correctness.append((cells['Правильность'], j_correct))
+        note = str(v.get('note', '')).replace('|', '/')[:200]
         if cells['Опора'] and j_refusal == 'нет':
             support.append((cells['Опора'], j_support))
+            if cells['Опора'] != j_support:
+                support_rows.append(
+                    f'| {n} | `{item["id"]}` | {cells["Опора"]} | {j_support} '
+                    f'({v.get("supported")}/{claims}) | {note} |'
+                )
         if cells['Правильность'] != j_correct:
             rows.append(
-                f'| {n} | `{item["id"]}` | {cells["Правильность"]} | {j_correct} | '
-                f'{str(v.get("note", "")).replace("|", "/")[:200]} |'
+                f'| {n} | `{item["id"]}` | {cells["Правильность"]} | {j_correct} | {note} |'
             )
 
     def line(name: str, pairs: list[tuple[str, str]], weighted: bool = False) -> str:
@@ -344,6 +350,12 @@ def agreement_cmd() -> None:
         '| № | Вопрос | Человек | Судья | Обоснование судьи |',
         '|---|---|---|---|---|',
         *rows,
+        '',
+        '## Расхождения по опоре на контекст',
+        '',
+        '| № | Вопрос | Человек | Судья (подтверждено/утверждений) | Обоснование судьи |',
+        '|---|---|---|---|---|',
+        *support_rows,
         '',
     ]
     REPORT_PATH.write_text('\n'.join(report), encoding='utf-8')
