@@ -1,0 +1,152 @@
+[
+ {
+  "id": "finqa-awk_2012_page_117.pdf-1",
+  "run": "naive",
+  "config": "vector"
+ },
+ {
+  "id": "ru-podryad-subpodryad",
+  "run": "naive",
+  "config": "vector"
+ },
+ {
+  "id": "code-click-isolated-fs",
+  "run": "dify",
+  "config": "dify_vector"
+ },
+ {
+  "id": "ru-moex-dividendy-2021",
+  "run": "dify",
+  "config": "dify_hybrid_rerank"
+ },
+ {
+  "id": "finqa-adi_2010_page_60.pdf-1",
+  "run": "dify",
+  "config": "dify_hybrid_rerank"
+ },
+ {
+  "id": "code-click-auto-envvar",
+  "run": "naive",
+  "config": "vector"
+ },
+ {
+  "id": "ru-moex-personal-2025",
+  "run": "dify",
+  "config": "dify_vector"
+ },
+ {
+  "id": "ru-moex-reklama",
+  "run": "naive",
+  "config": "vector"
+ },
+ {
+  "id": "ru-podryad-riski",
+  "run": "domain",
+  "config": "full"
+ },
+ {
+  "id": "ru-mts-pdf-chistyi-dolg",
+  "run": "dify",
+  "config": "dify_hybrid_rerank"
+ },
+ {
+  "id": "ru-mts-capex-2025",
+  "run": "domain",
+  "config": "full"
+ },
+ {
+  "id": "code-httpx-max-redirects",
+  "run": "dify",
+  "config": "dify_hybrid_rerank"
+ },
+ {
+  "id": "ru-yc-limit-otvetstvennosti",
+  "run": "dify",
+  "config": "dify_hybrid_rerank"
+ },
+ {
+  "id": "ru-44fz-ekspertiza",
+  "run": "naive",
+  "config": "vector"
+ },
+ {
+  "id": "ru-44fz-penya-zakazchika",
+  "run": "dify",
+  "config": "dify_vector"
+ },
+ {
+  "id": "ru-moex-pdf-sredstva-klientov",
+  "run": "naive",
+  "config": "vector"
+ },
+ {
+  "id": "ru-mts-pdf-dividendy",
+  "run": "dify",
+  "config": "dify_vector"
+ },
+ {
+  "id": "finqa-aos_2010_page_18.pdf-1",
+  "run": "dify",
+  "config": "dify_vector"
+ },
+ {
+  "id": "ru-cross-pretenzii-kachestvo",
+  "run": "domain",
+  "config": "full"
+ },
+ {
+  "id": "code-click-mix-stderr",
+  "run": "domain",
+  "config": "full"
+ },
+ {
+  "id": "finqa-c_2008_page_22.pdf-1",
+  "run": "domain",
+  "config": "full"
+ },
+ {
+  "id": "ru-moex-ebitda-2023",
+  "run": "naive",
+  "config": "vector"
+ },
+ {
+  "id": "code-httpx-timeout-hierarchy",
+  "run": "naive",
+  "config": "vector"
+ },
+ {
+  "id": "code-httpx-request-params",
+  "run": "domain",
+  "config": "full"
+ },
+ {
+  "id": "ru-mts-roznica-magaziny",
+  "run": "domain",
+  "config": "full"
+ },
+ {
+  "id": "ru-arenda-izmenenie-platy",
+  "run": "domain",
+  "config": "full"
+ },
+ {
+  "id": "finqa-eog_2018_page_75.pdf-1",
+  "run": "domain",
+  "config": "full"
+ },
+ {
+  "id": "ru-yc-srok-oplaty",
+  "run": "dify",
+  "config": "dify_vector"
+ },
+ {
+  "id": "ru-yc-pretenzii",
+  "run": "dify",
+  "config": "dify_hybrid_rerank"
+ },
+ {
+  "id": "finqa-anss_2012_page_93.pdf-1",
+  "run": "dify",
+  "config": "dify_vector"
+ }
+]
