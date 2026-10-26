@@ -1,23 +1,7 @@
 {
- "indexed_documents": 191,
+ "indexed_documents": 206,
  "uploaded_documents": 206,
- "missing_documents": [
-  "code/click/src/click/decorators.py",
-  "code/click/src/click/exceptions.py",
-  "code/click/src/click/formatting.py",
-  "code/click/src/click/shell_completion.py",
-  "code/click/src/click/termui.py",
-  "code/httpx/httpx/_decoders.py",
-  "code/httpx/httpx/_models.py",
-  "code/httpx/httpx/_multipart.py",
-  "code/httpx/httpx/_utils.py",
-  "contracts/cuad/ABILITYINC_06_15_2020-EX-4.25-SERVICES_AGREEMENT.txt",
-  "contracts/cuad/ADAMSGOLFINC_03_21_2005-EX-10.17-ENDORSEMENT_AGREEMENT.txt",
-  "contracts/cuad/ALLISONTRANSMISSIONHOLDINGSINC_12_15_2014-EX-99.1-COOPERATION_AGREEMENT.txt",
-  "contracts/cuad/AMERICANPHYSICIANSCAPITALINC_03_31_2003-EX-10.26-AGENCY_AGREEMENT.txt",
-  "contracts/cuad/ASHWORTHINC_01_29_1999-EX-10._D_-PROMOTION_AGREEMENT_AND_NANTZ_COMMUNICATIONS_INC..txt",
-  "contracts/cuad/ASIANDRAGONGROUPINC_08_11_2005-EX-10.5-Reseller_Agreement.txt"
- ],
+ "missing_documents": [],
  "questions_total": 197,
- "questions_in_subset": 176
+ "questions_in_subset": 197
 }
