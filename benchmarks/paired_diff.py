@@ -4,7 +4,8 @@
 бутстреп разности A − B по вопросам, чем сравнение отдельных интервалов (их перекрытие —
 слишком консервативный критерий). Для каждого бюджета контекста считаются средняя разность,
 95% интервал и доля бутстреп-выборок, где разность > 0. Результат —
-`results/equal_budget/paired_diff.md` и `.csv`.
+`results/equal_budget/paired_diff.md` (против Dify) и `paired_diff_fastgpt.md` (против
+FastGPT), а также `.csv`.
 """
 
 import csv
@@ -14,18 +15,30 @@ from collections import defaultdict
 
 from benchmarks.budget_recall import BUDGETS, truncate
 from benchmarks.compare_subset import coverage
-from benchmarks.dataset import DOMAINS
+from benchmarks.dataset import DOMAINS, Sample
 from benchmarks.metrics import score_sample
 from benchmarks.run_eval import RAW_DIR, RESULTS_DIR, _read_jsonl, load_samples
 
 OUT_DIR = RESULTS_DIR / 'equal_budget'
 ITERATIONS = 5000
-# (прогон, конфигурация, подпись): наши конфигурации против лучшей конфигурации Dify.
-BASELINE = ('dify_top24', 'dify_hybrid_rerank', 'Dify top-24: гибрид + реранк')
-CANDIDATES = (
+# (прогон, конфигурация, подпись) базовой системы → системы, которые с ней сравниваются,
+# и имя файла отчёта. Базовые — лучшая конфигурация Dify и лучшая конфигурация FastGPT.
+PROTOTYPES = (
     ('domain', 'hybrid_rerank', 'Прототип: чанкеры + гибрид + реранк'),
     ('domain', 'full', 'Полный прототип (parent-expansion)'),
-    ('naive', 'vector', 'Простой RAG'),
+)
+COMPARISONS = (
+    (
+        ('dify_top24', 'dify_hybrid_rerank', 'Dify top-24: гибрид + реранк'),
+        (
+            *PROTOTYPES,
+            ('naive', 'vector', 'Простой RAG'),
+            ('fastgpt', 'fastgpt_vector', 'FastGPT: вектор'),
+            ('anythingllm', 'anythingllm_top8', 'AnythingLLM: top-8'),
+        ),
+        'paired_diff',
+    ),
+    (('fastgpt', 'fastgpt_vector', 'FastGPT: вектор'), PROTOTYPES, 'paired_diff_fastgpt'),
 )
 
 
@@ -56,23 +69,27 @@ def paired(diffs: list[float], seed: int = 0) -> tuple[float, float, float, floa
     return statistics.fmean(diffs), low, high, positive
 
 
-def main() -> None:
-    """Считает парные разности и пишет отчёт."""
-    done, _ = coverage()
-    samples = [s for s in load_samples() if all(d in done for d in s.source_docs)]
+def report(
+    baseline: tuple[str, str, str],
+    candidates: tuple[tuple[str, str, str], ...],
+    stem: str,
+    samples: list[Sample],
+) -> str:
+    """Парные разности `candidates` − `baseline`; пишет `<stem>.md` и `<stem>.csv`."""
     ids = {s.id for s in samples}
     domain_of = {s.id: s.domain for s in samples}
-    base = recalls(BASELINE[0], BASELINE[1], ids)
+    base = recalls(baseline[0], baseline[1], ids)
     rows = []
     lines = [
-        f'# Парные разности evidence recall против «{BASELINE[2]}»',
+        f'# Парные разности evidence recall против «{baseline[2]}»',
         '',
-        f'{len(ids)} вопросов общего с Dify подмножества; разность = система − Dify по каждому '
-        f'вопросу, парный бутстреп ({ITERATIONS} выборок). P(>0) — доля выборок с положительной '
-        'разностью: близко к 1 — система лучше, к 0 — хуже, около 0.5 — различия нет.',
+        f'{len(ids)} вопросов (все их документы есть в индексе Dify); разность = система − '
+        f'«{baseline[2]}» по каждому вопросу, парный бутстреп ({ITERATIONS} выборок). '
+        'P(>0) — доля выборок с положительной разностью: близко к 1 — система лучше, к 0 — хуже, '
+        'около 0.5 — различия нет.',
         '',
     ]
-    for run, config, label in CANDIDATES:
+    for run, config, label in candidates:
         cand = recalls(run, config, ids)
         diffs: dict[tuple[str, int], list[float]] = defaultdict(list)
         for (qid, budget), value in cand.items():
@@ -90,15 +107,24 @@ def main() -> None:
             lines.append(f'| {domain} | ' + ' | '.join(cells) + ' |')
         lines.append('')
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    with (OUT_DIR / 'paired_diff.csv').open('w', encoding='utf-8', newline='') as f:
+    with (OUT_DIR / f'{stem}.csv').open('w', encoding='utf-8', newline='') as f:
         writer = csv.writer(f)
         writer.writerow(
             ['system', 'domain', 'budget_tokens', 'mean_diff', 'ci_low', 'ci_high', 'p_positive']
         )
         writer.writerows(rows)
-    report = '\n'.join(lines)
-    (OUT_DIR / 'paired_diff.md').write_text(report, encoding='utf-8')
-    print(report)
+    text = '\n'.join(lines)
+    (OUT_DIR / f'{stem}.md').write_text(text, encoding='utf-8')
+    return text
+
+
+def main() -> None:
+    """Считает парные разности для всех базовых систем и пишет отчёты."""
+    done, _ = coverage()
+    samples = [s for s in load_samples() if all(d in done for d in s.source_docs)]
+    for baseline, candidates, stem in COMPARISONS:
+        if (RAW_DIR / f'{baseline[0]}.jsonl').exists():
+            print(report(baseline, candidates, stem, samples))
 
 
 if __name__ == '__main__':

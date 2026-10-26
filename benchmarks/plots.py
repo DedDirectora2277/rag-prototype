@@ -1,9 +1,11 @@
 """Графики для презентации: `python -m benchmarks.plots` → `benchmarks/results/figures/*.png`.
 
-Читает `results/<run>-summary.csv` (domain, naive, dify — какие есть). Цвет кодирует систему
-(наша / простой RAG / Dify), а не ранг; палитра — первые три слота эталонной палитры
-навыка dataviz (проверены на различимость при цветовой слепоте для всех пар).
-Усы — 95% bootstrap CI.
+Читает `results/<run>-summary.csv` (domain, naive, dify, fastgpt, anythingllm — какие есть).
+Цвет кодирует систему, а не ранг; палитра — первые пять слотов эталонной палитры навыка
+dataviz в фиксированном порядке. Первые три различимы при цветовой слепоте для всех пар;
+слоты 4–5 (жёлтый, малиновый) — нет, поэтому каждый столбец подписан по оси.
+Усы — 95% bootstrap CI. Если есть `equal_budget/budget_recall.csv`, строятся и графики
+полноты при равном бюджете контекста (`equal_budget/figures/`).
 """
 
 import csv
@@ -24,7 +26,13 @@ SURFACE = '#fcfcfb'
 TEXT = '#0b0b0b'
 TEXT_SECONDARY = '#52514e'
 GRID = '#e4e3df'
-COLORS = {'ours': '#2a78d6', 'naive': '#eb6834', 'dify': '#1baf7a'}
+COLORS = {
+    'ours': '#2a78d6',
+    'naive': '#eb6834',
+    'dify': '#1baf7a',
+    'fastgpt': '#eda100',
+    'anythingllm': '#e87ba4',
+}
 
 # (прогон, конфигурация) → (подпись, система). Порядок — порядок на графике.
 CONFIGS: list[tuple[str, str, str, str]] = [
@@ -32,6 +40,10 @@ CONFIGS: list[tuple[str, str, str, str]] = [
     ('naive', 'hybrid', 'Окно 512 + вектор + FTS', 'naive'),
     ('dify', 'dify_vector', 'Dify: вектор', 'dify'),
     ('dify', 'dify_hybrid_rerank', 'Dify: гибрид + реранк', 'dify'),
+    ('fastgpt', 'fastgpt_vector', 'FastGPT: вектор (по умолчанию)', 'fastgpt'),
+    ('fastgpt', 'fastgpt_hybrid', 'FastGPT: гибрид', 'fastgpt'),
+    ('anythingllm', 'anythingllm_default', 'AnythingLLM: top-4 (по умолчанию)', 'anythingllm'),
+    ('anythingllm', 'anythingllm_top8', 'AnythingLLM: top-8', 'anythingllm'),
     ('domain', 'vector', 'Прототип: чанкеры + вектор', 'ours'),
     ('domain', 'hybrid', '+ FTS (RRF)', 'ours'),
     ('domain', 'hybrid_rerank', '+ cross-encoder реранк', 'ours'),
@@ -44,7 +56,7 @@ DOMAIN_TITLES = {
     'tables': 'Таблицы и отчёты',
 }
 METRIC_TITLES = {
-    'evidence_recall': 'Доля найденных эталонных фрагментов в top-8 (evidence recall)',
+    'evidence_recall': 'Доля найденных эталонных фрагментов в выдаче (evidence recall)',
     'mrr': 'MRR: 1 / ранг первого релевантного контекста',
     'ap': 'Average precision (аналог Context Precision)',
     'faithfulness': 'Faithfulness: доля утверждений ответа, подтверждённых контекстами',
@@ -56,12 +68,16 @@ KEY_CONFIGS = {
     ('naive', 'vector'),
     ('dify', 'dify_vector'),
     ('dify', 'dify_hybrid_rerank'),
+    ('fastgpt', 'fastgpt_vector'),
+    ('anythingllm', 'anythingllm_default'),
     ('domain', 'full'),
 }
 LEGEND = {
     'ours': 'Прототип (поэтапное добавление компонентов)',
     'naive': 'Простой RAG (базовая линия)',
     'dify': 'Dify 1.17',
+    'fastgpt': 'FastGPT 4.17',
+    'anythingllm': 'AnythingLLM 1.18',
 }
 
 Row = tuple[float, float, float, int]
@@ -122,13 +138,20 @@ def bars(
     _style(ax)
 
 
+LEGEND_COLUMNS = 3
+
+
+def _legend_rows(systems: Sequence[str]) -> int:
+    return -(-len(systems) // LEGEND_COLUMNS)
+
+
 def _legend(fig: Figure, systems: Sequence[str]) -> None:
     handles = [Rectangle((0, 0), 1, 1, color=COLORS[s]) for s in systems]
     fig.legend(
         handles,
         [LEGEND[s] for s in systems],
         loc='lower center',
-        ncol=len(systems),
+        ncol=min(len(systems), LEGEND_COLUMNS),
         frameon=False,
         fontsize=9,
         labelcolor=TEXT_SECONDARY,
@@ -137,9 +160,7 @@ def _legend(fig: Figure, systems: Sequence[str]) -> None:
 
 def _systems(data: dict[tuple[str, str, str, str], Row]) -> list[str]:
     runs = {k[0] for k in data}
-    return [
-        s for s, run in (('ours', 'domain'), ('naive', 'naive'), ('dify', 'dify')) if run in runs
-    ]
+    return [s for s in COLORS if (s if s != 'ours' else 'domain') in runs]
 
 
 def figure_ablation(
@@ -170,8 +191,9 @@ def figure_ablation(
         fontsize=9,
         color=TEXT_SECONDARY,
     )
-    _legend(fig, _systems(data))
-    fig.tight_layout(rect=(0, 0.45 / height, 1, 1 - 0.8 / height))
+    systems = _systems(data)
+    _legend(fig, systems)
+    fig.tight_layout(rect=(0, 0.3 * (_legend_rows(systems) + 0.5) / height, 1, 1 - 0.8 / height))
     fig.savefig(path, dpi=200, facecolor=SURFACE)
     plt.close(fig)
 
@@ -181,7 +203,14 @@ def figure_domains(data: dict[tuple[str, str, str, str], Row], metric: str, path
     key = [
         c
         for c in CONFIGS
-        if (c[0], c[1]) in {('naive', 'vector'), ('dify', 'dify_hybrid_rerank'), ('domain', 'full')}
+        if (c[0], c[1])
+        in {
+            ('naive', 'vector'),
+            ('dify', 'dify_hybrid_rerank'),
+            ('fastgpt', 'fastgpt_vector'),
+            ('anythingllm', 'anythingllm_default'),
+            ('domain', 'full'),
+        }
     ]
     domains = ['contracts', 'code', 'tables']
     fig, axes = plt.subplots(1, 3, figsize=(12, 3.6), facecolor=SURFACE, sharex=True)
@@ -189,35 +218,11 @@ def figure_domains(data: dict[tuple[str, str, str, str], Row], metric: str, path
         bars(ax, data, domain, metric, key, labels=i == 0)
         ax.set_title(DOMAIN_TITLES[domain], loc='left', fontsize=11, color=TEXT)
     fig.text(0.01, 0.97, METRIC_TITLES[metric], ha='left', va='top', fontsize=13, color=TEXT)
-    _legend(fig, _systems(data))
-    fig.tight_layout(rect=(0, 0.08, 1, 0.9))
+    systems = _systems(data)
+    _legend(fig, systems)
+    fig.tight_layout(rect=(0, 0.07 * _legend_rows(systems) + 0.02, 1, 0.9))
     fig.savefig(path, dpi=200, facecolor=SURFACE)
     plt.close(fig)
-
-
-def main(results_dir: Path = RESULTS_DIR) -> None:
-    """Строит все графики по сводкам из `results_dir` в `results_dir/figures`.
-
-    На полном наборе (`results/`) Dify не показывается: его индекс неполон (179 из 206
-    документов) и бюджет контекста меньше, сравнение с ним — в `dify_subset/` и `equal_budget/`.
-    """
-    figures = results_dir / 'figures'
-    figures.mkdir(parents=True, exist_ok=True)
-    data = load_summary(results_dir)
-    if results_dir == RESULTS_DIR:
-        data = {k: v for k, v in data.items() if k[0] != 'dify'}
-    for metric in ('evidence_recall', 'mrr', 'ap'):
-        figure_ablation(data, metric, figures / f'ablation_{metric}.png')
-        figure_domains(data, metric, figures / f'domains_{metric}.png')
-    key = [c for c in CONFIGS if (c[0], c[1]) in KEY_CONFIGS]
-    for metric in ANSWER_METRICS:
-        figure_ablation(data, metric, figures / f'answers_{metric}.png', key)
-        figure_domains(data, metric, figures / f'domains_{metric}.png')
-    print(f'графики → {figures}')
-
-
-if __name__ == '__main__':
-    main()
 
 
 def figure_budget(csv_path: Path, path: Path, domain: str = 'all') -> None:
@@ -225,13 +230,17 @@ def figure_budget(csv_path: Path, path: Path, domain: str = 'all') -> None:
     series = [
         ('Простой RAG', COLORS['naive'], '-'),
         ('Dify top-24: гибрид + реранк', COLORS['dify'], '-'),
+        ('FastGPT: вектор', COLORS['fastgpt'], '-'),
+        ('AnythingLLM: top-8', COLORS['anythingllm'], '-'),
         ('Прототип: чанкеры + гибрид + реранк', COLORS['ours'], '--'),
         ('Полный прототип (parent-expansion)', COLORS['ours'], '-'),
     ]
     rows: dict[str, list[tuple[int, float, float, float]]] = {}
+    n_questions = 0
     with csv_path.open(encoding='utf-8') as f:
         for r in csv.DictReader(f):
             if r['domain'] == domain:
+                n_questions = max(n_questions, int(r['n']))
                 rows.setdefault(r['system'], []).append(
                     (
                         int(r['budget_tokens']),
@@ -288,7 +297,7 @@ def figure_budget(csv_path: Path, path: Path, domain: str = 'all') -> None:
     fig.text(
         0.02,
         0.915,
-        'Общее с Dify подмножество (142 вопроса); заливка — 95% bootstrap CI',
+        f'n = {n_questions} вопросов; заливка — 95% bootstrap CI',
         ha='left',
         va='top',
         fontsize=9,
@@ -298,3 +307,33 @@ def figure_budget(csv_path: Path, path: Path, domain: str = 'all') -> None:
     fig.tight_layout(rect=(0, 0, 1, 0.88))
     fig.savefig(path, dpi=200, facecolor=SURFACE)
     plt.close(fig)
+
+
+def main(results_dir: Path = RESULTS_DIR) -> None:
+    """Строит все графики по сводкам из `results_dir` в `results_dir/figures`.
+
+    Системы сравниваются с настройками по умолчанию, поэтому объём выдачи у них разный
+    (Dify — 8 сегментов, FastGPT — до 5000 токенов, прототип — разделы целиком); сравнение
+    при равном бюджете — на графиках `equal_budget/figures/budget_recall_*.png`.
+    """
+    figures = results_dir / 'figures'
+    figures.mkdir(parents=True, exist_ok=True)
+    data = load_summary(results_dir)
+    for metric in ('evidence_recall', 'mrr', 'ap'):
+        figure_ablation(data, metric, figures / f'ablation_{metric}.png')
+        figure_domains(data, metric, figures / f'domains_{metric}.png')
+    key = [c for c in CONFIGS if (c[0], c[1]) in KEY_CONFIGS]
+    for metric in ANSWER_METRICS:
+        figure_ablation(data, metric, figures / f'answers_{metric}.png', key)
+        figure_domains(data, metric, figures / f'domains_{metric}.png')
+    budget_csv = RESULTS_DIR / 'equal_budget' / 'budget_recall.csv'
+    if results_dir == RESULTS_DIR and budget_csv.exists():
+        budget_figures = budget_csv.parent / 'figures'
+        budget_figures.mkdir(exist_ok=True)
+        for domain in ('all', 'contracts', 'code', 'tables'):
+            figure_budget(budget_csv, budget_figures / f'budget_recall_{domain}.png', domain)
+    print(f'графики → {figures}')
+
+
+if __name__ == '__main__':
+    main()

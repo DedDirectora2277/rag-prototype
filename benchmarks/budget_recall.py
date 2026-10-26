@@ -28,6 +28,10 @@ SYSTEMS = (
     ('dify', 'dify_hybrid_rerank', 'Dify: гибрид + реранк'),
     ('dify_top24', 'dify_vector', 'Dify top-24: вектор'),
     ('dify_top24', 'dify_hybrid_rerank', 'Dify top-24: гибрид + реранк'),
+    ('fastgpt', 'fastgpt_vector', 'FastGPT: вектор'),
+    ('fastgpt', 'fastgpt_hybrid', 'FastGPT: гибрид'),
+    ('anythingllm', 'anythingllm_default', 'AnythingLLM: top-4'),
+    ('anythingllm', 'anythingllm_top8', 'AnythingLLM: top-8'),
     ('domain', 'hybrid_rerank', 'Прототип: чанкеры + гибрид + реранк'),
     ('domain', 'full', 'Полный прототип (parent-expansion)'),
 )
@@ -72,7 +76,8 @@ def main() -> None:
     lines = [
         '# Evidence recall при равном бюджете контекста',
         '',
-        f'Общее с Dify подмножество: {len(samples)} вопросов. Контексты обрезаны до N токенов '
+        f'Вопросы, все документы которых есть в индексе Dify: {len(samples)}. '
+        'Контексты обрезаны до N токенов '
         '(cl100k) в порядке ранжирования. Среднее [95% bootstrap CI].',
         '',
     ]

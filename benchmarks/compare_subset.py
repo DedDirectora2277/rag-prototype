@@ -17,8 +17,17 @@ from benchmarks.run_dify import INSTANCE, corpus_path
 from benchmarks.run_eval import RAW_DIR, RESULTS_DIR, load_samples, score
 
 OUT_DIR = RESULTS_DIR / 'dify_subset'
-RUNS = ('domain', 'naive', 'dify')
-JUDGED = ('domain:full', 'naive:vector', 'dify:dify_vector', 'dify:dify_hybrid_rerank')
+RUNS = ('domain', 'naive', 'dify', 'fastgpt', 'anythingllm')
+JUDGED = (
+    'domain:full',
+    'naive:vector',
+    'dify:dify_vector',
+    'dify:dify_hybrid_rerank',
+    'fastgpt:fastgpt_vector',
+    'fastgpt:fastgpt_hybrid',
+    'anythingllm:anythingllm_default',
+    'anythingllm:anythingllm_top8',
+)
 
 
 async def indexed_documents() -> tuple[set[str], set[str]]:

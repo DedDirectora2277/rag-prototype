@@ -36,13 +36,17 @@ EXCLUDED = {
 RETRIEVAL_METRICS = ('evidence_recall', 'mrr', 'ap')
 ANSWER_METRICS = ('correctness', 'faithfulness')
 PROTOTYPE = ('domain', 'full', 'Полный прототип')
-# Набор → системы (прогон, конфигурация, подпись). На полном наборе Dify не участвует:
-# его индекс неполон (см. compare_subset).
+# Набор → системы (прогон, конфигурация, подпись). Dify сравнивается на своём подмножестве
+# (вопросы, все документы которых есть в его индексе; см. compare_subset).
 SCOPES = {
     'Полный набор': (
         PROTOTYPE,
         ('domain', 'hybrid_rerank', 'Прототип без parent-expansion'),
         ('naive', 'vector', 'Простой RAG'),
+        ('fastgpt', 'fastgpt_vector', 'FastGPT: вектор'),
+        ('fastgpt', 'fastgpt_hybrid', 'FastGPT: гибрид'),
+        ('anythingllm', 'anythingllm_default', 'AnythingLLM: top-4'),
+        ('anythingllm', 'anythingllm_top8', 'AnythingLLM: top-8'),
     ),
     'Подмножество Dify': (
         PROTOTYPE,
