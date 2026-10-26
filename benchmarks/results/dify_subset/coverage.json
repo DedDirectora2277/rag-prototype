@@ -1,5 +1,5 @@
 {
- "indexed_documents": 179,
+ "indexed_documents": 191,
  "uploaded_documents": 206,
  "missing_documents": [
   "code/click/src/click/decorators.py",
@@ -16,20 +16,8 @@
   "contracts/cuad/ALLISONTRANSMISSIONHOLDINGSINC_12_15_2014-EX-99.1-COOPERATION_AGREEMENT.txt",
   "contracts/cuad/AMERICANPHYSICIANSCAPITALINC_03_31_2003-EX-10.26-AGENCY_AGREEMENT.txt",
   "contracts/cuad/ASHWORTHINC_01_29_1999-EX-10._D_-PROMOTION_AGREEMENT_AND_NANTZ_COMMUNICATIONS_INC..txt",
-  "contracts/cuad/ASIANDRAGONGROUPINC_08_11_2005-EX-10.5-Reseller_Agreement.txt",
-  "contracts/cuad/AURASYSTEMSINC_06_16_2010-EX-10.25-STRATEGIC_ALLIANCE_AGREEMENT.txt",
-  "contracts/cuad/AgapeAtpCorp_20191202_10-KA_EX-10.1_11911128_EX-10.1_Supply_Agreement.txt",
-  "contracts/cuad/AlliedEsportsEntertainmentInc_20190815_8-K_EX-10.34_11788308_EX-10.34_Sponsorship_Agreement.txt",
-  "contracts/cuad/Apollo_Endosurgery_-_Manufacturing_and_Supply_Agreement.txt",
-  "contracts/cuad/ArcGroupInc_20171211_8-K_EX-10.1_10976103_EX-10.1_Sponsorship_Agreement.txt",
-  "contracts/cuad/ArcaUsTreasuryFund_20200207_N-2_EX-99.K5_11971930_EX-99.K5_Development_Agreement.txt",
-  "contracts/cuad/ArtaraTherapeuticsInc_20200110_8-K_EX-10.5_11943350_EX-10.5_License_Agreement.txt",
-  "contracts/cuad/AzulSa_20170303_F-1A_EX-10.3_9943903_EX-10.3_Maintenance_Agreement2.txt",
-  "contracts/cuad/BELLRINGBRANDS_INC_02_07_2020-EX-10.18-MASTER_SUPPLY_AGREEMENT.txt",
-  "contracts/cuad/BEYONDCOMCORP_08_03_2000-EX-10.2-CO-HOSTING_AGREEMENT.txt",
-  "contracts/cuad/BIOAMBERINC_04_10_2013-EX-10.34-DEVELOPMENT_AGREEMENT_1.txt",
-  "contracts/ru/44_fz_kontrakt.txt"
+  "contracts/cuad/ASIANDRAGONGROUPINC_08_11_2005-EX-10.5-Reseller_Agreement.txt"
  ],
  "questions_total": 197,
- "questions_in_subset": 142
+ "questions_in_subset": 176
 }
