@@ -7,7 +7,12 @@ id датасета и моделей пишутся в `results/raw/fastgpt-ins
 берёт контексты через `searchTest` в двух конфигурациях и пишет их в формате `benchmarks.run_eval`
 (`results/raw/fastgpt.jsonl`), генерирует ответы общим генератором и считает метрики без LLM:
 - `fastgpt_vector` — векторный поиск (режим узла поиска по умолчанию);
-- `fastgpt_hybrid_rerank` — `mixedRecall` (вектор + полнотекстовый, RRF) + тот же cross-encoder.
+- `fastgpt_hybrid` — `mixedRecall` (вектор + полнотекстовый, RRF), без реранка.
+
+Реранк FastGPT отправляет всю гибридную выдачу (~120 фрагментов) одним запросом с жёстким
+таймаутом 30 с (`packages/service/core/ai/rerank`); общий cross-encoder стенда на GTX 1650 Ti
+за это время не успевает, и FastGPT молча отдаёт выдачу без реранка. Поэтому конфигурации
+с реранком нет: на этом железе она не отличалась бы от `fastgpt_hybrid`.
 
 Выдача FastGPT ограничивается не числом фрагментов, а бюджетом токенов (`limit`, по умолчанию
 5000). Порог `similarity` отключён (0), как и `score_threshold` у Dify.
@@ -34,17 +39,17 @@ INSTANCE = RAW_DIR / 'fastgpt-instance.json'
 MANIFEST = RAW_DIR / 'fastgpt-uploads.jsonl'
 
 
-def configs(rerank_model_id: str, limit: int = LIMIT) -> dict[str, dict[str, Any]]:
+def configs(limit: int = LIMIT) -> dict[str, dict[str, Any]]:
     """Параметры `searchTest` для обеих конфигураций."""
-    base = {'limit': limit, 'similarity': 0, 'datasetSearchUsingExtensionQuery': False}
+    base = {
+        'limit': limit,
+        'similarity': 0,
+        'usingReRank': False,
+        'datasetSearchUsingExtensionQuery': False,
+    }
     return {
-        'fastgpt_vector': {**base, 'searchMode': 'embedding', 'usingReRank': False},
-        'fastgpt_hybrid_rerank': {
-            **base,
-            'searchMode': 'mixedRecall',
-            'usingReRank': True,
-            'rerankModelId': rerank_model_id,
-        },
+        'fastgpt_vector': {**base, 'searchMode': 'embedding'},
+        'fastgpt_hybrid': {**base, 'searchMode': 'mixedRecall'},
     }
 
 
@@ -187,7 +192,7 @@ async def run(args: argparse.Namespace) -> int:
         return 0
     instance = json.loads(INSTANCE.read_text(encoding='utf-8'))
     dataset_id = instance['dataset_id']
-    params = configs(instance['models']['rerank'], args.limit)
+    params = configs(args.limit)
     client = FastGPTClient(cfg)
     raw_path = RAW_DIR / f'{args.tag}.jsonl'
     RAW_DIR.mkdir(parents=True, exist_ok=True)
