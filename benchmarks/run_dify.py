@@ -14,6 +14,7 @@
 
 import argparse
 import asyncio
+import functools
 import json
 import logging
 import sys
@@ -21,7 +22,13 @@ from pathlib import Path
 from typing import Any
 
 from app.config import get_settings
-from benchmarks.adapters.dify import PROVIDER, DifyConfig, DifyConsole, DifyKnowledge
+from benchmarks.adapters.dify import (
+    PROVIDER,
+    SUPPORTED,
+    DifyConfig,
+    DifyConsole,
+    DifyKnowledge,
+)
 from benchmarks.dataset import CORPUS_DIR
 from benchmarks.run_eval import RAW_DIR, RESULTS_DIR, _done_ids, load_samples, run_generation, score
 
@@ -143,14 +150,12 @@ async def setup(cfg: DifyConfig) -> None:
 async def ingest(client: DifyKnowledge, dataset_id: str) -> None:
     """Загружает корпус (имя документа — путь относительно corpus/), ждёт индексации."""
     done = _done_ids(MANIFEST)
-    files = sorted(p for p in CORPUS_DIR.rglob('*') if p.is_file() and not p.name.startswith('.'))
     batches = []
-    for path in files:
+    for path in corpus_files():
         rel = str(path.relative_to(CORPUS_DIR))
         if rel in done:
             continue
-        name = rel.replace('/', '__')
-        batch = await client.upload(dataset_id, path.read_bytes(), name, PROCESS)
+        batch = await client.upload(dataset_id, path.read_bytes(), rel.replace('/', '__'), PROCESS)
         batches.append(batch)
         with MANIFEST.open('a', encoding='utf-8') as f:
             f.write(json.dumps({'id': rel, 'batch': batch}) + '\n')
@@ -207,11 +212,35 @@ async def retry_failed(cfg: DifyConfig, client: DifyKnowledge, dataset_id: str) 
     raise RuntimeError('после повторов остались документы с ошибкой индексации')
 
 
-def corpus_path(name: str) -> str:
-    """Путь документа в корпусе по имени документа Dify (обратное к имени при загрузке).
+def corpus_files() -> list[Path]:
+    """Файлы корпуса для загрузки (без скрытых и lock-файлов Office `~$…`)."""
+    return sorted(
+        p for p in CORPUS_DIR.rglob('*') if p.is_file() and not p.name.startswith(('.', '~$'))
+    )
 
-    При загрузке `/` заменяется на `__`, а к `.py`/`.rst` добавляется `.txt`.
+
+def dify_name(rel: str) -> str:
+    """Имя документа в Dify для пути корпуса: `/` → `__`, неподдерживаемым — суффикс `.txt`."""
+    name = rel.replace('/', '__')
+    return name if Path(name).suffix.lower() in SUPPORTED else f'{name}.txt'
+
+
+@functools.cache
+def _names() -> dict[str, str]:
+    return {
+        dify_name(str(p.relative_to(CORPUS_DIR))): str(p.relative_to(CORPUS_DIR))
+        for p in corpus_files()
+    }
+
+
+def corpus_path(name: str) -> str:
+    """Путь документа в корпусе по имени документа Dify (обратное к `dify_name`).
+
+    Обратная замена `__` → `/` неоднозначна для имён вроде `__init__.py`, поэтому путь
+    ищется среди файлов корпуса; эвристика — только для документов вне корпуса.
     """
+    if name in _names():
+        return _names()[name]
     base = name.removesuffix('.txt')
     if name.endswith('.txt') and Path(base).suffix.lower() in {'.py', '.rst'}:
         name = base

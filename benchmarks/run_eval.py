@@ -34,7 +34,7 @@ from openai import AsyncOpenAI, RateLimitError
 from app.config import Settings, get_settings
 from app.db.client import create_pool
 from app.db.queries import SearchHit, hybrid_search
-from app.generation import generate_answer
+from app.generation import generate
 from app.retrieval.embedder import Embedder
 from app.retrieval.hybrid import RetrievedChunk, Retriever
 from app.retrieval.reranker import Reranker
@@ -214,16 +214,19 @@ async def run_generation(
         async with semaphore:
             for attempt in range(1, RATE_LIMIT_RETRIES + 1):
                 try:
-                    answer = await generate_answer(
-                        llm, settings.chat_model, sample.question, contexts
-                    )
+                    result = await generate(llm, settings.chat_model, sample.question, contexts)
                     break
                 except RateLimitError:
                     if attempt == RATE_LIMIT_RETRIES:
                         raise
                     await asyncio.sleep(RATE_LIMIT_BACKOFF_S)
         with answers_path.open('a', encoding='utf-8') as f:
-            f.write(json.dumps({'id': sample.id, 'answer': answer}, ensure_ascii=False) + '\n')
+            record = {
+                'id': sample.id,
+                'answer': result.text,
+                'finish_reason': result.finish_reason,
+            }
+            f.write(json.dumps(record, ensure_ascii=False) + '\n')
 
     try:
         await asyncio.gather(*(one(s) for s in todo))
