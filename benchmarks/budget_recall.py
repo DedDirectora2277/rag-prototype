@@ -4,8 +4,7 @@
 разделы и таблицы целиком), поэтому evidence recall на top-8 частично отражает размер
 контекста. Здесь контексты каждой системы обрезаются до бюджета в N токенов в порядке
 ранжирования (последний контекст обрезается), и evidence recall пересчитывается.
-Считается на общем с Dify подмножестве вопросов (`dify_subset/dify-documents.json`).
-Результат — `<out-dir>/budget_recall.csv` и `.md` (по умолчанию `results/dify_subset/`).
+Результат — `<out-dir>/budget_recall.csv` и `.md` (по умолчанию `results/equal_budget/`).
 Прогоны, сырых результатов которых нет (например, `dify_top24`), пропускаются.
 """
 
@@ -16,11 +15,11 @@ from collections import defaultdict
 from pathlib import Path
 
 from app.chunkers.base import get_encoding
-from benchmarks.compare_subset import OUT_DIR, coverage
 from benchmarks.dataset import DOMAINS
 from benchmarks.metrics import bootstrap_ci, score_sample
-from benchmarks.run_eval import RAW_DIR, _read_jsonl, load_samples
+from benchmarks.run_eval import RAW_DIR, RESULTS_DIR, _read_jsonl, load_samples
 
+OUT_DIR = RESULTS_DIR / 'equal_budget'
 BUDGETS = (500, 1000, 2000, 4000, 8000)
 SYSTEMS = (
     ('naive', 'vector', 'Простой RAG'),
@@ -57,8 +56,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(prog='python -m benchmarks.budget_recall')
     parser.add_argument('--out-dir', type=Path, default=OUT_DIR)
     out_dir: Path = parser.parse_args().out_dir
-    done, _ = coverage()
-    samples = {s.id: s for s in load_samples() if all(d in done for d in s.source_docs)}
+    samples = {s.id: s for s in load_samples()}
     values: dict[tuple[str, int, str], list[float]] = defaultdict(list)
     systems = [x for x in SYSTEMS if (RAW_DIR / f'{x[0]}.jsonl').exists()]
     for run, config, label in systems:
@@ -76,9 +74,8 @@ def main() -> None:
     lines = [
         '# Evidence recall при равном бюджете контекста',
         '',
-        f'Вопросы, все документы которых есть в индексе Dify: {len(samples)}. '
-        'Контексты обрезаны до N токенов '
-        '(cl100k) в порядке ранжирования. Среднее [95% bootstrap CI].',
+        f'Вопросов: {len(samples)}. Контексты обрезаны до N токенов (cl100k) в порядке '
+        'ранжирования. Среднее [95% bootstrap CI].',
         '',
     ]
     for domain in ('all', *DOMAINS):

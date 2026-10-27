@@ -19,6 +19,7 @@ ignore = [
 [lint.per-file-ignores]
 'tests/**' = ['D']
 'benchmarks/**' = ['D', 'T20']  # скрипты бенчмарков печатают результаты
+'docs/**' = ['D', 'T20']        # скрипты сборки отчёта
 
 [lint.pydocstyle]
 convention = 'google'

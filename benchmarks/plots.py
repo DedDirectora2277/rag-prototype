@@ -309,16 +309,16 @@ def figure_budget(csv_path: Path, path: Path, domain: str = 'all') -> None:
     plt.close(fig)
 
 
-def main(results_dir: Path = RESULTS_DIR) -> None:
-    """Строит все графики по сводкам из `results_dir` в `results_dir/figures`.
+def main() -> None:
+    """Строит все графики по сводкам из `results/` в `results/figures`.
 
     Системы сравниваются с настройками по умолчанию, поэтому объём выдачи у них разный
     (Dify — 8 сегментов, FastGPT — до 5000 токенов, прототип — разделы целиком); сравнение
     при равном бюджете — на графиках `equal_budget/figures/budget_recall_*.png`.
     """
-    figures = results_dir / 'figures'
+    figures = RESULTS_DIR / 'figures'
     figures.mkdir(parents=True, exist_ok=True)
-    data = load_summary(results_dir)
+    data = load_summary(RESULTS_DIR)
     for metric in ('evidence_recall', 'mrr', 'ap'):
         figure_ablation(data, metric, figures / f'ablation_{metric}.png')
         figure_domains(data, metric, figures / f'domains_{metric}.png')
@@ -327,7 +327,7 @@ def main(results_dir: Path = RESULTS_DIR) -> None:
         figure_ablation(data, metric, figures / f'answers_{metric}.png', key)
         figure_domains(data, metric, figures / f'domains_{metric}.png')
     budget_csv = RESULTS_DIR / 'equal_budget' / 'budget_recall.csv'
-    if results_dir == RESULTS_DIR and budget_csv.exists():
+    if budget_csv.exists():
         budget_figures = budget_csv.parent / 'figures'
         budget_figures.mkdir(exist_ok=True)
         for domain in ('all', 'contracts', 'code', 'tables'):

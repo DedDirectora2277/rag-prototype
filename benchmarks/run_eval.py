@@ -303,7 +303,7 @@ def score(samples: list[Sample], raw_path: Path, out_dir: Path = RESULTS_DIR) ->
     lines = [
         f'# Retrieval без LLM: `{raw_path.stem}`',
         '',
-        'Среднее [95% bootstrap CI]. evidence_recall — доля эталонных фрагментов в top-k, '
+        'Среднее [95% bootstrap CI]. evidence_recall — доля эталонных фрагментов в выдаче, '
         'hit — найден хотя бы один, mrr — 1/ранг первого релевантного контекста, '
         'ap — average precision (аналог Context Precision), precision — доля релевантных '
         'контекстов, doc_recall — доля эталонных документов среди источников.',

@@ -13,13 +13,11 @@ import random
 import statistics
 from collections import defaultdict
 
-from benchmarks.budget_recall import BUDGETS, truncate
-from benchmarks.compare_subset import coverage
+from benchmarks.budget_recall import BUDGETS, OUT_DIR, truncate
 from benchmarks.dataset import DOMAINS, Sample
 from benchmarks.metrics import score_sample
-from benchmarks.run_eval import RAW_DIR, RESULTS_DIR, _read_jsonl, load_samples
+from benchmarks.run_eval import RAW_DIR, _read_jsonl, load_samples
 
-OUT_DIR = RESULTS_DIR / 'equal_budget'
 ITERATIONS = 5000
 # (прогон, конфигурация, подпись) базовой системы → системы, которые с ней сравниваются,
 # и имя файла отчёта. Базовые — лучшая конфигурация Dify и лучшая конфигурация FastGPT.
@@ -83,7 +81,7 @@ def report(
     lines = [
         f'# Парные разности evidence recall против «{baseline[2]}»',
         '',
-        f'{len(ids)} вопросов (все их документы есть в индексе Dify); разность = система − '
+        f'{len(ids)} вопросов; разность = система − '
         f'«{baseline[2]}» по каждому вопросу, парный бутстреп ({ITERATIONS} выборок). '
         'P(>0) — доля выборок с положительной разностью: близко к 1 — система лучше, к 0 — хуже, '
         'около 0.5 — различия нет.',
@@ -120,8 +118,7 @@ def report(
 
 def main() -> None:
     """Считает парные разности для всех базовых систем и пишет отчёты."""
-    done, _ = coverage()
-    samples = [s for s in load_samples() if all(d in done for d in s.source_docs)]
+    samples = load_samples()
     for baseline, candidates, stem in COMPARISONS:
         if (RAW_DIR / f'{baseline[0]}.jsonl').exists():
             print(report(baseline, candidates, stem, samples))

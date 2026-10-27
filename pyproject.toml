@@ -7,7 +7,6 @@ requires-python = ">=3.12,<3.13"
 dependencies = [
     "fastapi (>=0.157.0,<0.158.0)",
     "uvicorn (>=0.54.0,<0.55.0)",
-    # ragas -> instructor 1.17 тянет jiter<0.16, а openai>=3.4 требует jiter>=0.16
     "openai (>=3.3.0,<3.4.0)",
     "httpx (>=0.28.1,<0.29.0)",
     "asyncpg (>=0.32.0,<0.33.0)",
@@ -38,13 +37,9 @@ dev = [
     "pytest (>=9.1.1,<10.0.0)",
     "pytest-asyncio (>=1.4.0,<2.0.0)",
     "asyncpg-stubs (>=0.32.0,<0.33.0)",
-    "pandas-stubs (>=3.0.5.260914,<4.0.0.0)",
     "types-openpyxl (>=3.1.5.20261017,<4.0.0.0)",
 ]
 bench = [
-    "ragas (>=0.4.3,<0.5.0)",
-    "datasets (>=5.1.0,<6.0.0)",
-    "pandas (>=3.0.6,<4.0.0)",
     "matplotlib (>=3.10,<4)",
 ]
 

@@ -1,6 +1,6 @@
 # Retrieval без LLM: `dify_top24`
 
-Среднее [95% bootstrap CI]. evidence_recall — доля эталонных фрагментов в top-k, hit — найден хотя бы один, mrr — 1/ранг первого релевантного контекста, ap — average precision (аналог Context Precision), precision — доля релевантных контекстов, doc_recall — доля эталонных документов среди источников.
+Среднее [95% bootstrap CI]. evidence_recall — доля эталонных фрагментов в выдаче, hit — найден хотя бы один, mrr — 1/ранг первого релевантного контекста, ap — average precision (аналог Context Precision), precision — доля релевантных контекстов, doc_recall — доля эталонных документов среди источников.
 
 ## contracts (n=92)
 

@@ -11,7 +11,6 @@ import csv
 from collections import defaultdict
 
 from benchmarks.budget_recall import BUDGETS
-from benchmarks.compare_subset import coverage
 from benchmarks.judge_answers import CORRECTNESS
 from benchmarks.metrics import bootstrap_ci
 from benchmarks.paired_diff import paired, recalls
@@ -36,27 +35,23 @@ EXCLUDED = {
 RETRIEVAL_METRICS = ('evidence_recall', 'mrr', 'ap')
 ANSWER_METRICS = ('correctness', 'faithfulness')
 PROTOTYPE = ('domain', 'full', 'Полный прототип')
-# Набор → системы (прогон, конфигурация, подпись). Dify сравнивается на своём подмножестве
-# (вопросы, все документы которых есть в его индексе; см. compare_subset).
-SCOPES = {
-    'Полный набор': (
-        PROTOTYPE,
-        ('domain', 'hybrid_rerank', 'Прототип без parent-expansion'),
-        ('naive', 'vector', 'Простой RAG'),
-        ('fastgpt', 'fastgpt_vector', 'FastGPT: вектор'),
-        ('fastgpt', 'fastgpt_hybrid', 'FastGPT: гибрид'),
-        ('anythingllm', 'anythingllm_default', 'AnythingLLM: top-4'),
-        ('anythingllm', 'anythingllm_top8', 'AnythingLLM: top-8'),
-    ),
-    'Подмножество Dify': (
-        PROTOTYPE,
-        ('naive', 'vector', 'Простой RAG'),
-        ('dify', 'dify_vector', 'Dify top-8: вектор'),
-        ('dify', 'dify_hybrid_rerank', 'Dify top-8: гибрид + реранк'),
-        ('dify_top24', 'dify_hybrid_rerank', 'Dify top-24: гибрид + реранк'),
-    ),
-}
-BUDGET_BASELINE = ('dify_top24', 'dify_hybrid_rerank')
+# Системы (прогон, конфигурация, подпись); прототип — первым, с ним сравниваются остальные.
+SYSTEMS = (
+    PROTOTYPE,
+    ('domain', 'hybrid_rerank', 'Прототип без parent-expansion'),
+    ('naive', 'vector', 'Простой RAG'),
+    ('dify', 'dify_vector', 'Dify top-8: вектор'),
+    ('dify', 'dify_hybrid_rerank', 'Dify top-8: гибрид + реранк'),
+    ('dify_top24', 'dify_hybrid_rerank', 'Dify top-24: гибрид + реранк'),
+    ('fastgpt', 'fastgpt_vector', 'FastGPT: вектор'),
+    ('fastgpt', 'fastgpt_hybrid', 'FastGPT: гибрид'),
+    ('anythingllm', 'anythingllm_default', 'AnythingLLM: top-4'),
+    ('anythingllm', 'anythingllm_top8', 'AnythingLLM: top-8'),
+)
+BUDGET_BASELINES = (
+    (('dify_top24', 'dify_hybrid_rerank'), 'Dify top-24 (гибрид + реранк)'),
+    (('fastgpt', 'fastgpt_vector'), 'FastGPT (вектор)'),
+)
 
 
 def retrieval_values(run: str, config: str) -> dict[str, dict[str, float]]:
@@ -107,12 +102,8 @@ def _fmt_pair(result: tuple[float, float, float, float]) -> str:
 
 def main() -> None:
     """Пересчитывает сравнения без вопросов с ошибочными эталонами и пишет отчёт."""
-    samples = load_samples()
-    done, _ = coverage()
-    scope_ids = {
-        'Полный набор': {s.id for s in samples},
-        'Подмножество Dify': {s.id for s in samples if all(d in done for d in s.source_docs)},
-    }
+    full = {s.id for s in load_samples()}
+    clean = full - EXCLUDED.keys()
     lines = [
         '# Анализ чувствительности к ошибкам эталонов',
         '',
@@ -123,77 +114,73 @@ def main() -> None:
         '',
         '## Исключённые вопросы',
         '',
-        '| Вопрос | Причина | Полный набор | Подмножество Dify |',
+        '| Вопрос | Причина |',
+        '|---|---|',
+    ]
+    lines += [f'| `{qid}` | {reason} |' for qid, reason in EXCLUDED.items()]
+    lines.append('')
+
+    data = {
+        (run, config): {**retrieval_values(run, config), **answer_values(run, config)}
+        for run, config, _ in SYSTEMS
+    }
+    lines += [
+        f'## Метрики: {len(full)} → {len(clean)} вопросов',
+        '',
+        '| Метрика | Система | Все | Без ошибочных | Δ |',
+        '|---|---|---|---|---|',
+    ]
+    for metric in (*RETRIEVAL_METRICS, *ANSWER_METRICS):
+        for run, config, label in SYSTEMS:
+            values = data[(run, config)].get(metric)
+            if not values:
+                continue
+            before = _mean(values, full)
+            after = _mean(values, clean)
+            lines.append(
+                f'| {metric} | {label} | {before[0]:.3f} [{before[1]:.2f}–{before[2]:.2f}] '
+                f'| {after[0]:.3f} [{after[1]:.2f}–{after[2]:.2f}] '
+                f'| {after[0] - before[0]:+.3f} |'
+            )
+    lines += [
+        '',
+        f'## Разность «{PROTOTYPE[2]} − система»',
+        '',
+        '| Метрика | Система | Все | Без ошибочных |',
         '|---|---|---|---|',
     ]
-    for qid, reason in EXCLUDED.items():
-        marks = ['да' if qid in scope_ids[s] else 'нет' for s in SCOPES]
-        lines.append(f'| `{qid}` | {reason} | ' + ' | '.join(marks) + ' |')
+    proto = data[PROTOTYPE[:2]]
+    for metric in (*RETRIEVAL_METRICS, *ANSWER_METRICS):
+        for run, config, label in SYSTEMS[1:]:
+            other = data[(run, config)].get(metric)
+            if not other or metric not in proto:
+                continue
+            lines.append(
+                f'| {metric} | {label} | {_fmt_pair(_pair(proto[metric], other, full))} '
+                f'| {_fmt_pair(_pair(proto[metric], other, clean))} |'
+            )
     lines.append('')
 
-    for scope, systems in SCOPES.items():
-        full = scope_ids[scope]
-        clean = full - EXCLUDED.keys()
-        data = {
-            (run, config): {**retrieval_values(run, config), **answer_values(run, config)}
-            for run, config, _ in systems
-        }
+    # Равный бюджет контекста: разность evidence recall прототипа и базовых систем по бюджетам.
+    cand = recalls(*PROTOTYPE[:2], full)
+    for baseline, label in BUDGET_BASELINES:
+        base = recalls(*baseline, full)
         lines += [
-            f'## {scope}: {len(full)} → {len(clean)} вопросов',
+            f'## Равный бюджет контекста: прототип − {label}',
             '',
-            '| Метрика | Система | Все | Без ошибочных | Δ |',
-            '|---|---|---|---|---|',
+            'Evidence recall при обрезке контекста до N токенов '
+            '(как в `equal_budget/paired_diff*.md`).',
+            '',
+            '| Бюджет | Все | Без ошибочных |',
+            '|---|---|---|',
         ]
-        for metric in (*RETRIEVAL_METRICS, *ANSWER_METRICS):
-            for run, config, label in systems:
-                values = data[(run, config)].get(metric)
-                if not values:
-                    continue
-                before = _mean(values, full)
-                after = _mean(values, clean)
-                lines.append(
-                    f'| {metric} | {label} | {before[0]:.3f} [{before[1]:.2f}–{before[2]:.2f}] '
-                    f'| {after[0]:.3f} [{after[1]:.2f}–{after[2]:.2f}] '
-                    f'| {after[0] - before[0]:+.3f} |'
-                )
-        lines += [
-            '',
-            f'### Разность «{PROTOTYPE[2]} − система»',
-            '',
-            '| Метрика | Система | Все | Без ошибочных |',
-            '|---|---|---|---|',
-        ]
-        proto = data[PROTOTYPE[:2]]
-        for metric in (*RETRIEVAL_METRICS, *ANSWER_METRICS):
-            for run, config, label in systems[1:]:
-                other = data[(run, config)].get(metric)
-                if not other or metric not in proto:
-                    continue
-                lines.append(
-                    f'| {metric} | {label} | {_fmt_pair(_pair(proto[metric], other, full))} '
-                    f'| {_fmt_pair(_pair(proto[metric], other, clean))} |'
-                )
+        for budget in BUDGETS:
+            cells = []
+            for ids in (full, clean):
+                diffs = [cand[(i, budget)] - base[(i, budget)] for i in sorted(ids)]
+                cells.append(_fmt_pair(paired(diffs)))
+            lines.append(f'| {budget} ток. | ' + ' | '.join(cells) + ' |')
         lines.append('')
-
-    # Главный вывод про Dify — равный бюджет контекста: разность evidence recall по бюджетам.
-    subset = scope_ids['Подмножество Dify']
-    base = recalls(*BUDGET_BASELINE, subset)
-    cand = recalls(*PROTOTYPE[:2], subset)
-    lines += [
-        '## Равный бюджет контекста: прототип − Dify top-24 (гибрид + реранк)',
-        '',
-        'Evidence recall при обрезке контекста до N токенов (как в `equal_budget/paired_diff.md`).',
-        '',
-        '| Бюджет | Все | Без ошибочных |',
-        '|---|---|---|',
-    ]
-    for budget in BUDGETS:
-        cells = []
-        for ids in (subset, subset - EXCLUDED.keys()):
-            diffs = [cand[(i, budget)] - base[(i, budget)] for i in sorted(ids)]
-            cells.append(_fmt_pair(paired(diffs)))
-        lines.append(f'| {budget} ток. | ' + ' | '.join(cells) + ' |')
-    lines.append('')
 
     REPORT_PATH.write_text('\n'.join(lines), encoding='utf-8')
     print('\n'.join(lines))
