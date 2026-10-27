@@ -1,0 +1,36 @@
+# AnythingLLM 1.18 для бенчмарка rag-proto: один контейнер, встроенная LanceDB.
+# Чат и эмбеддинги — через LiteLLM стенда (Generic OpenAI), остальные настройки RAG по умолчанию
+# (TextSplitter 1000 символов / overlap 20; EMBEDDING_MODEL_MAX_CHUNK_LENGTH не задаём —
+# иначе он становится размером чанка). Порт 3001.
+
+services:
+  anythingllm:
+    image: mintplexlabs/anythingllm:1.18.0
+    container_name: anythingllm
+    restart: unless-stopped
+    mem_limit: 2g
+    cap_add:
+      - SYS_ADMIN
+    ports:
+      - 3001:3001
+    environment:
+      STORAGE_DIR: /app/server/storage
+      SERVER_PORT: 3001
+      DISABLE_TELEMETRY: 'true'
+      LLM_PROVIDER: generic-openai
+      GENERIC_OPEN_AI_BASE_PATH: http://host.docker.internal:4000/v1
+      GENERIC_OPEN_AI_MODEL_PREF: chat
+      GENERIC_OPEN_AI_MODEL_TOKEN_LIMIT: 64000
+      GENERIC_OPEN_AI_MAX_TOKENS: 4096
+      GENERIC_OPEN_AI_API_KEY: sk-rag-proto
+      EMBEDDING_ENGINE: generic-openai
+      EMBEDDING_BASE_PATH: http://host.docker.internal:4000/v1
+      EMBEDDING_MODEL_PREF: embed
+      GENERIC_OPEN_AI_EMBEDDING_API_KEY: sk-rag-proto
+      GENERIC_OPEN_AI_EMBEDDING_MAX_CONCURRENT_CHUNKS: 64
+      VECTOR_DB: lancedb
+    volumes:
+      - anythingllm-storage:/app/server/storage
+
+volumes:
+  anythingllm-storage:
