@@ -15,6 +15,8 @@ Dify слишком большой, чтобы копировать его compo
 (`git clone --depth 1 --branch 1.17.1 https://github.com/langgenius/dify`), в `docker/.env`
 копируется `.env.example`, поверх — значения из `dify/env.override` и свой `SECRET_KEY`,
 затем `docker compose up -d` в `docker/`.
+Индексация Dify нестабильна (исчерпание пула соединений к БД), поэтому после `ingest`
+нужен шаг `retry`; в итоговом прогоне проиндексированы все 206 документов.
 
 Отступления от настроек по умолчанию:
 
