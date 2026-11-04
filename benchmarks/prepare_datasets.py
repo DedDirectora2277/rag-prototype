@@ -151,7 +151,7 @@ CUAD_QUESTIONS = {
     ),
 }
 
-# --- FinQA: страницы 10-K компаний S&P 500, CC BY 4.0 ------------------------------------
+# --- FinQA: страницы 10-K компаний S&P 500, MIT (Copyright (c) 2021 Zhiyu Chen) ---------
 
 FINQA_URL = (
     'https://raw.githubusercontent.com/czyssrs/FinQA/'
@@ -470,7 +470,7 @@ def build_finqa(manifest: Manifest) -> list[Sample]:
         ticker, year, _ = item['filename'].split('/')
         rel_path = f'tables/finqa/{_file_stem(item["filename"].removesuffix(".pdf"))}.docx'
         company = FINQA_COMPANIES[ticker]
-        write_doc(manifest, rel_path, _finqa_docx(item, company), FINQA_URL, 'CC-BY-4.0')
+        write_doc(manifest, rel_path, _finqa_docx(item, company), FINQA_URL, 'MIT')
         sample_id = f'finqa-{_file_stem(item["id"]).lower()}'
         if item is not chosen[ticker] or sample_id in FINQA_EXCLUDED:
             continue

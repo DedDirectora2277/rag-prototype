@@ -79,11 +79,12 @@ poetry install --all-groups               # venv в .venv
 из первоисточников в `benchmarks/corpus/` (каталог в `.gitignore`). В git лежат только
 вопросы, эталонные ответы и короткие эталонные цитаты (`benchmarks/datasets/`) и манифест
 корпуса с источником и лицензией каждого файла (`benchmarks/corpus_manifest.json`).
+Атрибуция и тексты лицензий сторонних данных — `benchmarks/datasets/THIRD_PARTY_NOTICES.md`.
 
 | Источник | Документов | Лицензия / статус |
 |---|---|---|
 | [CUAD](https://www.atticusprojectai.org/cuad) (The Atticus Project) | 30 | CC BY 4.0 |
-| [FinQA](https://github.com/czyssrs/FinQA) (Chen et al., EMNLP 2021) | 80 | CC BY 4.0 |
+| [FinQA](https://github.com/czyssrs/FinQA) (Chen et al., EMNLP 2021) | 80 | MIT, Copyright (c) 2021 Zhiyu Chen |
 | [httpx](https://github.com/encode/httpx) 0.28.1, [click](https://github.com/pallets/click) 8.1.8 | 88 | BSD-3-Clause |
 | ГК РФ (часть вторая), 44-ФЗ | 3 | официальные документы, не охраняются авторским правом (ст. 1259 ГК РФ) |
 | Отчётность ПАО «Московская Биржа» и ПАО «МТС» | 4 | раскрытие информации эмитентом |

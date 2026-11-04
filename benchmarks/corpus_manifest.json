@@ -611,402 +611,402 @@
  },
  "tables/finqa/AAL_2010_page_72.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "b37fbf8f815ce119de0ea694c10a8daf2d242cf8110782a487f7a8d4faabb2bc"
  },
  "tables/finqa/AAL_2013_page_172.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "c25a7b37aa5f4fddd0b6e2b30c21d6f8432e7674583d5dbb5e2ad815e726e2d4"
  },
  "tables/finqa/AAPL_2003_page_48.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "2763e80e5ae5892d8d0d85fc7c0949f5caa5e6f8fbc500076cf2af1040d231f0"
  },
  "tables/finqa/AAPL_2004_page_68.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "5c0195b9901eeace4bf3766b61c1ea36a300ecd4b66751996f8c4bde746f5a94"
  },
  "tables/finqa/ABC_2005_page_49.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "bb6bcc6df6ccf58f071581c06da69a0ed20634d12c75edc28b44827bae49bdb5"
  },
  "tables/finqa/ABMD_2005_page_29.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "d5f69f2c020d6acc6ae1124ba54490f37a8df7e6d094d757d1d8b0f0d588ea74"
  },
  "tables/finqa/ABMD_2006_page_43.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "28ad2f965528ee6e3073ff1864289b62f0d52c9c60a567e091708dbe8f4c58cc"
  },
  "tables/finqa/ADBE_1999_page_64.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "a0d7500c04cf1bb36ea80d5bb3c88cb8a5230b707cb8490bd1dc554c9c309caf"
  },
  "tables/finqa/ADBE_2008_page_74.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "96015ba8d6301a8720fa2d4ace0bb324affa7455d1676183f67bcc3d7a176371"
  },
  "tables/finqa/ADI_2010_page_60.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "8a339a8ca8059071edce87cea5e9db7c95466d05f69b4322a9c9a2dc150203bd"
  },
  "tables/finqa/ADI_2010_page_80.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "4c360f2c05d8b215a3a87a14b37e3487f1dba2303907055fe2b59a0508c99bde"
  },
  "tables/finqa/AES_2001_page_33.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "c00f773b26c4fead39281b45c3bb23227f484d069abbe91fb1da28e4004269bb"
  },
  "tables/finqa/AES_2001_page_85.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "66ec49b19c039e3cb92bad4395429d3b5779773f57dafdd6864caf38203913f0"
  },
  "tables/finqa/ALLE_2015_page_24.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "aadcad6716532b0373d47c751085bfa19a5206f8374c00fe3beaeb5c892db116"
  },
  "tables/finqa/ALXN_2016_page_153.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "83982e36e9daff516223516dc1cda92f134e9cc95dc562f8475bd936cf1ba0a6"
  },
  "tables/finqa/AMAT_2013_page_37.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "c13759e31e5f30b3fa613580d8f781a1c6e7a9691e1c588c7478a43fa54fc101"
  },
  "tables/finqa/AMAT_2018_page_33.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "e17a0dc49830a01c5786a1face4a06a78864a760bf24b6245d980036b0323a2f"
  },
  "tables/finqa/AMT_2003_page_102.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "3ed54440a8d6775e349cba23a538b60dda00bd4cbd428ae4dd5af57ffab1a6fb"
  },
  "tables/finqa/AMT_2003_page_27.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "2c549ef25e664b9469a0f939ccf7f5909134f08cdd3100fe592eb0438c8e41b1"
  },
  "tables/finqa/ANET_2015_page_156.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "0f2ebe5ffbbef5e5f1049663e484240b8a61c3dd84fba4ebe10f17cb265c3e89"
  },
  "tables/finqa/ANSS_2012_page_93.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "8714a252bc44bd981ba3e1529a8373d3591fde0c03cc38a71ced7fe32ee25666"
  },
  "tables/finqa/ANSS_2016_page_47.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "1252a3f0416ba4a00c068f85fbd4353d7db48eccb4588ab578a2c5fd1060a80a"
  },
  "tables/finqa/AON_2007_page_171.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "4b8baeb89b4d10181b84f0ec9d4dc0a93654833977c51ec43e1d4bd61b143f52"
  },
  "tables/finqa/AON_2007_page_175.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "f445e549daa2fb033ad7e284c16c50c5cf0214b2eb14d6ece511f04456fbdc64"
  },
  "tables/finqa/AOS_2010_page_18.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "94798d0bf8abb04720dad2ca705abfc73c59031e53add5aaaadd1477dacd1afe"
  },
  "tables/finqa/APD_2016_page_40.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "fafb56c6eaa4ea56f0c1a29518798a6377b7132830008c9cef54ad4631b5f587"
  },
  "tables/finqa/APD_2018_page_121.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "33da540da307f49b50d35ed2d0b039976c24c5df6fc7f5d2405e72d88ade6ced"
  },
  "tables/finqa/AWK_2012_page_117.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "2389d77020e15e7e8af54a0d7b491517e67222f4bebc0630651c56256fa5118e"
  },
  "tables/finqa/AWK_2013_page_122.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "71667eb162a05a9f3599c892dfbaa1c94c5b353b4abce7cd01ad42f956469144"
  },
  "tables/finqa/BDX_2018_page_106.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "fa221490fb1f1a86e61841d21a4429f66cc30e677c1ead5ced99bb3e939700f0"
  },
  "tables/finqa/BKNG_2016_page_33.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "22c4c27671ce91ad3b46c83915bae662b4c733c3113e6a3d8c7ef159be516a4d"
  },
  "tables/finqa/BKR_2017_page_56.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "695b8e76c2ce1d6d081d506ccabcfbc73d629c2e039af536698e442b69e1fc93"
  },
  "tables/finqa/BLK_2012_page_145.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "e97a63f78a6cf0be9abbdb98096b243d0deb6458c2d9eb7f930ba04661a51e10"
  },
  "tables/finqa/BLK_2012_page_33.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "dbb854b1db4c00a2c72f47d06ce555b66d8ab831af13bbf2ba43e4c17991519d"
  },
  "tables/finqa/BLL_2006_page_67.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "190b6147beddb5d62526dc48393a084c72fe3c9ff072abc17ba144d6384fc84a"
  },
  "tables/finqa/BLL_2010_page_35.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "d3bef97ed33b5e41eba759ecde0538b8c9ab3820b5858d3ece0de1103da67bf8"
  },
  "tables/finqa/CB_2008_page_229.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "7c916018fe381d267d5c730b277a498c6a0ed8642676974fb761a97b3a0452c3"
  },
  "tables/finqa/CB_2010_page_103.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "da6308c0ffae7ef4bfb40433f1b9deb938809e9106fdb098aea2f18d144d625e"
  },
  "tables/finqa/CDNS_2015_page_30.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "0ecd9e8c44562b70e73787c9348d4d12554ed60df8215facf830635d2cec2e7f"
  },
  "tables/finqa/CDNS_2018_page_66.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "6e241370a32bccc96ca4aa96663a4b81a484881d73827b069a51abd77a72034d"
  },
  "tables/finqa/CDW_2015_page_70.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "1885a716faa6d4356f9aa60b9f9ee7d18d2e9168f7533d26387f78f4d12b0bae"
  },
  "tables/finqa/CDW_2015_page_93.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "254b06ec81402c221dee6f78df09210b2e400c41156ca82fcff45a3fae416937"
  },
  "tables/finqa/CE_2009_page_65.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "34f2085f7f8e48788b59489658d0f26ff852554fbca591fbfc8d66dbb8059e1e"
  },
  "tables/finqa/CE_2013_page_16.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "3dc44c1c4ad6c6b0928a7b6b74024c039fa5df34cd8f74a94da82e37eb9b4b2f"
  },
  "tables/finqa/CMCSA_2008_page_36.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "8051c7fca8e83ecc2eefc239dc4279681e29a2418fc007f27d32c27c2a246a75"
  },
  "tables/finqa/CMCSA_2015_page_112.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "def0dd943866a3a78ebcb130816b0276af0aad0a0911176c1cdb118d6a095b3a"
  },
  "tables/finqa/CME_2010_page_123.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "1a3df0716440cdd8a91a7f1284d59306909579a1873a06a8bad62f7e3bf39751"
  },
  "tables/finqa/CME_2010_page_69.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "54a444b406fa57f4fcc5ce75c05069b93404c53b052a461c52ab309334c15b21"
  },
  "tables/finqa/C_2008_page_22.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "bf088b5f9297bc61e84ea9f6cfa170cef9acf7be9e0a9023ac0ca553340d7dbd"
  },
  "tables/finqa/C_2008_page_44.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "468cab0ca41aec8d699872abcb4f68d80a114aa06cacff7aa682869f59ed201e"
  },
  "tables/finqa/DG_2005_page_44.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "30760521db2b52c1096109580b73c3c44334848728c1ba5fa26be46c9bb61a60"
  },
  "tables/finqa/DG_2007_page_67.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "3b69f6cb86a6577e8dc111fb9ef1b9c55575acffadad6e8ca3b2d4ea50b78d6c"
  },
  "tables/finqa/DISCA_2011_page_49.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "42d4d44d09ce9a07f69f69968ea6d96556147d12aa1d38f26f06ff014ee42963"
  },
  "tables/finqa/DISCA_2014_page_64.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "5111c1c98b7674db0f8f597eb50066ba9b25bb11263a4796cd60cc4ef29dcafa"
  },
  "tables/finqa/DISH_2010_page_117.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "f53948a932383c058b0663e9437e1f90e5a2115568dcfd4079905107443216c5"
  },
  "tables/finqa/DISH_2011_page_122.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "ba4028998fa8c99916615f11f4b22d7ff63d267a3c72336fe245ee72289ff201"
  },
  "tables/finqa/DRE_2002_page_15.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "05549f01645520ee69f8e50fb3a8add57f181b8e16d4171bdd4b9a49b6c750c4"
  },
  "tables/finqa/DRE_2005_page_30.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "92fc823387e5231a8d0017b06851fe295fb9df17cc967a3c4cb6fb162f958a21"
  },
  "tables/finqa/DVN_2012_page_77.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "491c236a543443423f66ccc9b7dc805533bb660b45dfbb2b943f0cb3747e5fc6"
  },
  "tables/finqa/DVN_2014_page_87.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "71ed804283149e2b8f9c179c8167bf964a4da430a6703c03ccb161d63575cb39"
  },
  "tables/finqa/DXC_2018_page_56.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "206ad80736d2d4373a84515eea9fe9c970ee8ec85e1165e10b8d23d8f35cd3e3"
  },
  "tables/finqa/D_2002_page_87.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "8fbe01f406cf0081a4724c4ad5ac4af7ec54036ad3afb459e1f3a336bf1f5f86"
  },
  "tables/finqa/ECL_2016_page_52.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "39666dba0d62b961f3b0c0812755f0dc0b7d23e8c131403c0822291d84a8a920"
  },
  "tables/finqa/ECL_2017_page_69.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "b81126a6dcca117bede267440d4ef93b5edca5380e22f2c0774fa4d53b97bd5e"
  },
  "tables/finqa/EL_2008_page_59.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "508059c0997d580639944937ebde83cd63e6fc044794e272c1d80b952f8c85b1"
  },
  "tables/finqa/EMR_2017_page_78.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "8e1134f15e273853a1bb9a569e28893be0d1b769d38a351b9992e22071790f94"
  },
  "tables/finqa/EOG_2018_page_75.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "fdaa4971bf07ea97999834cabaee9002be6514e7e088ce01edb1675ff033bea9"
  },
  "tables/finqa/ETFC_2007_page_18.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "e75b2e754885f845d28e618f1c5c3e96390e08455de36aead9ac18ac1539169e"
  },
  "tables/finqa/ETFC_2011_page_144.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "d11f662743b8431ebbaab80e1a9895cd9ce5a3f930a67890ed443b351421b5d7"
  },
  "tables/finqa/ETR_2003_page_157.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "d741fa5b7c721905ba63ccd09c15cdb4409d6961a53710e1ef690a4a9474b27e"
  },
  "tables/finqa/ETR_2004_page_212.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "90bb6bd0151da8fc0f8e0dbe373a40c6148f9873e6071c54c7fc1725c4205510"
  },
  "tables/finqa/FBHS_2017_page_22.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "7688bad747d9d00261b52a6bd8faea160ed7db4811b162cd40c5c98fd9e12c16"
  },
  "tables/finqa/FBHS_2017_page_83.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "6d65139f6dc344acfcc38d970e2d0336e277a6b752e9fa87fa1c777cf5393a04"
  },
  "tables/finqa/FIS_2006_page_31.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "da06cf799179eb6419db28a0f1947dd3415b768c29ad194195b45b4639609782"
  },
  "tables/finqa/GIS_2015_page_62.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "6091739447b3387078f0e068b15789109cfd2dd73fd9be6633415f0078db453d"
  },
  "tables/finqa/GPN_2008_page_78.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "796d2808a3b2e88f780717bb96c0de976f0a84aa238e9ada5f226a458528943a"
  },
  "tables/finqa/GRMN_2006_page_68.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "f06690f51f6424ee0d9a00a507105609dfa316efdfec404b5c96b9f1fb106233"
  },
  "tables/finqa/GS_2012_page_121.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "e01f93da61238cbab5df6e3a8c27b27469bdf23b2be745b732fcf4d8430e6587"
  },
  "tables/finqa/HIG_2004_page_140.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "c103d82cc1e54b1c1bc0dbe5535d519c348a8021fe5361e61ff26387c589cc9e"
  },
  "tables/finqa/HII_2015_page_121.docx": {
   "url": "https://raw.githubusercontent.com/czyssrs/FinQA/0f16e2867befa6840783e58be38c9efb9229d742/dataset/test.json",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "sha256": "06f0f4f6c172fe3fd0d989d63284d312ea460911b30eff3bd5686a46362afc13"
  },
  "tables/ru/moex_msfo_2q2026.pdf": {
