@@ -12,5 +12,5 @@ benchmarks/.cache/
 benchmarks/results/logs/
 benchmarks/results/checks/run.log
 
-# отчёт и материалы практики — только локально
 docs/
+CLAUDE.md
